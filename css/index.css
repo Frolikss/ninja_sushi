@@ -4,7 +4,7 @@
   line-height: 1.5rem;
 }
 
-.header, .header__buttons > * {
+.slider__add, .header, .header__buttons > * {
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -28,6 +28,18 @@
   line-height: 1.625rem;
 }
 
+.slider__text {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.slider__cta {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+
 .cards__item--price {
   font-weight: 700;
   font-size: 2.375rem;
@@ -38,6 +50,12 @@
   font-weight: 700;
   font-size: 3rem;
   line-height: 4rem;
+}
+
+.slider__header {
+  font-weight: 700;
+  font-size: 3.375rem;
+  line-height: 4.0625rem;
 }
 
 .cards__item--header {
@@ -605,4 +623,55 @@ a:link, a:visited {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+}
+
+.slider {
+  position: relative;
+  margin: 150px 0 0 0;
+}
+.slider__image {
+  position: absolute;
+  right: 10%;
+  bottom: 35%;
+}
+.slider__row {
+  background: #fff;
+  border-radius: 24px;
+}
+.slider__item {
+  display: flex;
+  flex-direction: column;
+}
+.slider__info {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 30%;
+  padding: 70px 70px 0;
+}
+.slider__add {
+  padding: 12px 24px;
+  color: #00CC2D;
+  background: #F5F5F7;
+  border-radius: 12px;
+}
+.slider__price {
+  font-weight: 700;
+  font-size: 40px;
+}
+.slider__price > *:last-child {
+  font-size: 26px;
+  color: #686870;
+}
+.slider__cart {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.slider__cta {
+  align-self: flex-end;
+  background: #FF6633;
+  border-radius: 100px 0 24px 0;
+  color: #fff;
+  padding: 24px 48px;
 }
