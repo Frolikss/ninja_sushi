@@ -96,6 +96,7 @@ a:link, a:visited {
 .header__buttons {
   display: flex;
   align-items: center;
+  gap: 3px;
 }
 .header__buttons > * {
   display: flex;
@@ -147,7 +148,7 @@ a:link, a:visited {
   border-radius: 12px;
   padding: 16px;
 }
-.header__menu--item:last-child {
+.header__menu--item:last-of-type {
   color: #686870;
   gap: 8px;
   padding: 16px 24px;
@@ -215,7 +216,6 @@ a:link, a:visited {
     position: relative;
     flex-direction: column;
     gap: 0;
-    align-self: flex-start;
   }
   .header__logo--button {
     display: none;
@@ -258,15 +258,21 @@ a:link, a:visited {
 }
 @media (max-width: 550px) {
   .header__row {
-    padding: 12px 0;
+    padding: 12px;
   }
   .header__buttons > * {
+    padding: 0;
     font-weight: 500;
     font-size: 12px;
   }
-  .header__logo--item:last-child {
-    position: absolute;
-    top: 30px;
+  .header__buttons--city {
+    display: none;
+  }
+  .header__buttons--lang {
+    display: none;
+  }
+  .header__logo--item {
+    width: 31px;
   }
   .header__logo--image {
     gap: 0;
@@ -277,6 +283,11 @@ a:link, a:visited {
   .header__menu img {
     width: 20px;
     height: 20px;
+  }
+}
+@media (max-width: 450px) {
+  .header__logo--text {
+    display: none;
   }
 }
 
@@ -499,7 +510,7 @@ a:link, a:visited {
 }
 @media (max-width: 900px) {
   .cards__item {
-    flex: 1 1 27%;
+    flex: 1 1 30%;
   }
   .cards__item--buttons {
     gap: 8px;
@@ -509,8 +520,14 @@ a:link, a:visited {
   .cards__row::after {
     content: none;
   }
+  .cards__item {
+    padding: 12px;
+  }
+  .cards__item--marktext {
+    padding: 12px;
+  }
 }
-@media (max-width: 500px) {
+@media (max-width: 530px) {
   .cards .container {
     grid-template-areas: "header header" "cards cards" "button button";
   }
@@ -521,9 +538,11 @@ a:link, a:visited {
     grid-area: header;
   }
   .cards__button {
+    padding: 16px;
+    text-align: center;
     grid-area: button;
     align-self: start;
-    justify-self: center;
+    justify-self: stretch;
   }
   .cards__item {
     flex-direction: row;
@@ -532,16 +551,18 @@ a:link, a:visited {
   .cards__item--header {
     font-size: 1rem;
   }
+  .cards__item--data {
+    gap: 8px;
+  }
   .cards__item--marks {
-    gap: 6px;
+    justify-content: flex-end;
     height: auto;
     flex: 0 1 60%;
     background-position: top;
   }
   .cards__item--marktext {
-    position: relative;
-    right: 32px;
-    bottom: 32px;
+    display: flex;
+    gap: 8px;
   }
   .cards__item--icons {
     display: none;
@@ -550,11 +571,37 @@ a:link, a:visited {
     margin: 0;
   }
   .cards__item--favorite {
-    padding: 8px;
+    align-self: center;
+    padding: 8px 12px;
+  }
+  .cards__item--favorite svg {
+    width: 24px;
+    height: 24px;
+  }
+  .cards__item--add {
+    padding: 6px 14px;
   }
 }
 @media (max-width: 440px) {
   .cards__item--marks {
     flex: 0 1 30%;
+  }
+  .cards__item--marktext {
+    flex-direction: column;
+  }
+}
+@media (max-width: 350px) {
+  .cards__item--text {
+    font-size: 0.75rem;
+  }
+  .cards__item--price {
+    font-size: 1rem;
+  }
+  .cards__item--currency {
+    font-size: 0.75rem;
+  }
+  .cards__item--marks {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }

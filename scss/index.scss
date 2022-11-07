@@ -137,7 +137,7 @@
         background: $white;
         border-radius: 12px;
         padding: 12px 24px;
-    } 
+    }
 
     &__row {
         display: flex;
@@ -290,7 +290,7 @@
 
     @media (max-width: 900px) {
         &__item {
-            flex: 1 1 27%;
+            flex: 1 1 30%;
             &--buttons {
                 gap: 8px;
             }
@@ -301,9 +301,17 @@
         &__row::after {
             content: none;
         }
+
+        &__item {
+            padding: 12px;
+
+            &--marktext {
+                padding: 12px;
+            }
+        }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 530px) {
         .container {
             grid-template-areas:
                 "header header"
@@ -320,9 +328,11 @@
         }
 
         &__button {
+            padding: 16px;
+            text-align: center;
             grid-area: button;
             align-self: start;
-            justify-self: center;
+            justify-self: stretch;
         }
 
         &__item {
@@ -333,17 +343,20 @@
                 font-size: 1rem;
             }
 
+            &--data {
+                gap: 8px;
+            }
+
             &--marks {
-                gap: 6px;
+                justify-content: flex-end;
                 height: auto;
                 flex: 0 1 60%;
                 background-position: top;
             }
 
             &--marktext {
-                position: relative;
-                right: 32px;
-                bottom: 32px;
+                display: flex;
+                gap: 8px;
             }
 
             &--icons {
@@ -355,7 +368,17 @@
             }
 
             &--favorite {
-                padding: 8px;
+                align-self: center;
+                padding: 8px 12px;
+
+                & svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            &--add {
+                padding: 6px 14px;
             }
         }
     }
@@ -365,6 +388,31 @@
             &--marks {
                 flex: 0 1 30%;
             }
+
+            &--marktext {
+                flex-direction: column;
+            }
+        }
     }
-}
+
+    @media (max-width: 350px) {
+        &__item {
+            &--text {
+                font-size: 0.75rem;
+            }
+
+            &--price {
+                font-size: 1rem;
+            }
+
+            &--currency {
+                font-size: 0.75rem;
+            }
+
+            &--marks {
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+            }
+        }
+    }
 }
