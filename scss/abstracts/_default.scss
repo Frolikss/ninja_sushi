@@ -1,0 +1,35 @@
+@use '_const-color' as *;
+
+body {
+    color: $black;
+    background: #F5F5F7;
+}
+
+button {
+    color: $black;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+html {
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    &:link, &:visited  {
+        color: $black;
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 125px;
+}
+
+.container {
+    max-width: 98.5em;
+    margin: 0 auto;
+}
