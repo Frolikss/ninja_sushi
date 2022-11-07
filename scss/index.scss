@@ -112,7 +112,7 @@
 .cards {
     .container {
         display: grid;
-        grid-template-rows: 64px 1fr 1fr;
+        grid-template-rows: 64px 1fr;
         grid-template-columns: 1fr 1fr;
         gap: 32px;
         padding: 0 16px;
@@ -325,6 +325,7 @@
 
         &__header {
             grid-area: header;
+            text-align: center;
         }
 
         &__button {

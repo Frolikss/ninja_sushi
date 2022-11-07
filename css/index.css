@@ -384,7 +384,7 @@ a:link, a:visited {
 
 .cards .container {
   display: grid;
-  grid-template-rows: 64px 1fr 1fr;
+  grid-template-rows: 64px 1fr;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   padding: 0 16px;
@@ -536,6 +536,7 @@ a:link, a:visited {
   }
   .cards__header {
     grid-area: header;
+    text-align: center;
   }
   .cards__button {
     padding: 16px;
