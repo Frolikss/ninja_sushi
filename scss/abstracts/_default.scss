@@ -3,6 +3,7 @@
 body {
     color: $black;
     background: #F5F5F7;
+    cursor: default;
 }
 
 button {
@@ -18,6 +19,8 @@ html {
 
 a {
     text-decoration: none;
+    cursor: pointer;
+
     &:link, &:visited  {
         color: $black;
     }
