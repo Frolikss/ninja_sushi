@@ -13,7 +13,7 @@ $(document).ready(function(){
 
   $(document).ready(function(){
     $('.slider__row').slick({
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 3000,
       infinite: true,
       dots: true,

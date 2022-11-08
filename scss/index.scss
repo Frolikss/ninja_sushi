@@ -401,7 +401,7 @@
                 padding: 6px 14px;
             }
 
-            &:nth-last-child(-n+4) {
+            &:nth-last-child(-n + 4) {
                 display: none;
             }
         }
@@ -824,7 +824,6 @@
         }
     }
 }
-
 
 @media (max-width: 530px) {
     .main {
