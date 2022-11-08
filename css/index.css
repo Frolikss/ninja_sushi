@@ -780,6 +780,9 @@ a:link, a:visited {
   }
 }
 @media (max-width: 530px) {
+  .cards .main {
+    gap: 48px;
+  }
   .cards .container {
     grid-template-areas: "header header" "cards cards" "button button";
   }
@@ -834,6 +837,9 @@ a:link, a:visited {
   }
   .cards__item--add {
     padding: 6px 14px;
+  }
+  .cards__item:nth-last-child(-n+4) {
+    display: none;
   }
 }
 @media (max-width: 440px) {
@@ -1156,5 +1162,11 @@ a:link, a:visited {
     bottom: 55%;
     width: 70%;
     right: 25%;
+  }
+}
+
+@media (max-width: 530px) {
+  .main {
+    gap: 48px;
   }
 }

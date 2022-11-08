@@ -326,6 +326,10 @@
     }
 
     @media (max-width: 530px) {
+        .main {
+            gap: 48px;
+        }
+
         .container {
             grid-template-areas:
                 "header header"
@@ -395,6 +399,10 @@
 
             &--add {
                 padding: 6px 14px;
+            }
+
+            &:nth-last-child(-n+4) {
+                display: none;
             }
         }
     }
@@ -814,5 +822,12 @@
             width: 70%;
             right: 25%;
         }
+    }
+}
+
+
+@media (max-width: 530px) {
+    .main {
+        gap: 48px;
     }
 }
