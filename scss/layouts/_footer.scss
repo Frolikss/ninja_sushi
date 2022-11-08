@@ -265,14 +265,24 @@
             }
         }
 
+        &__row {
+            padding: 16px;
+        }
+
         &__info {
             flex-direction: column;
-            gap: 8px;
+            gap: 32px;
         }
 
         &__menu,
         &__timesocial {
             justify-content: space-between;
+        }
+
+        &__social {
+            &--techname {
+                font-size: 0.75rem;
+            }
         }
 
         &__logo {

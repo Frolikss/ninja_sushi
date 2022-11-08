@@ -499,12 +499,18 @@ a:link, a:visited {
     font-size: 0.75rem;
     line-height: 1rem;
   }
+  .footer__row {
+    padding: 16px;
+  }
   .footer__info {
     flex-direction: column;
-    gap: 8px;
+    gap: 32px;
   }
   .footer__menu, .footer__timesocial {
     justify-content: space-between;
+  }
+  .footer__social--techname {
+    font-size: 0.75rem;
   }
   .footer__logo > *:not(:nth-last-child(2)):not(.footer__logo--links) {
     display: flex;
