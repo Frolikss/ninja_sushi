@@ -797,3 +797,24 @@ a:link, a:visited {
   overflow: hidden;
   height: 50vh;
 }
+@media (max-width: 1250px) {
+  .map__header {
+    padding: 0 16px;
+    font-size: 2rem;
+    line-height: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .map__legend {
+    padding: 0 16px;
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .map .container {
+    padding: 16px 0 0 0;
+  }
+  .map__header {
+    font-size: 1rem;
+  }
+}

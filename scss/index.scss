@@ -645,4 +645,29 @@
         overflow: hidden;
         height: 50vh;
     }
+
+    @media (max-width: 1250px) {
+        &__header {
+            padding: 0 16px;
+            font-size: 2rem;
+            line-height: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__legend {
+            padding: 0 16px;
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 16px 0 0 0;
+        }
+
+        &__header {
+            font-size: 1rem;
+        }
+    }
 }
