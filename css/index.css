@@ -620,6 +620,19 @@ a:link, a:visited {
     width: 100%;
   }
 }
+.banner .slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+.banner .slick-dots {
+  bottom: 3%;
+  left: 3%;
+  width: auto;
+}
+@media (max-width: 920px) {
+  .banner .slick-dots {
+    left: 43%;
+  }
+}
 
 .cards .container {
   display: grid;
@@ -776,6 +789,7 @@ a:link, a:visited {
   .cards__header {
     grid-area: header;
     text-align: center;
+    font-size: 1.5rem;
   }
   .cards__button {
     padding: 16px;
@@ -847,7 +861,6 @@ a:link, a:visited {
 }
 
 .slider {
-  position: relative;
   margin: 150px 0 0 0;
   padding: 0 16px;
 }
@@ -865,6 +878,7 @@ a:link, a:visited {
 .slider__item {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .slider__info {
   display: flex;
@@ -899,6 +913,31 @@ a:link, a:visited {
   color: #fff;
   padding: 24px 48px;
 }
+.slider .slick-initialized .slick-slide {
+  display: flex;
+}
+.slider .slick-prev:before {
+  content: url(/assets/svg/slider__arrow.svg);
+  display: inline-block;
+  transform: rotate(180deg);
+}
+.slider .slick-next:before {
+  content: url(/assets/svg/slider__arrow.svg);
+  display: inline-block;
+}
+.slider .slick-prev,
+.slider .slick-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(39, 39, 39, 0.05);
+  border-radius: 12px;
+  padding: 70px 30px;
+}
+.slider .slick-list {
+  overflow: unset;
+  overflow-x: clip;
+}
 @media (max-width: 1180px) {
   .slider__image {
     right: 0;
@@ -910,6 +949,10 @@ a:link, a:visited {
   }
 }
 @media (max-width: 768px) {
+  .slider .slick-prev,
+.slider .slick-next {
+    display: none;
+  }
   .slider__info {
     width: auto;
     padding: 100px 16px 16px;

@@ -11,4 +11,14 @@ $(document).ready(function(){
     });
   });
 
- 
+  $(document).ready(function(){
+    $('.slider__row').slick({
+      autoplay: false,
+      autoplaySpeed: 3000,
+      infinite: true,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true
+    });
+  });
