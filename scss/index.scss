@@ -162,7 +162,7 @@
     &__item {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 8px;
         background: $white;
         border-radius: 12px;
         flex: 1 1 20%;
@@ -175,7 +175,6 @@
             flex-direction: column;
             justify-content: space-between;
             height: 290px;
-            background: url(/assets/png/item__image1.png) no-repeat center;
             background-size: contain;
         }
 
