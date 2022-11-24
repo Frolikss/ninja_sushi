@@ -1,4 +1,4 @@
-@use "../abstracts/" as *;
+@use "../abstracts" as *;
 
 .footer {
     margin: 125px 0 0 0;
@@ -6,7 +6,7 @@
     .container {
         background: $white;
         max-width: 100%;
-        border-radius: 24px 24px 0px 0px;
+        border-radius: 24px 24px 0 0;
     }
 
     &__row {

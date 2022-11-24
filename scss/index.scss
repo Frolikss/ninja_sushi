@@ -1,5 +1,5 @@
-@use "abstracts/" as *;
-@use "layouts/" as *;
+@use "abstracts" as *;
+@use "layouts" as *;
 
 .banner {
     padding: 0 16px;
@@ -9,14 +9,10 @@
         border-radius: 24px;
     }
 
-    &__row {
-        display: flex;
-        align-items: center;
-    }
-
     &__text {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 16px;
         margin: 0 40px 0 90px;
         width: 50%;
@@ -46,11 +42,14 @@
     }
 
     &__scroll {
-        max-width: 50%;
         position: relative;
 
+        &--item {
+            display: flex;
+        }
+
         &--image {
-            width: 100%;
+            max-width: 50%;
             height: auto;
         }
     }
@@ -75,13 +74,8 @@
             width: 80%;
         }
 
-        &__row {
-            flex-direction: column-reverse;
-        }
-
         &__text {
-            margin: 16px;
-            width: 95%;
+            display: none;
         }
 
         &__time {
@@ -96,8 +90,13 @@
         &__scroll {
             max-width: 100%;
 
+            &--item {
+                flex-direction: column-reverse;
+            }
+
             &--image {
                 border-radius: 24px;
+                max-width: 100%;
             }
         }
     }
@@ -114,7 +113,7 @@
 
     .slick-dots {
         bottom: 3%;
-        left: 3%;
+        left: 53%;
         width: auto;
 
         @media (max-width: 920px) {
@@ -443,7 +442,6 @@
 
 .slider {
     margin: 150px 0 0 0;
-    padding: 0 16px;
 
     &__image {
         position: absolute;
@@ -453,9 +451,10 @@
         bottom: 35%;
     }
 
-    &__row {
+    &__item {
         background: $white;
         border-radius: 24px;
+        margin: 0 32px;
     }
 
     &__item {
@@ -515,10 +514,6 @@
         padding: 24px 48px;
     }
 
-    .slick-initialized .slick-slide {
-        display: flex;
-    }
-
     .slick-prev:before {
         content: url(/assets/svg/slider__arrow.svg);
         display: inline-block;
@@ -532,12 +527,14 @@
 
     .slick-prev,
     .slick-next {
+        z-index: 1;
         display: flex;
         align-items: center;
         justify-content: center;
         background: $bg-transperent1;
         border-radius: 12px;
         padding: 70px 30px;
+        margin: 0 40px;
     }
 
     .slick-list {
@@ -613,6 +610,10 @@
             }
         }
     }
+}
+
+.slick-initialized .slick-slide {
+    display: flex;
 }
 
 .drinks {

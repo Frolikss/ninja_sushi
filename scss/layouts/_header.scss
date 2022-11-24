@@ -1,18 +1,33 @@
-@use "../abstracts/" as *;
+@use "../abstracts" as *;
+
+.noscroll {
+    //overflow: hidden;
+}
 
 .header {
     @extend %medium1624;
     padding: 16px;
 
     .container {
-        background: $white;
-        border-radius: 12px;
+        position: relative;
+        z-index: 101;
     }
 
     &__row {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        margin: 0 16px;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        background: $white;
+        border-radius: 12px;
         padding: 12px 15px;
     }
 
@@ -36,6 +51,16 @@
         display: flex;
         align-items: center;
         gap: 12px;
+
+        & > *:not(:first-child) {
+            display: none;
+        }
+
+        &--item {
+            display: flex;
+            gap: 8px;
+        }
+
         &--image {
             display: flex;
             align-items: center;
@@ -92,6 +117,28 @@
 
         &--burger {
             display: none;
+            &--caption {
+                @extend %bold2430;
+                display: none;
+                opacity: 0;
+                transition: opacity .25s .5s;
+            }
+        }
+
+        &_overlay {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            transform: translateX(100%);
+            transition: all .5s;
+
+            &--show {
+                z-index: 99;
+                background: $white;
+                transform: translateX(0);
+            }
         }
     }
 
@@ -100,6 +147,8 @@
     }
 
     &__submenu {
+        flex-basis: 100%;
+        position: relative;
         background: $white;
         border-radius: 12px;
         max-width: 51rem;
@@ -108,7 +157,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 8px 16px;
-
+        z-index: 101;
         &--image:first-child {
             padding: 3px 0 6px;
         }
@@ -123,6 +172,22 @@
         &:nth-last-child(2), &:last-child {
             color: $textgrey3;
         }
+    }
+
+    .overlay__list {
+        display: none;
+    }
+
+    .overlay__support {
+        display: none;
+    }
+
+    .overlay__contacts {
+        display: none;
+    }
+
+    .overlay__buttons--lang {
+        display: none;
     }
 
     @media (max-width: 1430px) {
@@ -142,28 +207,32 @@
             }
         }
     }
+    
+    @media (max-width: 1210px) {
+        &__logo {
+            &--text {
+                display: none;
+            }
 
-    @media (max-width: 1180px) {
-        &__nav {
-            display: none;
+            &--button {
+                display: none;
+            }
         }
 
         &__phone {
             display: none;
         }
+    }
+    
+    @media (max-width: 920px) {
+        &__nav {
+            &--link {
+                padding: 22px 8px;
+            }
+        }
 
-        &__menu {
-            &--item:last-of-type {
-                display: none;
-            }
-            
-            &--burger {
-                display: flex;
-                align-items: center;
-                background: $bg-grey;
-                border-radius: 12px;
-                padding: 16px 19px;
-            }
+        &__buttons {
+            display: none;
         }
     }
 
@@ -183,12 +252,20 @@
         &__menu {
             gap: 8px;
 
-            &--item {
-                padding: 10px;
+            &--item:last-of-type {
+                display: none;
+            }
+
+            &--burger--row {
+                z-index: 101;
             }
 
             &--burger {
-                padding: 10px;
+                display: flex;
+                align-items: center;
+                background: $bg-grey;
+                border-radius: 12px;
+                padding: 19px;
             }
         }
 
@@ -198,7 +275,6 @@
             border-radius: 12px;
             overflow-y: scroll;
             -ms-overflow-style: none;
-            scrollbar-width: none;
             padding: 0;
 
             &::-webkit-scrollbar {
@@ -223,6 +299,11 @@
             }
         }
 
+        &__nav {
+            &--list {
+                display: none;
+            }
+        }
     }
 
     @media (max-width: 550px) {
@@ -273,6 +354,211 @@
             &--text {
                 display: none;
             }
+        }
+    }
+}
+
+.overlay {
+
+    .header__row {
+        flex-wrap: wrap;
+        display: grid;
+        gap: 8px;
+        align-items: start;
+        grid-template-areas: "close close"
+                        "buttons buttons"
+                        "category category"
+                        "category category"
+                        "category category"
+                        "cart cart"
+                        "cart cart"
+                        "menu menu"
+                        "nav nav"
+                        "nav nav"
+                        "telegram telegram"
+                        "contacts contacts"
+                        "store store";
+    }
+
+    .header__phone {
+        display: none;
+    }
+
+    .header__menu {
+        width: 100%;
+        display: flex;
+        grid-area: close;
+    }
+
+    .header__buttons {
+        display: flex;
+        justify-content: space-between;
+        grid-area: buttons;
+
+        & > * {
+            @extend %medium1624;
+            display: flex;
+            justify-content: center;
+            background: $bg-grey;
+            border-radius: 12px;
+            padding: 12px;
+            flex-basis: 49%;
+            gap: 8px;
+        }
+    }
+
+    &__buttons--lang {
+        display: inline;
+        margin: 0 8px 0 0
+    }
+
+    .header__menu--burger--row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-area: close;
+    }
+
+    .header__submenu {
+        width: 100%;
+        flex-wrap: wrap;
+        grid-area: category;
+
+        & > * {
+            flex-basis: 49%;
+            background: $bg-grey;
+            padding: 16px 0;
+        }
+    }
+
+    .header__subitem--text {
+        display: block;
+    }
+
+    .header__menu--cart {
+        grid-area: cart;
+    }
+
+    .header__menu--item:first-child {
+        display: none;
+    }
+
+    .header__menu--item--overlay {
+        display: none;
+    }
+
+    .header__nav {
+        display: block;
+        grid-area: nav;
+
+        &--list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            & > * {
+                display: flex;
+                justify-content: center;
+                background: $bg-grey;
+                border-radius: 12px;
+                flex-basis: 49%;
+            }
+        }
+    }
+
+    .header__logo {
+        justify-content: center;
+        grid-area: store;
+        background: $bg-grey;
+        border-radius: 12px;
+        padding: 8px 0;
+
+        & > * {
+            display: flex;
+            padding: 8px 0;
+            border-radius: 12px;
+            justify-content: center;
+            flex-basis: 30%;
+        }
+
+        &--item {
+            &-active {
+                background: $white;
+            }
+        }
+
+        &--text {
+            flex-direction: row;
+        }
+
+        &--image {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--text {
+            display: flex;
+            & > * {
+                width: 35px;
+            }
+        }
+    }
+
+    .overlay__list {
+        display: flex;
+        flex-wrap: wrap;
+        grid-area: cart;
+        gap: 8px;
+        &--item:first-child {
+            flex-basis: 100%;
+        }
+
+        &--item {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            background: $bg-grey;
+            border-radius: 12px;
+            flex-basis: 49%;
+            padding: 16px 0;
+        }
+    }
+
+    &__support {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        background: $bg-grey;
+        border-radius: 12px;
+        padding: 16px 0;
+        grid-area: telegram;
+        color: $blue;
+    }
+
+    &__contacts {
+        grid-area: contacts;
+        background: $bg-grey;
+        border-radius: 12px;
+        padding: 16px 0;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-direction: column;
+
+        &--name {
+            @extend %regular1420;
+            color: $textgrey1;
+            margin: 0 0 4px 0;
+        }
+
+        &--link {
+            @extend %medium1624;
+        }
+
+        &--info {
+            @extend %regular1420;
+            color: $textgrey3;
         }
     }
 }
