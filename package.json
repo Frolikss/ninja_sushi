@@ -1,0 +1,21 @@
+{
+  "name": "ninja_sushi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no tests specified\" && exit 1",
+    "start": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frolikss/ninja_sushi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frolikss/ninja_sushi/issues"
+  },
+  "homepage": "https://github.com/Frolikss/ninja_sushi#readme"
+}
