@@ -124,7 +124,8 @@ a:link, a:visited {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 0 16px;
+  padding: 0 16px;
+  overflow: hidden;
 }
 .header__wrapper {
   display: flex;
@@ -178,7 +179,7 @@ a:link, a:visited {
   display: flex;
 }
 .header__nav--link {
-  padding: 22px 18px;
+  padding: 22px 8px;
 }
 .header__phone {
   display: flex;
@@ -262,9 +263,6 @@ a:link, a:visited {
 .header .overlay__contacts {
   display: none;
 }
-.header .overlay__buttons--lang {
-  display: none;
-}
 @media (max-width: 1430px) {
   .header__phone--text {
     display: none;
@@ -324,7 +322,7 @@ a:link, a:visited {
     gap: 8px;
     background: none;
     border-radius: 12px;
-    overflow-y: scroll;
+    overflow-x: scroll;
     -ms-overflow-style: none;
     padding: 0;
   }
@@ -384,9 +382,14 @@ a:link, a:visited {
   }
 }
 
+.overlay {
+  height: 100vh;
+  overflow: scroll;
+}
 .overlay .header__row {
   flex-wrap: wrap;
   display: grid;
+  padding: 16px;
   gap: 8px;
   align-items: start;
   grid-template-areas: "close close" "buttons buttons" "category category" "category category" "category category" "cart cart" "cart cart" "menu menu" "nav nav" "nav nav" "telegram telegram" "contacts contacts" "store store";
@@ -412,6 +415,9 @@ a:link, a:visited {
   padding: 12px;
   flex-basis: 49%;
   gap: 8px;
+}
+.overlay .header__buttons--city {
+  display: inline;
 }
 .overlay__buttons--lang {
   display: inline;
@@ -1380,6 +1386,10 @@ a:link, a:visited {
     width: 70%;
     right: 25%;
   }
+}
+
+.lock {
+  overflow: hidden;
 }
 
 @media (max-width: 530px) {

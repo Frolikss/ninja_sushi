@@ -18,7 +18,8 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        margin: 0 16px;
+        padding: 0 16px;
+        overflow: hidden;
     }
 
     &__wrapper {
@@ -86,7 +87,7 @@
         }
 
         &--link {
-            padding: 22px 18px;
+            padding: 22px 8px;
         }
     }
     
@@ -186,10 +187,6 @@
         display: none;
     }
 
-    .overlay__buttons--lang {
-        display: none;
-    }
-
     @media (max-width: 1430px) {
         &__phone {
             &--text {
@@ -273,7 +270,7 @@
             gap: 8px;
             background: none;
             border-radius: 12px;
-            overflow-y: scroll;
+            overflow-x: scroll;
             -ms-overflow-style: none;
             padding: 0;
 
@@ -359,10 +356,13 @@
 }
 
 .overlay {
+    height: 100vh;
+    overflow: scroll;
 
     .header__row {
         flex-wrap: wrap;
         display: grid;
+        padding: 16px;
         gap: 8px;
         align-items: start;
         grid-template-areas: "close close"
@@ -405,6 +405,10 @@
             flex-basis: 49%;
             gap: 8px;
         }
+    }
+
+    .header__buttons--city {
+        display: inline;
     }
 
     &__buttons--lang {
