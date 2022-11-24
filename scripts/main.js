@@ -74,6 +74,7 @@ $(document).ready(function(){
     const data = fetch(url).then(response => response.json()).then(data => {
       for (let i = 0; i < slider.length; i++) {
         slider[i].firstElementChild.textContent = data[i].header;
+        slider[i].firstElementChild.nextElementSibling.textContent = data[i].subtext;
       }
     }).catch(error => console.log(error));
   }
