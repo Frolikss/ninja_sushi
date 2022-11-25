@@ -39,7 +39,6 @@ $(document).ready(function () {
 
 function showOverlay() {
     const headerBurgerBtn = document.querySelector('.header__menu--burger');
-    const headerCaption = document.querySelector('.header__menu--burger--caption');
 
     headerBurgerBtn.addEventListener('click', event => {
 
@@ -51,17 +50,11 @@ function showOverlay() {
             document.body.classList.remove('lock');
             header.classList.remove('overlay');
             headerOverlay.classList.remove('header__menu_overlay--show');
-
-            headerCaption.style.display = 'none';
-            headerCaption.style.opacity = '0';
         } else {
 
             document.body.classList.add('lock');
             header.classList.add('overlay');
             headerOverlay.classList.add('header__menu_overlay--show');
-
-            headerCaption.style.display = 'block';
-            headerCaption.style.opacity = '1';
         }
     });
 }
@@ -76,20 +69,22 @@ function fetchSliderData(slider, url) {
 }
 
 function fetchProductsData(url) {
+
     const cards = document.querySelectorAll('.cards__item');
     const data = fetch(url).then(response => response.json()).then(data => {
+
         for (let i = 0; i < cards.length; i++) {
+
             if (cards[i].closest('.cards').classList.contains(data[i].category)) {
                 const card = cards[i];
-
                 //image
-                card.firstElementChild.style.background = `url(/${data[i].image}) no-repeat center`;
+                card.firstElementChild.style.background = `url(/${data[i].image}) no-repeat center / contain`;
                 //header
                 card.lastElementChild.firstElementChild.textContent = data[i].header;
                 //weight
                 card.lastElementChild.firstElementChild.nextElementSibling.textContent = data[i].category === 'drinks' ? `Объем: ${data[i].weight} л` : `Вес: ${data[i].weight} г`;
                 //price
-                card.lastElementChild.lastElementChild.firstElementChild.textContent = `${data[i].price} грн`;
+                card.lastElementChild.lastElementChild.firstElementChild.textContent = `${data[i].price}грн.`;
                 //text
                 card.lastElementChild.lastElementChild.previousElementSibling.textContent = data[i].text;
 

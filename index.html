@@ -18,160 +18,250 @@
 <header class="header">
     <div class="container">
         <div class="header__row">
-            <div class="header__logo">
-                <div class="header__logo--item header__logo--item-active">
-                    <a href="#" class="header__logo--image">
-                        <img src="/assets/svg/header__logo--sushi.svg" alt="logo" class="header__logo--item">
-                        <div class="header__logo--text">
-                            <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
-                            <img src="/assets/svg/header__logo--text-sushi.svg" alt="text" class="header__logo--item">
-                        </div>
-                    </a>
-                    <button class="header__logo--button">
-                        <img src="/assets/svg/arrow.svg" alt="dropdown" class="header__logo--arrow">
+            <div class="header__wrapper">
+                <div class="header__logo">
+                    <div class="header__logo--item header__logo--item-active">
+                        <a href="#" class="header__logo--image">
+                            <img src="/assets/svg/header__logo--sushi.svg" alt="logo" class="header__logo--item">
+                            <div class="header__logo--text">
+                                <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
+                                <img src="/assets/svg/header__logo--text-sushi.svg" alt="text" class="header__logo--item">
+                            </div>
+                        </a>
+                        <button class="header__logo--button">
+                            <img src="/assets/svg/arrow.svg" alt="dropdown" class="header__logo--arrow">
+                        </button>
+                    </div>
+
+                    <div class="header__logo--item">
+                        <a href="#" class="header__logo--image">
+                            <img src="/assets/svg/header__logo--wok.svg" alt="logo" class="header__logo--item">
+                            <div class="header__logo--text">
+                                <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
+                                <img src="/assets/svg/header__logo--text-wok.svg" alt="text" class="header__logo--item">
+                            </div>
+                        </a>
+                        <button class="header__logo--button">
+                            <img src="/assets/svg/arrow.svg" alt="dropdown" class="header__logo--arrow">
+                        </button>
+                    </div>
+
+                    <div class="header__logo--item">
+                        <a href="#" class="header__logo--image">
+                            <img src="/assets/svg/header__logo--pizza.svg" alt="logo" class="header__logo--item">
+                            <div class="header__logo--text">
+                                <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
+                                <img src="/assets/svg/header__logo--text-pizza.svg" alt="text" class="header__logo--item">
+                            </div>
+                        </a>
+                        <button class="header__logo--button">
+                            <img src="/assets/svg/arrow.svg" alt="dropdown" class="header__logo--arrow">
+                        </button>
+                    </div>
+                </div>
+                <div class="header__buttons">
+                    <button class="header__buttons--country">
+                        <img class="header__buttons--flag" src="/assets/svg/country-flag.svg" alt="flag">
+                        <span class="header__buttons--city">Киев</span>
+                    </button>
+                    <button class="header__buttons--lang">
+                        <span class="overlay__buttons--lang">Язык</span> RU
                     </button>
                 </div>
-
-                <div class="header__logo--item">
-                    <a href="#" class="header__logo--image">
-                        <img src="/assets/svg/header__logo--wok.svg" alt="logo" class="header__logo--item">
-                        <div class="header__logo--text">
-                            <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
-                            <img src="/assets/svg/header__logo--text-wok.svg" alt="text" class="header__logo--item">
-                        </div>
+                <nav class="header__nav">
+                    <ul class="header__nav--list">
+                        <li class="header__nav--item">
+                            <a href="/index.html" class="header__nav--link">Главная</a>
+                        </li>
+                        <li class="header__nav--item">
+                            <a href="#" class="header__nav--link">Доставка</a>
+                        </li>
+                        <li class="header__nav--item">
+                            <a href="#" class="header__nav--link">О нас</a>
+                        </li>
+                        <li class="header__nav--item">
+                            <a href="#" class="header__nav--link">Новости</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="tel:+380976993438" class="header__phone">
+                    <img src="/assets/svg/phone.svg" alt="phone">
+                    <span class="header__phone--text">+38 097 699 34 38</span>
+                </a>
+                <div class="header__menu">
+                    <a href="#" class="header__menu--item">
+                        <img src="/assets/svg/bell.svg" alt="bell" class="header__bell--image">
+                        <span class="header__bell--count"></span>
                     </a>
-                    <button class="header__logo--button">
-                        <img src="/assets/svg/arrow.svg" alt="dropdown" class="header__logo--arrow">
-                    </button>
-                </div>
-
-                <div class="header__logo--item">
-                    <a href="#" class="header__logo--image">
-                        <img src="/assets/svg/header__logo--pizza.svg" alt="logo" class="header__logo--item">
-                        <div class="header__logo--text">
-                            <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
-                            <img src="/assets/svg/header__logo--text-pizza.svg" alt="text" class="header__logo--item">
-                        </div>
+                    <a href="#" class="header__menu--item header__menu--item--overlay">
+                        <img src="/assets/svg/favorite.svg" alt="favorite">
                     </a>
-                    <button class="header__logo--button">
-                        <img src="/assets/svg/arrow.svg" alt="dropdown" class="header__logo--arrow">
-                    </button>
+                    <a href="#" class="header__menu--item header__menu--item--overlay">
+                        <img src="/assets/svg/profile.svg" alt="profile">
+                    </a>
+                    <a href="#" class="header__menu--item header__menu--cart">
+                        <span class="header__menu--carttext">Корзина</span>
+                        <img src="/assets/svg/cart.svg" alt="cart">
+                    </a>
+                    <div class="header__menu--burger--row">
+                        <button class="header__menu--burger">
+                            <img src="/assets/svg/menu.svg" alt="menu">
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="header__buttons">
-                <button class="header__buttons--country">
-                    <img class="header__buttons--flag" src="/assets/svg/country-flag.svg" alt="flag">
-                    <span class="header__buttons--city">Киев</span>
-                </button>
-                <button class="header__buttons--lang">
-                    <span class="overlay__buttons--lang">Язык</span> RU
-                </button>
-            </div>
-            <nav class="header__nav">
-                <ul class="header__nav--list">
-                    <li class="header__nav--item">
-                        <a href="/index.html" class="header__nav--link">Главная</a>
-                    </li>
-                    <li class="header__nav--item">
-                        <a href="#" class="header__nav--link">Доставка</a>
-                    </li>
-                    <li class="header__nav--item">
-                        <a href="#" class="header__nav--link">О нас</a>
-                    </li>
-                    <li class="header__nav--item">
-                        <a href="#" class="header__nav--link">Новости</a>
-                    </li>
-                </ul>
-            </nav>
-            <a href="tel:+380976993438" class="header__phone">
-                <img src="/assets/svg/phone.svg" alt="phone">
-                <span class="header__phone--text">+38 097 699 34 38</span>
+        </div>
+        <div class="header__submenu">
+            <a href="#" class="header__subitem">
+                <img class="header__submenu--image" src="/assets/svg/header__submenu--rolls.svg" alt="rolls">
+                <span class="header__subitem--text">Роллы</span>
             </a>
-            <div class="overlay__list">
-                <div class="overlay__list--item">
-                    <img src="/assets/svg/cart.svg" alt="cart">
-                    <span>Повторить прошлый заказ</span>
-                </div>
-                <div class="overlay__list--item">
-                    <img src="/assets/svg/favorite.svg" alt="cart">
-                    <span>Избранное</span>
-                </div>
-                <div class="overlay__list--item">
-                    <img src="/assets/svg/profile.svg" alt="cart">
-                    <span>Профиль</span>
-                </div>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--sushi.svg" alt="sushi">
+                <span class="header__subitem--text">Сушы</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--sets.svg" alt="sets">
+                <span class="header__subitem--text">Сеты</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--bowls.svg" alt="bowls">
+                <span class="header__subitem--text">Боулы</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--drinks.svg" alt="drinks">
+                <span class="header__subitem--text">Напитки</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--sauces.svg" alt="sauces">
+                <span class="header__subitem--text">Соусы</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--unknown.svg" alt="unknown">
+                <span class="header__subitem--text">Неизв...</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--unknown.svg" alt="unknown">
+                <span class="header__subitem--text">Неизв...</span>
+            </a>
+        </div>
+    </div>
+    <div class="header__menu_overlay">
+        <h2 class="header__menu--caption">Меню</h2>
+        <div class="overlay__logo">
+            <div class="overlay__logo--item overlay__logo--item-active">
+                <a href="#" class="overlay__logo--image">
+                    <img src="/assets/svg/header__logo--sushi.svg" alt="logo" class="overlay__logo--item">
+                    <div class="overlay__logo--text">
+                        <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
+                        <img src="/assets/svg/header__logo--text-sushi.svg" alt="text" class="header__logo--item">
+                    </div>
+                </a>
             </div>
-            <div class="overlay__support">
-                <img src="/assets/svg/telegram.svg" alt="telegram">
-                <span>Поддержка</span>
+            <div class="overlay__logo--item">
+                <a href="#" class="overlay__logo--image">
+                    <img src="/assets/svg/header__logo--wok.svg" alt="logo" class="overlay__logo--item">
+                    <div class="overlay__logo--text">
+                        <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
+                        <img src="/assets/svg/header__logo--text-wok.svg" alt="text" class="header__logo--item">
+                    </div>
+                </a>
             </div>
-            <div class="overlay__contacts">
-                <span class="overlay__contacts--name">Оформить заказ</span>
-                <a href="tel:+380674366127" class="overlay__contacts--link">+38 (067) 436 61 27</a>
-                <a href="tel:+380660317630" class="overlay__contacts--link">+38 (066) 031 76 30</a>
-                <a href="tel:+380939249828" class="overlay__contacts--link">+38 (093) 924 98 28</a>
-                <span class="overlay__contacts--info">Звоните нам с 9:00 до 21:00 без выходных</span>
-            </div>
-            <div class="header__menu">
-                <a href="#" class="header__menu--item">
-                    <img src="/assets/svg/bell.svg" alt="bell" class="header__bell--image">
-                    <span class="header__bell--count"></span>
-                </a>
-                <a href="#" class="header__menu--item header__menu--item--overlay">
-                    <img src="/assets/svg/favorite.svg" alt="favorite">
-                </a>
-                <a href="#" class="header__menu--item header__menu--item--overlay">
-                    <img src="/assets/svg/profile.svg" alt="profile">
-                </a>
-                <a href="#" class="header__menu--item header__menu--cart">
-                    <span class="header__menu--carttext">Корзина</span>
-                    <img src="/assets/svg/cart.svg" alt="cart">
-                </a>
-                <div class="header__menu--burger--row">
-                    <span class="header__menu--burger--caption">Меню</span>
-                    <button class="header__menu--burger">
-                        <img src="/assets/svg/menu.svg" alt="menu">
-                    </button>
-                </div>
-            </div>
-
-            <div class="header__submenu">
-                <a href="#" class="header__subitem">
-                    <img class="header__submenu--image" src="/assets/svg/header__submenu--rolls.svg" alt="rolls">
-                    <span class="header__subitem--text">Роллы</span>
-                </a>
-                <a href="#" class="header__subitem">
-                    <img src="/assets/svg/header__submenu--sushi.svg" alt="sushi">
-                    <span class="header__subitem--text">Сушы</span>
-                </a>
-                <a href="#" class="header__subitem">
-                    <img src="/assets/svg/header__submenu--sets.svg" alt="sets">
-                    <span class="header__subitem--text">Сеты</span>
-                </a>
-                <a href="#" class="header__subitem">
-                    <img src="/assets/svg/header__submenu--bowls.svg" alt="bowls">
-                    <span class="header__subitem--text">Боулы</span>
-                </a>
-                <a href="#" class="header__subitem">
-                    <img src="/assets/svg/header__submenu--drinks.svg" alt="drinks">
-                    <span class="header__subitem--text">Напитки</span>
-                </a>
-                <a href="#" class="header__subitem">
-                    <img src="/assets/svg/header__submenu--sauces.svg" alt="sauces">
-                    <span class="header__subitem--text">Соусы</span>
-                </a>
-                <a href="#" class="header__subitem">
-                    <img src="/assets/svg/header__submenu--unknown.svg" alt="unknown">
-                    <span class="header__subitem--text">Неизв...</span>
-                </a>
-                <a href="#" class="header__subitem">
-                    <img src="/assets/svg/header__submenu--unknown.svg" alt="unknown">
-                    <span class="header__subitem--text">Неизв...</span>
+            <div class="overlay__logo--item">
+                <a href="#" class="overlay__logo--image">
+                    <img src="/assets/svg/header__logo--pizza.svg" alt="logo" class="overlay__logo--item">
+                    <div class="overlay__logo--text">
+                        <img src="/assets/svg/header__logo--text-ninja.svg" alt="text" class="header__logo--item">
+                        <img src="/assets/svg/header__logo--text-pizza.svg" alt="text" class="header__logo--item">
+                    </div>
                 </a>
             </div>
         </div>
+        <div class="overlay__buttons">
+            <button class="overlay__buttons--country">
+                <img class="header__buttons--flag" src="/assets/svg/country-flag.svg" alt="flag">
+                <span class="header__buttons--city">Киев</span>
+            </button>
+            <button class="header__buttons--lang">
+                <span class="overlay__buttons--lang">Язык</span> RU
+            </button>
+        </div>
+        <nav class="overlay__nav">
+            <ul class="overlay__nav--list">
+                <li class="header__nav--item">
+                    <a href="/index.html" class="header__nav--link">Главная</a>
+                </li>
+                <li class="header__nav--item">
+                    <a href="#" class="header__nav--link">Доставка</a>
+                </li>
+                <li class="header__nav--item">
+                    <a href="#" class="header__nav--link">О нас</a>
+                </li>
+                <li class="header__nav--item">
+                    <a href="#" class="header__nav--link">Новости</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="overlay__list">
+            <div class="overlay__list--item">
+                <img src="/assets/svg/cart.svg" alt="cart">
+                <span>Повторить прошлый заказ</span>
+            </div>
+            <div class="overlay__list--item">
+                <img src="/assets/svg/favorite.svg" alt="cart">
+                <span>Избранное</span>
+            </div>
+            <div class="overlay__list--item">
+                <img src="/assets/svg/profile.svg" alt="cart">
+                <span>Профиль</span>
+            </div>
+        </div>
+        <div class="overlay__support">
+            <img src="/assets/svg/telegram.svg" alt="telegram">
+            <span>Поддержка</span>
+        </div>
+        <div class="overlay__contacts">
+            <span class="overlay__contacts--name">Оформить заказ</span>
+            <a href="tel:+380674366127" class="overlay__contacts--link">+38 (067) 436 61 27</a>
+            <a href="tel:+380660317630" class="overlay__contacts--link">+38 (066) 031 76 30</a>
+            <a href="tel:+380939249828" class="overlay__contacts--link">+38 (093) 924 98 28</a>
+            <span class="overlay__contacts--info">Звоните нам с 9:00 до 21:00 без выходных</span>
+        </div>
+        <div class="overlay__submenu">
+            <a href="#" class="header__subitem">
+                <img class="header__submenu--image" src="/assets/svg/header__submenu--rolls.svg" alt="rolls">
+                <span class="header__subitem--text">Роллы</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--sushi.svg" alt="sushi">
+                <span class="header__subitem--text">Сушы</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--sets.svg" alt="sets">
+                <span class="header__subitem--text">Сеты</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--bowls.svg" alt="bowls">
+                <span class="header__subitem--text">Боулы</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--drinks.svg" alt="drinks">
+                <span class="header__subitem--text">Напитки</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--sauces.svg" alt="sauces">
+                <span class="header__subitem--text">Соусы</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--unknown.svg" alt="unknown">
+                <span class="header__subitem--text">Неизв...</span>
+            </a>
+            <a href="#" class="header__subitem">
+                <img src="/assets/svg/header__submenu--unknown.svg" alt="unknown">
+                <span class="header__subitem--text">Неизв...</span>
+            </a>
+        </div>
     </div>
-    <div class="header__menu_overlay"></div>
 </header>
 <main class="main">
     <section class="banner">
@@ -230,6 +320,18 @@
             </div>
         </div>
     </section>
+    <template class="card__template--skeleton">
+        <div class="cards__item">
+            <div class="cards__item--marks skeleton">
+            </div>
+            <div class="cards__item--data">
+                <div class="skeleton skeleton__text"></div>
+                <div class="skeleton skeleton__text"></div>
+                <div class="skeleton skeleton__text"></div>
+                <div class="skeleton skeleton__text"></div>
+            </div>
+        </div>
+    </template>
     <section class="sushi cards">
         <div class="container">
             <h2 class="cards__header">Суши</h2>
