@@ -9,7 +9,7 @@ const specialSliderItems = document.querySelectorAll('.slider__info');
 const cards = document.querySelectorAll('.cards__row');
 const cardSkeletonTemplate = document.querySelector('.card__template--skeleton');
 cards.forEach(category => {
-    for(let i = 0; i < 8; i++) {
+    for (let i = 0; i < 8; i++) {
         category.append(cardSkeletonTemplate.content.cloneNode(true));
     }
 });
@@ -56,11 +56,13 @@ function showOverlay() {
             document.body.classList.remove('lock');
             header.classList.remove('overlay');
             headerOverlay.classList.remove('header__menu_overlay--show');
+            headerBurgerBtn.classList.remove('header__menu--burger_active')
         } else {
 
             document.body.classList.add('lock');
             header.classList.add('overlay');
             headerOverlay.classList.add('header__menu_overlay--show');
+            headerBurgerBtn.classList.add('header__menu--burger_active')
         }
     });
 }
@@ -78,21 +80,21 @@ function fetchProductsData(url) {
 
     const cardsItemTemplate = document.querySelector('.card__template');
     const data = fetch(url).then(response => response.json()).then(data => {
-
+        //clear all skeleton
         cards.forEach(category => {
             category.innerHTML = '';
         })
-
-        for (let i = 0; i < data.length; i++) {
+        //add real cards for n items in data
+        data.forEach(dataItem => {
             cards.forEach(category => {
-                if (category.closest('.cards').classList.contains(data[i].category)) {
+                if (category.closest('.cards').classList.contains(dataItem.category)) {
                     category.append(cardsItemTemplate.content.cloneNode(true));
                 }
             });
-        }
+        });
 
         const cardsItem = document.querySelectorAll('.cards__item');
-
+        //card info
         for (let i = 0; i < data.length; i++) {
 
                 const card = cardsItem[i];

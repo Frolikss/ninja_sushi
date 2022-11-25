@@ -1,9 +1,5 @@
 @use "../abstracts" as *;
 
-.noscroll {
-  //overflow: hidden;
-}
-
 .header {
   @extend %medium1624;
   padding: 16px;
@@ -112,7 +108,45 @@
     }
 
     &--burger {
+      position: relative;
       display: none;
+
+      & span {
+        display: block;
+        position: absolute;
+        background-color: $black;
+        width: 45%;
+        left: 30%;
+        height: 2px;
+        transition: all .25s;
+        transform-origin: right;
+        transform: rotate(0deg);
+
+        &:nth-child(1) {
+          top: 35%;
+        }
+
+        &:nth-child(3) {
+          bottom: 35%;
+        }
+      }
+
+      &_active {
+        box-shadow: 0 0 5px $separate1;
+        span {
+          &:nth-child(1), &:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 33%;
+            left: 22%;
+          }
+
+          &:nth-child(2) {
+            transform: rotate(45deg);
+            top: 65%;
+            left: 22%;
+          }
+        }
+      }
     }
 
     &_overlay {
@@ -243,7 +277,7 @@
         align-items: center;
         background: $bg-grey;
         border-radius: 12px;
-        padding: 19px;
+        padding: 29px;
       }
     }
 
@@ -315,13 +349,6 @@
         display: none;
       }
     }
-
-    &__menu {
-      & img {
-        width: 20px;
-        height: 20px;
-      }
-    }
   }
 
   @media (max-width: 450px) {
@@ -331,7 +358,7 @@
       }
     }
   }
-  
+
   @media (max-width: 350px) {
     &__menu {
       &--item:not(:last-child) {
@@ -341,8 +368,7 @@
   }
 }
 
-
-.header__menu_overlay--show {
+.header__menu_overlay {
   height: 100vh;
   overflow: scroll;
   flex-wrap: wrap;
@@ -558,7 +584,7 @@
       color: $textgrey3;
     }
   }
-  
+
   @media (max-width: 430px) {
     .overlay__submenu {
       & > * {
@@ -572,7 +598,7 @@
 
     .overlay__nav--list > * {
       flex-basis: 48%;
+
     }
   }
 }
-
