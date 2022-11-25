@@ -201,6 +201,7 @@ a:link, a:visited {
 }
 .header__menu--burger {
   position: relative;
+  overflow: hidden;
   display: none;
 }
 .header__menu--burger span {
@@ -211,27 +212,31 @@ a:link, a:visited {
   left: 30%;
   height: 2px;
   transition: all 0.25s;
-  transform-origin: right;
   transform: rotate(0deg);
 }
 .header__menu--burger span:nth-child(1) {
   top: 35%;
+  transform-origin: left;
 }
 .header__menu--burger span:nth-child(3) {
   bottom: 35%;
+  transform-origin: right;
 }
 .header__menu--burger_active {
   box-shadow: 0 0 5px #D2D2D7;
 }
-.header__menu--burger_active span:nth-child(1), .header__menu--burger_active span:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 33%;
-  left: 22%;
+.header__menu--burger_active span:nth-child(1) {
+  top: 32%;
+  left: 67%;
+  transform: rotate(135deg);
 }
 .header__menu--burger_active span:nth-child(2) {
+  left: 100%;
+}
+.header__menu--burger_active span:nth-child(3) {
+  bottom: 32%;
+  left: 23%;
   transform: rotate(45deg);
-  top: 65%;
-  left: 22%;
 }
 .header__menu_overlay {
   position: fixed;

@@ -109,6 +109,7 @@
 
     &--burger {
       position: relative;
+      overflow: hidden;
       display: none;
 
       & span {
@@ -119,31 +120,36 @@
         left: 30%;
         height: 2px;
         transition: all .25s;
-        transform-origin: right;
         transform: rotate(0deg);
 
         &:nth-child(1) {
           top: 35%;
+          transform-origin: left;
         }
 
         &:nth-child(3) {
           bottom: 35%;
+          transform-origin: right;
         }
       }
 
       &_active {
         box-shadow: 0 0 5px $separate1;
         span {
-          &:nth-child(1), &:nth-child(3) {
-            transform: rotate(-45deg);
-            top: 33%;
-            left: 22%;
+          &:nth-child(1) {
+            top: 32%;
+            left: 67%;
+            transform: rotate(135deg);
           }
 
           &:nth-child(2) {
+            left: 100%;
+          }
+
+          &:nth-child(3) {
+            bottom: 32%;
+            left: 23%;
             transform: rotate(45deg);
-            top: 65%;
-            left: 22%;
           }
         }
       }
