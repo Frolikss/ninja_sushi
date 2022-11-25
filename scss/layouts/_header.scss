@@ -121,10 +121,15 @@
         height: 2px;
         transition: all .25s;
         transform: rotate(0deg);
+        border-radius: 12px;
 
         &:nth-child(1) {
           top: 35%;
           transform-origin: left;
+        }
+
+        &:nth-child(2) {
+          opacity: 1;
         }
 
         &:nth-child(3) {
@@ -144,6 +149,7 @@
 
           &:nth-child(2) {
             left: 100%;
+            opacity: 0;
           }
 
           &:nth-child(3) {

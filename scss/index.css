@@ -213,10 +213,14 @@ a:link, a:visited {
   height: 2px;
   transition: all 0.25s;
   transform: rotate(0deg);
+  border-radius: 12px;
 }
 .header__menu--burger span:nth-child(1) {
   top: 35%;
   transform-origin: left;
+}
+.header__menu--burger span:nth-child(2) {
+  opacity: 1;
 }
 .header__menu--burger span:nth-child(3) {
   bottom: 35%;
@@ -232,6 +236,7 @@ a:link, a:visited {
 }
 .header__menu--burger_active span:nth-child(2) {
   left: 100%;
+  opacity: 0;
 }
 .header__menu--burger_active span:nth-child(3) {
   bottom: 32%;
