@@ -4,9 +4,15 @@ const bannerURL = 'http://localhost:3000/head';
 const specialURL = 'http://localhost:3000/special';
 const productsURL = 'http://localhost:3000/products';
 
-const wrapper = document.querySelector('.header__wrapper');
 const bannerSliderItems = document.querySelectorAll('.banner__text');
 const specialSliderItems = document.querySelectorAll('.slider__info');
+const cards = document.querySelectorAll('.cards__row');
+const cardSkeletonTemplate = document.querySelector('.card__template--skeleton');
+cards.forEach(category => {
+    for(let i = 0; i < 8; i++) {
+        category.append(cardSkeletonTemplate.content.cloneNode(true));
+    }
+});
 
 showOverlay();
 fetchSliderData(bannerSliderItems, bannerURL);
@@ -70,13 +76,26 @@ function fetchSliderData(slider, url) {
 
 function fetchProductsData(url) {
 
-    const cards = document.querySelectorAll('.cards__item');
+    const cardsItemTemplate = document.querySelector('.card__template');
     const data = fetch(url).then(response => response.json()).then(data => {
 
-        for (let i = 0; i < cards.length; i++) {
+        cards.forEach(category => {
+            category.innerHTML = '';
+        })
 
-            if (cards[i].closest('.cards').classList.contains(data[i].category)) {
-                const card = cards[i];
+        for (let i = 0; i < data.length; i++) {
+            cards.forEach(category => {
+                if (category.closest('.cards').classList.contains(data[i].category)) {
+                    category.append(cardsItemTemplate.content.cloneNode(true));
+                }
+            });
+        }
+
+        const cardsItem = document.querySelectorAll('.cards__item');
+
+        for (let i = 0; i < data.length; i++) {
+
+                const card = cardsItem[i];
                 //image
                 card.firstElementChild.style.background = `url(/${data[i].image}) no-repeat center / contain`;
                 //header
@@ -108,6 +127,5 @@ function fetchProductsData(url) {
                     card.firstElementChild.lastElementChild.classList.add('cards__item_disposable');
                 }
             }
-        }
     }).catch(error => console.log(error));
 }
