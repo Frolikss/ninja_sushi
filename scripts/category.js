@@ -16,7 +16,7 @@ function backEvent() {
 }
 
 function fetchProductsData(category) {
-    const url = `http://localhost:3000/products?_page=1&_limit=10&category=${category}`;
+    const url = `http://localhost:3000/products?_page=1&_limit=8&category=${category}`;
     const cardsItemTemplate = document.querySelector('.card__template');
     const cardContainer = document.querySelector('.cards');
 
