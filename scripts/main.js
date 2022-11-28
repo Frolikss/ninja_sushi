@@ -6,8 +6,10 @@ const productsURL = 'http://localhost:3000/products';
 
 const bannerSliderItems = document.querySelectorAll('.banner__text');
 const specialSliderItems = document.querySelectorAll('.slider__info');
+
 const cards = document.querySelectorAll('.cards__row');
 const cardSkeletonTemplate = document.querySelector('.card__template--skeleton');
+
 cards.forEach(category => {
     for (let i = 0; i < 8; i++) {
         category.append(cardSkeletonTemplate.content.cloneNode(true));

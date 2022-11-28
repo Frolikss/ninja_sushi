@@ -56,7 +56,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": true,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["salmon", "acne", "tomato"],
+      "type": "classic"
     },
     {
       "id": 2,
@@ -70,7 +72,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["tuna", "tofu", "tomato"],
+      "type": "classic"
     },
     {
       "id": 3,
@@ -84,7 +88,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["salmon", "acne", "cream cheese"],
+      "type": "classic"
     },
     {
       "id": 4,
@@ -98,7 +104,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["avocado", "chicken", "shiitake"],
+      "type": "classic"
     },
     {
       "id": 5,
@@ -112,7 +120,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["avocado", "chicken", "shiitake", "acne"],
+      "type": "maki"
     },
     {
       "id": 6,
@@ -126,7 +136,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["salmon", "acne", "tomato"],
+      "type": "dragons"
     },
     {
       "id": 7,
@@ -140,7 +152,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["salmon", "acne", "tomato"],
+      "type": "baked"
     },
     {
       "id": 8,
@@ -154,7 +168,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["salmon", "acne", "tomato"],
+      "type": "felixes"
     },
     {
       "id": 9,
@@ -168,7 +184,9 @@
       "isNew": false,
       "isSpicy": true,
       "isEco": false,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["salmon", "acne", "tomato"],
+      "type": "sweet"
     },
     {
       "id": 10,
@@ -182,7 +200,9 @@
       "isNew": true,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["salmon", "acne", "tomato"],
+      "type": "maki"
     },
     {
       "id": 11,
@@ -196,7 +216,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["salmon", "acne", "tomato"],
+      "type": "maki"
     },
     {
       "id": 12,
@@ -210,7 +232,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["tuna", "shiitake", "cream cheese"],
+      "type": "dragons"
     },
     {
       "id": 13,
@@ -224,7 +248,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["tuna", "shiitake", "cream cheese"],
+      "type": "maki"
     },
     {
       "id": 14,
@@ -238,7 +264,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": true,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["tuna", "shiitake", "cream cheese"],
+      "type": "maki"
     },
     {
       "id": 15,
@@ -252,7 +280,9 @@
       "isNew": false,
       "isSpicy": true,
       "isEco": false,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["tuna", "shiitake", "cream cheese"],
+      "type": "dragons"
     },
     {
       "id": 16,
@@ -266,7 +296,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["salmon", "acne", "tuna", "chicken", "tofu", "cream cheese", "avocado", "tomato" , "shiitake"],
+      "type": "dragons"
     },
     {
       "id": 17,
@@ -280,7 +312,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["salmon", "acne", "tuna", "chicken", "tofu", "cream cheese", "avocado", "tomato" , "shiitake"],
+      "type": "baked"
     },
     {
       "id": 18,
@@ -294,7 +328,9 @@
       "isNew": true,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["shiitake", "acne", "salmon"],
+      "type": "baked"
     },
     {
       "id": 19,
@@ -308,7 +344,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["shiitake", "acne", "salmon"],
+      "type": "dragons"
     },
     {
       "id": 20,
@@ -322,7 +360,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "type": "baked"
     },
     {
       "id": 21,
@@ -336,7 +376,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "type": "baked"
     },
     {
       "id": 22,
@@ -350,7 +392,9 @@
       "isNew": false,
       "isSpicy": true,
       "isEco": false,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "type": "felixes"
     },
     {
       "id": 23,
@@ -364,7 +408,9 @@
       "isNew": true,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "type": "felixes"
     },
     {
       "id": 24,
@@ -378,7 +424,9 @@
       "isNew": false,
       "isSpicy": true,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "type": "felixes"
     },
     {
       "id": 25,
@@ -392,7 +440,9 @@
       "isNew": true,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["tuna", "tomato", "shiitake"],
+      "type": "sweet"
     },
     {
       "id": 26,
@@ -406,7 +456,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["tuna", "tomato", "shiitake"],
+      "type": "felixes"
     },
     {
       "id": 27,
@@ -420,7 +472,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["tuna", "tomato", "shiitake"],
+      "type": "sweet"
     },
     {
       "id": 28,
@@ -434,7 +488,9 @@
       "isNew": true,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["tuna", "tomato", "shiitake"],
+      "type": "sweet"
     },
     {
       "id": 29,
@@ -448,7 +504,9 @@
       "isNew": false,
       "isSpicy": false,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["tuna", "tomato", "shiitake"],
+      "type": "sweet"
     },
     {
       "id": 30,
@@ -462,7 +520,9 @@
       "isNew": true,
       "isSpicy": true,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["acne", "avocado"],
+      "type": "dragons"
     },
     {
       "id": 31,
@@ -476,7 +536,9 @@
       "isNew": false,
       "isSpicy": true,
       "isEco": false,
-      "isDisposable": false
+      "isDisposable": false,
+      "ingridients": ["acne", "avocado"],
+      "type": "dragons"
     },
     {
       "id": 32,
@@ -490,7 +552,9 @@
       "isNew": true,
       "isSpicy": false,
       "isEco": true,
-      "isDisposable": true
+      "isDisposable": true,
+      "ingridients": ["acne", "avocado"],
+      "type": "dragons"
     },
     {
       "id": 33,
@@ -504,7 +568,9 @@
       "isNew": null,
       "isSpicy": null,
       "isEco": null,
-      "isDisposable": null
+      "isDisposable": null,
+      "ingridients": null,
+      "type": null
     },
     {
       "id": 34,
@@ -518,7 +584,9 @@
       "isNew": null,
       "isSpicy": null,
       "isEco": null,
-      "isDisposable": null
+      "isDisposable": null,
+      "ingridients": null,
+      "type": null
     },
     {
       "id": 35,
@@ -532,7 +600,9 @@
       "isNew": null,
       "isSpicy": null,
       "isEco": null,
-      "isDisposable": null
+      "isDisposable": null,
+      "ingridients": null,
+      "type": null
     },
     {
       "id": 36,
@@ -546,7 +616,9 @@
       "isNew": null,
       "isSpicy": null,
       "isEco": null,
-      "isDisposable": null
+      "isDisposable": null,
+      "ingridients": null,
+      "type": null
     },
     {
       "id": 37,
@@ -560,7 +632,9 @@
       "isNew": null,
       "isSpicy": null,
       "isEco": null,
-      "isDisposable": null
+      "isDisposable": null,
+      "ingridients": null,
+      "type": null
     },
     {
       "id": 38,
@@ -574,7 +648,9 @@
       "isNew": null,
       "isSpicy": null,
       "isEco": null,
-      "isDisposable": null
+      "isDisposable": null,
+      "ingridients": null,
+      "type": null
     },
     {
       "id": 39,
@@ -588,7 +664,9 @@
       "isNew": null,
       "isSpicy": null,
       "isEco": null,
-      "isDisposable": null
+      "isDisposable": null,
+      "ingridients": null,
+      "type": null
     },
     {
       "id": 40,
@@ -602,7 +680,9 @@
       "isNew": null,
       "isSpicy": null,
       "isEco": null,
-      "isDisposable": null
+      "isDisposable": null,
+      "ingridients": null,
+      "type": null
     }
   ]
 }
