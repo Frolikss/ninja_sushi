@@ -87,6 +87,7 @@
     }
 
     .cards {
+        flex-basis: 100%;
         display: flex;
         gap: 16px;
         flex-wrap: wrap;
@@ -136,8 +137,6 @@
                 flex-direction: column;
                 justify-content: space-between;
                 height: 290px;
-                background: url(/assets/png/sushi__item--image1.png) no-repeat;
-                background-size: contain;
             }
 
             &--marktext {

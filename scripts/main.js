@@ -81,13 +81,13 @@ function fetchSliderData(slider, url) {
 function fetchProductsData(url) {
 
     const cardsItemTemplate = document.querySelector('.card__template');
-    const data = fetch(url).then(response => response.json()).then(data => {
+    const data = fetch(url).then(response => response.json()).then(res => {
         //clear all skeleton
         cards.forEach(category => {
             category.innerHTML = '';
         })
         //add real cards for n items in data
-        data.forEach(dataItem => {
+        res.forEach(dataItem => {
             cards.forEach(category => {
                 if (category.closest('.cards').classList.contains(dataItem.category)) {
                     category.append(cardsItemTemplate.content.cloneNode(true));
@@ -97,39 +97,46 @@ function fetchProductsData(url) {
 
         const cardsItem = document.querySelectorAll('.cards__item');
         //card info
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < res.length; i++) {
 
-                const card = cardsItem[i];
-                //image
-                card.firstElementChild.style.background = `url(/${data[i].image}) no-repeat center / contain`;
-                //header
-                card.lastElementChild.firstElementChild.textContent = data[i].header;
-                //weight
-                card.lastElementChild.firstElementChild.nextElementSibling.textContent = data[i].category === 'drinks' ? `Объем: ${data[i].weight} л` : `Вес: ${data[i].weight} г`;
-                //price
-                card.lastElementChild.lastElementChild.firstElementChild.textContent = `${data[i].price}грн.`;
-                //text
-                card.lastElementChild.lastElementChild.previousElementSibling.textContent = data[i].text;
+            const card = cardsItem[i];
+            const marks = card.firstElementChild;
+            const icons = marks.lastElementChild;
+            const data = card.lastElementChild;
+            const header = data.firstElementChild;
+            const itemInfo = data.lastElementChild;
 
-                if (data[i].isHit) {
-                    card.firstElementChild.classList.add('cards__item_new');
-                }
+            marks.style.background = `url(/${res[i].image}) no-repeat top / contain`;
 
-                if (data[i].isNew) {
-                    card.firstElementChild.classList.add('cards__item_hit');
-                }
+            header.textContent = res[i].header;
 
-                if (data[i].isSpicy) {
-                    card.firstElementChild.lastElementChild.classList.add('cards__item_spicy');
-                }
+            header.nextElementSibling.textContent = res[i].category === 'drinks' ? `Объем: ${res[i].weight} л` : `Вес: ${res[i].weight} г`;
 
-                if (data[i].isEco) {
-                    card.firstElementChild.lastElementChild.classList.add('cards__item_eco');
-                }
+            //price
+            itemInfo.firstElementChild.textContent = `${res[i].price}грн.`;
 
-                if (data[i].isDisposable) {
-                    card.firstElementChild.lastElementChild.classList.add('cards__item_disposable');
-                }
+            //text
+            itemInfo.previousElementSibling.textContent = res[i].text;
+
+            if (res[i].isHit) {
+                marks.classList.add('cards__item_new');
             }
+
+            if (res[i].isNew) {
+                marks.classList.add('cards__item_hit');
+            }
+
+            if (res[i].isSpicy) {
+                icons.classList.add('cards__item_spicy');
+            }
+
+            if (res[i].isEco) {
+                icons.classList.add('cards__item_eco');
+            }
+
+            if (res[i].isDisposable) {
+                icons.classList.add('cards__item_disposable');
+            }
+        }
     }).catch(error => console.log(error));
 }
