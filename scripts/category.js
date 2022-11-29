@@ -3,9 +3,12 @@
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
 
+let url = `http://localhost:3000/products?_page=1&_limit=8&category=${category}`;
+
 fillWithSkeleton();
 backEvent();
-fetchProductsData(category);
+fetchProductsData();
+filters();
 
 function backEvent() {
     const backBtn = document.querySelector('.header__navigation--back');
@@ -15,8 +18,8 @@ function backEvent() {
     })
 }
 
-function fetchProductsData(category) {
-    const url = `http://localhost:3000/products?_page=1&_limit=8&category=${category}`;
+function fetchProductsData() {
+
     const cardsItemTemplate = document.querySelector('.card__template');
     const cardContainer = document.querySelector('.cards');
 
@@ -30,6 +33,15 @@ function fetchProductsData(category) {
 
         const cards = document.querySelectorAll('.cards__item');
 
+        if (cards.length === 0) {
+            const par = document.createElement('p');
+            const showMoreBtn = document.querySelector('.category__showmore');
+            par.textContent = 'Не найдено';
+            cardContainer.append(par);
+            showMoreBtn.style.display = 'none';
+            
+        }
+
         for (let i = 0; i < res.length; i++) {
 
             const card = cards[i];
@@ -40,14 +52,14 @@ function fetchProductsData(category) {
             const itemInfo = data.lastElementChild;
 
             marks.style.background = `url(/${res[i].image}) no-repeat top / contain`;
-            
+
             header.textContent = res[i].header;
-            
+
             header.nextElementSibling.textContent = res[i].category === 'drinks' ? `Объем: ${res[i].weight} л` : `Вес: ${res[i].weight} г`;
-            
+
             //price
             itemInfo.firstElementChild.textContent = `${res[i].price}грн.`;
-            
+
             //text
             itemInfo.previousElementSibling.textContent = res[i].text;
 
@@ -78,9 +90,85 @@ function fillWithSkeleton() {
     const cards = document.querySelector('.cards');
     const cardSkeletonTemplate = document.querySelector('.card__template--skeleton');
 
-
     for (let i = 0; i < 8; i++) {
         cards.append(cardSkeletonTemplate.content.cloneNode(true));
     }
+}
 
+function filters() {
+    typeFilter();
+    flavorFilter();
+    fishFilter();
+}
+
+function typeFilter() {
+    const typeBtns = document.querySelectorAll('.category__filter--item');
+
+    typeBtns.forEach(btn => {
+        btn.addEventListener('click', event => {
+            const type = btn.dataset.type;
+
+            for (let i = 0; i < typeBtns.length; i++) {
+                typeBtns[i].classList.remove('category__filter--item_active');
+            }
+
+            btn.classList.add('category__filter--item_active');
+
+            if (type === 'all') {
+
+                const reg = new RegExp('&type=[a-zA-Z]+');
+                url = url.replace(reg, '');
+
+            } else if (!url.includes(`&type=`)) {
+
+                url += `&type=${type}`;
+
+            } else {
+
+                const reg = new RegExp('&type=[a-zA-Z]+');
+                url = url.replace(reg, `&type=${type}`);
+            }
+            fetchProductsData();
+        });
+    })
+}
+
+function flavorFilter() {
+    const flavorBtns = document.querySelectorAll('.category__filter--flavoritem');
+
+    flavorBtns.forEach(btn => {
+        btn.addEventListener('click', event => {
+            btn.classList.toggle('active');
+
+            const flavor = `&${btn.dataset.flavor}`;
+
+            if (!url.includes(flavor)) {
+                url += flavor;
+            } else {
+                url = url.replace(flavor, '');
+            }
+            fetchProductsData();
+        });
+    });
+
+}
+
+function fishFilter() {
+    const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
+
+    fishsBtn.forEach(btn => {
+        btn.addEventListener('click', event => {
+            btn.classList.toggle('active');
+
+            const fish = `&ingridients_like=${btn.dataset.fish}`;
+
+            if (!url.includes(fish)) {
+                url += fish;
+            } else {
+                url = url.replace(fish, '');
+            }
+
+            fetchProductsData();
+        });
+    });
 }

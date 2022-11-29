@@ -290,13 +290,13 @@
         <h2 class="category__header">Роллы</h2>
         <div class="category__filter--type">
           <div class="category__filter--row">
-            <button class="category__filter--item category__filter--item_active">Все</button>
-            <button class="category__filter--item">Классические</button>
-            <button class="category__filter--item">Маки</button>
-            <button class="category__filter--item">Драконы</button>
-            <button class="category__filter--item">Запеченные</button>
-            <button class="category__filter--item">Феликсы</button>
-            <button class="category__filter--item">Сладкие</button>
+            <button class="category__filter--item category__filter--item_active" data-type="all">Все</button>
+            <button class="category__filter--item" data-type="classic">Классические</button>
+            <button class="category__filter--item" data-type="maki">Маки</button>
+            <button class="category__filter--item" data-type="dragons">Драконы</button>
+            <button class="category__filter--item" data-type="baked">Запеченные</button>
+            <button class="category__filter--item" data-type="felixes">Феликсы</button>
+            <button class="category__filter--item" data-type="sweet">Сладкие</button>
           </div>
           <button class="category__filter--sort">
             <span class="category__filter--sortitem">От дорогих к дешевым</span>
@@ -305,36 +305,36 @@
         </div>
         <div class="category__filter--tabs">
           <div class="category__filter--flavor">
-            <button class="category__filter--flavoritem active">
+            <button class="category__filter--flavoritem" data-flavor="isSpicy=true">
               <img src="/assets/svg/item__spicy.svg" alt="spicy">
               <span class="category__filter--name">Острые</span>
             </button>
-            <button class="category__filter--flavoritem">
+            <button class="category__filter--flavoritem" data-flavor="isEco=true">
               <img src="/assets/svg/item__eco.svg" alt="eco">
               <span class="category__filter--name">Вегетарианские</span>              
             </button>
-            <button class="category__filter--flavoritem">
+            <button class="category__filter--flavoritem" data-flavor="isDisposable=true">
               <img src="/assets/svg/item__disposable.svg" alt="dis">
               <span class="category__filter--name">Безлактозные</span>   
             </button>
           </div>
           <div class="category__filter--fish">
-            <button class="category__filter--fishitem active">
+            <button class="category__filter--fishitem" data-fish="salmon">
               <img src="/assets/png/category__filter--fish1.png" alt="fish">
               Лосось
             </button>
 
-            <button class="category__filter--fishitem active">
+            <button class="category__filter--fishitem" data-fish="acne">
               <img src="/assets/png/category__filter--fish2.png" alt="fish">
               Угорь
             </button>
 
-            <button class="category__filter--fishitem">
+            <button class="category__filter--fishitem" data-fish="tuna">
               <img src="/assets/png/category__filter--fish3.png" alt="fish">
               Тунец
             </button>
 
-            <button class="category__filter--fishitem active">
+            <button class="category__filter--fishitem" data-fish="chicken">
               <img src="/assets/png/category__filter--fish4.png" alt="fish">
               Куриное филе
             </button>

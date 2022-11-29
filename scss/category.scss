@@ -83,10 +83,11 @@
     }
 
     .active {
-        border: 2px solid $accent2;
+        outline: 2px solid $accent2;
     }
 
     .cards {
+        justify-content: center;
         flex-basis: 100%;
         display: flex;
         gap: 16px;
@@ -127,7 +128,7 @@
             gap: 8px;
             background: $white;
             border-radius: 12px;
-            flex: 1 1 20%;
+            flex: 0 1 20%;
             padding: 24px;
 
             &--marks {
