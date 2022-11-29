@@ -16,7 +16,7 @@
   line-height: 1.5rem;
 }
 
-.category__filter--item, .category__filter--flavoritem, .category__filter--fishitem, .category__filter--menu, .category__submenu--reset, .footer__menu--link, .footer__list, .footer__time--text, .footer__social--tech, .footer__hashtag--link, .footer__quicktip--button, .header, .header__buttons > *, .header__menu_overlay .overlay__buttons > *, .header__menu_overlay .overlay__contacts--link {
+.category__filter--item, .category__filter--flavoritem, .category__filter--fishitem, .category__filter--menu, .category__filter--counter, .category__submenu--reset, .footer__menu--link, .footer__list, .footer__time--text, .footer__social--tech, .footer__hashtag--link, .footer__quicktip--button, .header, .header__buttons > *, .header__menu_overlay .overlay__buttons > *, .header__menu_overlay .overlay__contacts--link {
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -922,6 +922,17 @@ a:link, a:visited {
 }
 .category__filter--menu {
   padding: 18px 16px;
+  position: relative;
+}
+.category__filter--counter {
+  display: none;
+  position: absolute;
+  right: -15%;
+  top: -15%;
+  color: #fff;
+  padding: 3px 10px;
+  background-color: #FF6633;
+  border-radius: 100px;
 }
 .category__filter--text {
   display: none;
@@ -975,7 +986,8 @@ a:link, a:visited {
 }
 .category .cards {
   flex-basis: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 24%);
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -1088,6 +1100,9 @@ a:link, a:visited {
   display: inline;
 }
 @media (max-width: 1350px) {
+  .category .cards {
+    grid-template-columns: repeat(auto-fit, 32%);
+  }
   .category .cards__item--price {
     font-size: 1.5rem;
   }
@@ -1101,16 +1116,22 @@ a:link, a:visited {
     flex: 25%;
   }
 }
+@media (max-width: 940px) {
+  .category .cards {
+    grid-template-columns: repeat(auto-fit, 49%);
+  }
+}
 @media (max-width: 900px) {
   .category .cards__row::after {
     content: none;
   }
-  .category .cards__item {
-    flex: 1 1 30%;
-    padding: 8px;
-  }
   .category .cards__item--buttons {
     gap: 8px;
+  }
+}
+@media (max-width: 830px) {
+  .category .cards {
+    grid-template-columns: repeat(auto-fit, 100%);
   }
 }
 @media (max-width: 760px) {
@@ -1177,9 +1198,6 @@ a:link, a:visited {
   }
   .category .cards__item--add {
     padding: 6px 14px;
-  }
-  .category .cards__item:nth-last-child(-n+4) {
-    display: none;
   }
 }
 @media (max-width: 1500px) {
@@ -1248,7 +1266,7 @@ a:link, a:visited {
   .category__filter--fish {
     width: 100%;
   }
-  .category__filter--fish > *:not(:last-child) {
+  .category__filter--fish > *:not(:nth-last-child(-n+2)) {
     display: none;
   }
   .category__filter--type, .category__filter--tabs {

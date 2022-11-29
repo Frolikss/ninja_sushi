@@ -78,6 +78,20 @@
 
         &--menu {
             padding: 18px 16px;
+            position: relative;
+        }
+
+        &--counter {
+            @extend %medium1624;
+
+            display: none;
+            position: absolute;
+            right: -15%;
+            top: -15%;
+            color: $white;
+            padding: 3px 10px;
+            background-color: $accent2;
+            border-radius: 100px;
         }
 
         &--text {
@@ -150,7 +164,8 @@
 
     .cards {
         flex-basis: 100%;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 24%);
         gap: 16px;
         flex-wrap: wrap;
 
@@ -311,6 +326,7 @@
         }
 
         @media (max-width: 1350px) {
+            grid-template-columns: repeat(auto-fit, 32%);
             &__item {
                 &--price {
                     font-size: 1.5rem;
@@ -329,19 +345,24 @@
             }
         }
 
+        @media (max-width: 940px) {
+            grid-template-columns: repeat(auto-fit, 49%);
+        }
+
         @media (max-width: 900px) {
             &__row::after {
                 content: none;
             }
 
             &__item {
-                flex: 1 1 30%;
-                padding: 8px;
-
                 &--buttons {
                     gap: 8px;
                 }
             }
+        }
+
+        @media (max-width: 830px) {
+            grid-template-columns: repeat(auto-fit, 100%);
         }
 
         @media (max-width: 760px) {
@@ -427,10 +448,6 @@
 
                 &--add {
                     padding: 6px 14px;
-                }
-
-                &:nth-last-child(-n + 4) {
-                    display: none;
                 }
             }
         }
@@ -534,7 +551,7 @@
             &--fish {
                 width: 100%;
 
-                & > *:not(:last-child) {
+                & > *:not(:nth-last-child(-n+2)){
                     display: none;
                 }
             }

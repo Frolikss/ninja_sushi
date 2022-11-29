@@ -137,6 +137,7 @@ function flavorFilter() {
                 url += flavor;
             } else {
                 url = url.replace(flavor, '');
+                counter.textContent -= 1;
             }
             fetchProductsData();
         });
@@ -146,7 +147,7 @@ function flavorFilter() {
 
 function fishFilter() {
     const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
-
+    const counter = document.querySelector('.category__filter--counter');
     fishsBtn.forEach(btn => {
         btn.addEventListener('click', event => {
             btn.classList.toggle('active');
@@ -155,9 +156,14 @@ function fishFilter() {
 
             if (!url.includes(fish)) {
                 url += fish;
+                counter.textContent = +counter.textContent + 1;
             } else {
                 url = url.replace(fish, '');
+                counter.textContent -= 1;
             }
+
+            counter.textContent <= 0 ? counter.style.display = 'none' :
+            counter.style.display = 'block';
 
             fetchProductsData();
         });
@@ -169,24 +175,24 @@ function subMenu() {
     const subMenu = document.querySelector('.category__submenu');
     const subMenuCloseBtn = document.querySelector('.category__submenu--close');
     const subMenuReset = document.querySelector('.category__submenu--reset');
-    
+
     subMenuBtn.addEventListener('click', event => {
         subMenu.classList.toggle('category__submenu_active');
         subMenu.style.width = '100%';
     });
-    
+
     subMenuCloseBtn.addEventListener('click', event => {
         subMenu.classList.toggle('category__submenu_active');
         subMenu.style.width = '0';
     });
-    
+
     subMenuReset.addEventListener('click', event => {
         const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
-    
+
         fishsBtn.forEach(btn => {
             btn.classList.remove('active');
         });
-    
+
         if (url.includes('&ingridients_like')) {
             const reg = new RegExp('&ingridients_like=[a-zA-Z]+');
             url = url.replace(reg, '');
