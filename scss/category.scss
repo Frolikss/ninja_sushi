@@ -41,6 +41,10 @@
             }
         }
 
+        &--fish {
+            position: relative;
+        }
+
         &--sort,
         &--flavor,
         &--fish {
@@ -59,7 +63,8 @@
         }
 
         &--flavoritem,
-        &--fishitem {
+        &--fishitem,
+        &--menu {
             @extend %medium1624;
 
             max-height: 3.75rem;
@@ -71,14 +76,71 @@
             padding: 16px;
         }
 
-        &--fishitem {
-            &:last-child {
-                padding: 18px 16px;
-            }
+        &--menu {
+            padding: 18px 16px;
         }
 
         &--text {
             display: none;
+        }
+
+    }
+
+    &__submenu {
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: 8px;
+        background: $white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0px 6px 20px rgba(29, 29, 31, 0.07);
+        transition: all .5s;
+        z-index: -1;
+
+        &_active {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        &--info {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 24px 0;
+        }
+
+        &--header {
+            @extend %bold2430;
+        }
+
+        &--nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        &--reset {
+            @extend %medium1624;
+
+            color: $accent2;
+        }
+
+        &--close {
+            padding: 6px;
+            background: $bg-grey;
+            border-radius: 12px;
+        }
+
+        &--items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .category__filter--fishitem {
+            outline: 2px solid $separate1;
         }
     }
 
@@ -87,11 +149,14 @@
     }
 
     .cards {
-        justify-content: center;
         flex-basis: 100%;
         display: flex;
         gap: 16px;
         flex-wrap: wrap;
+
+        &__preloader {
+            position: relative;
+        }
 
         .hit,
         .new,
@@ -128,7 +193,7 @@
             gap: 8px;
             background: $white;
             border-radius: 12px;
-            flex: 0 1 20%;
+            flex: 1 1 20%;
             padding: 24px;
 
             &--marks {
@@ -242,6 +307,7 @@
                     display: inline;
                 }
             }
+
         }
 
         @media (max-width: 1350px) {
@@ -486,7 +552,7 @@
                 justify-content: space-between;
             }
 
-            &--fishitem:last-child {
+            &--menu {
                 width: 100%;
                 justify-content: center;
             }

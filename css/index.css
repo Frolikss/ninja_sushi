@@ -86,6 +86,10 @@ button {
   color: #1D1D1F;
   border: none;
   background: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 

@@ -5,10 +5,10 @@ const category = urlParams.get('category');
 
 let url = `http://localhost:3000/products?_page=1&_limit=8&category=${category}`;
 
-fillWithSkeleton();
 backEvent();
 fetchProductsData();
 filters();
+subMenu();
 
 function backEvent() {
     const backBtn = document.querySelector('.header__navigation--back');
@@ -37,9 +37,9 @@ function fetchProductsData() {
             const par = document.createElement('p');
             const showMoreBtn = document.querySelector('.category__showmore');
             par.textContent = 'Не найдено';
+            par.style.margin = '0 auto';
             cardContainer.append(par);
             showMoreBtn.style.display = 'none';
-            
         }
 
         for (let i = 0; i < res.length; i++) {
@@ -84,15 +84,6 @@ function fetchProductsData() {
             }
         }
     });
-}
-
-function fillWithSkeleton() {
-    const cards = document.querySelector('.cards');
-    const cardSkeletonTemplate = document.querySelector('.card__template--skeleton');
-
-    for (let i = 0; i < 8; i++) {
-        cards.append(cardSkeletonTemplate.content.cloneNode(true));
-    }
 }
 
 function filters() {
@@ -170,5 +161,36 @@ function fishFilter() {
 
             fetchProductsData();
         });
+    });
+}
+
+function subMenu() {
+    const subMenuBtn = document.querySelector('.category__filter--menu');
+    const subMenu = document.querySelector('.category__submenu');
+    const subMenuCloseBtn = document.querySelector('.category__submenu--close');
+    const subMenuReset = document.querySelector('.category__submenu--reset');
+    
+    subMenuBtn.addEventListener('click', event => {
+        subMenu.classList.toggle('category__submenu_active');
+        subMenu.style.width = '100%';
+    });
+    
+    subMenuCloseBtn.addEventListener('click', event => {
+        subMenu.classList.toggle('category__submenu_active');
+        subMenu.style.width = '0';
+    });
+    
+    subMenuReset.addEventListener('click', event => {
+        const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
+    
+        fishsBtn.forEach(btn => {
+            btn.classList.remove('active');
+        });
+    
+        if (url.includes('&ingridients_like')) {
+            const reg = new RegExp('&ingridients_like=[a-zA-Z]+');
+            url = url.replace(reg, '');
+            fetchProductsData();
+        }
     });
 }

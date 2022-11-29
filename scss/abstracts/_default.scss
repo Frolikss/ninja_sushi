@@ -10,6 +10,7 @@ button {
     color: $black;
     border: none;
     background: none;
+    user-select: none;
     cursor: pointer;
 }
 
