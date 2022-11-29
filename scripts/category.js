@@ -2,15 +2,13 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
-
-let url = `http://localhost:3000/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 const counter = document.querySelector('.category__filter--counter');
 
-changeHeaderCategory();
-backEvent();
+let url = `http://localhost:3000/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
+
 fetchProductsData();
 filters();
-subMenu();
+uiLogic();
 
 function backEvent() {
     const backBtn = document.querySelector('.header__navigation--back');
@@ -238,4 +236,10 @@ function changeHeaderCategory() {
             headerCategory.classList.add('header__subitem_selected');
         }
     });
+}
+
+function uiLogic() {
+    changeHeaderCategory();
+    backEvent();
+    subMenu();
 }
