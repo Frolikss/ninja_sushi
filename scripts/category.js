@@ -1,5 +1,5 @@
 "use strict"
-// header__subitem_selected
+
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
 
