@@ -33,57 +33,69 @@ function fetchProductsData() {
 
         const cards = document.querySelectorAll('.cards__item');
 
+        checkEmptyContainer(cards);
+
+        for (let i = 0; i < res.length; i++) {
+            fillCardWithJSON(cards[i], res, i);
+        }
+    });
+
+    function checkEmptyContainer(cards) {
+
         if (cards.length === 0) {
             const par = document.createElement('p');
             const showMoreBtn = document.querySelector('.category__showmore');
+
             par.textContent = 'Не найдено';
-            par.style.margin = '0 auto';
+            par.style.textAlign = 'center';
+
+            cardContainer.style.justifyContent = 'center';
             cardContainer.append(par);
+
             showMoreBtn.style.display = 'none';
         }
+    }
 
-        for (let i = 0; i < res.length; i++) {
+    function fillCardWithJSON(card, res, i) {
 
-            const card = cards[i];
-            const marks = card.firstElementChild;
-            const icons = marks.lastElementChild;
-            const data = card.lastElementChild;
-            const header = data.firstElementChild;
-            const itemInfo = data.lastElementChild;
+        const marks = card.firstElementChild;
+        const icons = marks.lastElementChild;
+        const data = card.lastElementChild;
+        const header = data.firstElementChild;
+        const itemInfo = data.lastElementChild;
 
-            marks.style.background = `url(/${res[i].image}) no-repeat top / contain`;
+        marks.style.background = `url(/${res[i].image}) no-repeat top / contain`;
 
-            header.textContent = res[i].header;
+        header.textContent = res[i].header;
 
-            header.nextElementSibling.textContent = res[i].category === 'drinks' ? `Объем: ${res[i].weight} л` : `Вес: ${res[i].weight} г`;
+        header.nextElementSibling.textContent = res[i].category === 'drinks' ? `Объем: ${res[i].weight} л` : `Вес: ${res[i].weight} г`;
 
-            //price
-            itemInfo.firstElementChild.textContent = `${res[i].price}грн.`;
+        //price
+        itemInfo.firstElementChild.textContent = `${res[i].price}грн.`;
 
-            //text
-            itemInfo.previousElementSibling.textContent = res[i].text;
+        //text
+        itemInfo.previousElementSibling.textContent = res[i].text;
 
-            if (res[i].isHit) {
-                marks.classList.add('cards__item_new');
-            }
-
-            if (res[i].isNew) {
-                marks.classList.add('cards__item_hit');
-            }
-
-            if (res[i].isSpicy) {
-                icons.classList.add('cards__item_spicy');
-            }
-
-            if (res[i].isEco) {
-                icons.classList.add('cards__item_eco');
-            }
-
-            if (res[i].isDisposable) {
-                icons.classList.add('cards__item_disposable');
-            }
+        if (res[i].isHit) {
+            marks.classList.add('cards__item_new');
         }
-    });
+
+        if (res[i].isNew) {
+            marks.classList.add('cards__item_hit');
+        }
+
+        if (res[i].isSpicy) {
+            icons.classList.add('cards__item_spicy');
+        }
+
+        if (res[i].isEco) {
+            icons.classList.add('cards__item_eco');
+        }
+
+        if (res[i].isDisposable) {
+            icons.classList.add('cards__item_disposable');
+        }
+    }
 }
 
 function filters() {
