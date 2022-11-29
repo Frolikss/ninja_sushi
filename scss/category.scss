@@ -41,11 +41,16 @@
             }
         }
 
+        &--sort {
+            outline: none;
+            border: none;
+            background: none;
+        }
+
         &--fish {
             position: relative;
         }
 
-        &--sort,
         &--flavor,
         &--fish {
             @extend %regular1624;
@@ -517,7 +522,6 @@
 
     @media (max-width: 1350px) {
         &__filter {
-            &--sort,
             &--flavor,
             &--fish,
             &--row {
@@ -566,7 +570,6 @@
 
             &--sort {
                 width: 100%;
-                justify-content: space-between;
             }
 
             &--menu {

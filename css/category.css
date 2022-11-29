@@ -10,7 +10,7 @@
   line-height: 1.25rem;
 }
 
-.category__filter--sort, .category__filter--flavor, .category__filter--fish, .category .cards__item--text, .footer__hashtag--text, .footer__quicktip--text {
+.category__filter--flavor, .category__filter--fish, .category .cards__item--text, .footer__hashtag--text, .footer__quicktip--text {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -897,10 +897,15 @@ a:link, a:visited {
   background: #FF6633;
   color: #fff;
 }
+.category__filter--sort {
+  outline: none;
+  border: none;
+  background: none;
+}
 .category__filter--fish {
   position: relative;
 }
-.category__filter--sort, .category__filter--flavor, .category__filter--fish {
+.category__filter--flavor, .category__filter--fish {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1244,7 +1249,7 @@ a:link, a:visited {
   align-self: center;
 }
 @media (max-width: 1350px) {
-  .category__filter--sort, .category__filter--flavor, .category__filter--fish, .category__filter--row {
+  .category__filter--flavor, .category__filter--fish, .category__filter--row {
     gap: 4px;
   }
 }
@@ -1277,7 +1282,6 @@ a:link, a:visited {
   }
   .category__filter--sort {
     width: 100%;
-    justify-content: space-between;
   }
   .category__filter--menu {
     width: 100%;

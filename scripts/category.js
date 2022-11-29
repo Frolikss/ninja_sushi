@@ -3,7 +3,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
 
-let url = `http://localhost:3000/products?_page=1&_limit=8&category=${category}`;
+let url = `http://localhost:3000/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 
 backEvent();
 fetchProductsData();
@@ -163,7 +163,7 @@ function fishFilter() {
             }
 
             counter.textContent <= 0 ? counter.style.display = 'none' :
-            counter.style.display = 'block';
+                counter.style.display = 'block';
 
             fetchProductsData();
         });
@@ -200,3 +200,12 @@ function subMenu() {
         }
     });
 }
+
+const orderSelect = document.querySelector('.category__filter--sort');
+
+orderSelect.addEventListener('change', event => {
+    const reg = new RegExp('&_order=[a-zA-Z]+');
+    url = url.replace(reg, `&${orderSelect.value}`);
+
+    fetchProductsData();
+});
