@@ -360,9 +360,26 @@ a:link, a:visited {
   align-items: center;
   justify-content: space-between;
   padding: 4px 16px;
+  transition: color 0.25s ease-out;
 }
 .header__subitem:nth-last-child(2), .header__subitem:last-child {
   color: #9E9E9E;
+}
+.header__subitem_selected {
+  color: #FF6633;
+}
+.header__subitem_selected:visited {
+  color: #FF6633;
+}
+.header__subitem_selected .header__subitem_active--icon {
+  fill: #FF6633;
+}
+.header__subitem:hover {
+  color: #FF6633;
+}
+.header__subitem:hover .header__subitem_active--icon {
+  transition: all 0.5s ease-in;
+  fill: #FF6633;
 }
 .header .overlay__list,
 .header .overlay__support,

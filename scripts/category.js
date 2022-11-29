@@ -1,10 +1,11 @@
 "use strict"
-
+// header__subitem_selected
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
 
 let url = `http://localhost:3000/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 
+changeHeaderCategory();
 backEvent();
 fetchProductsData();
 filters();
@@ -221,5 +222,15 @@ function orderFilter() {
         url = url.replace(reg, `&${orderSelect.value}`);
     
         fetchProductsData();
+    });
+}
+
+function changeHeaderCategory() {
+    const headerCategories = document.querySelectorAll('.header__subitem');
+
+    headerCategories.forEach(headerCategory => {
+        if (headerCategory.dataset.category === category) {
+            headerCategory.classList.add('header__subitem_selected');
+        }
     });
 }

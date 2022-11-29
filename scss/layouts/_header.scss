@@ -256,10 +256,32 @@
     align-items: center;
     justify-content: space-between;
     padding: 4px 16px;
+    transition: color .25s ease-out;
 
     &:nth-last-child(2),
     &:last-child {
       color: $textgrey3;
+    }
+
+    &_selected {
+      color: $accent2;
+
+      &:visited {
+        color: $accent2;
+      }
+
+      .header__subitem_active--icon {
+        fill: $accent2;
+      }
+    }
+
+    &:hover {
+      color: $accent2;
+
+      .header__subitem_active--icon {
+        transition: all .5s ease-in;
+        fill: $accent2;
+      }
     }
   }
 
