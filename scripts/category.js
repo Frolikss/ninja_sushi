@@ -102,6 +102,7 @@ function filters() {
     typeFilter();
     flavorFilter();
     fishFilter();
+    orderFilter();
 }
 
 function typeFilter() {
@@ -212,11 +213,13 @@ function subMenu() {
     });
 }
 
-const orderSelect = document.querySelector('.category__filter--sort');
+function orderFilter() {
+    const orderSelect = document.querySelector('.category__filter--sort');
 
-orderSelect.addEventListener('change', event => {
-    const reg = new RegExp('&_order=[a-zA-Z]+');
-    url = url.replace(reg, `&${orderSelect.value}`);
-
-    fetchProductsData();
-});
+    orderSelect.addEventListener('change', event => {
+        const reg = new RegExp('&_order=[a-zA-Z]+');
+        url = url.replace(reg, `&${orderSelect.value}`);
+    
+        fetchProductsData();
+    });
+}
