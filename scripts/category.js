@@ -137,7 +137,6 @@ function flavorFilter() {
                 url += flavor;
             } else {
                 url = url.replace(flavor, '');
-                counter.textContent -= 1;
             }
             fetchProductsData();
         });

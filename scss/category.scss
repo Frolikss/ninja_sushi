@@ -42,6 +42,7 @@
         }
 
         &--sort {
+            @extend %regular1624;
             outline: none;
             border: none;
             background: none;
