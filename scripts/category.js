@@ -184,26 +184,28 @@ function fishFilter() {
 }
 
 function subMenu() {
-    const subMenuBtn = document.querySelector('.category__filter--menu');
     const subMenu = document.querySelector('.category__submenu');
-    const subMenuCloseBtn = document.querySelector('.category__submenu--close');
-    const subMenuReset = document.querySelector('.category__submenu--reset');
 
-    subMenuBtn.addEventListener('click', event => {
+    const openBtn = document.querySelector('.category__filter--menu');
+    const closeBtn = document.querySelector('.category__submenu--close');
+    const resetBtn = document.querySelector('.category__submenu--reset');
+
+    openBtn.addEventListener('click', event => {
         subMenu.classList.toggle('category__submenu_active');
         subMenu.style.width = '100%';
     });
 
-    subMenuCloseBtn.addEventListener('click', event => {
+    closeBtn.addEventListener('click', event => {
         subMenu.classList.toggle('category__submenu_active');
         subMenu.style.width = '0';
     });
 
-    subMenuReset.addEventListener('click', event => {
+    resetBtn.addEventListener('click', event => {
         const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
-        
-        counter.textContent = 0
-        
+
+        counter.textContent = 0;
+        counter.style.display = 'none';
+
         fishsBtn.forEach(btn => {
             btn.classList.remove('active');
         });
@@ -211,7 +213,7 @@ function subMenu() {
         if (url.includes('&ingridients_like')) {
             const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
             url = url.replace(reg, '');
-            console.log(url);
+
             fetchProductsData();
         }
     });
@@ -223,7 +225,7 @@ function orderFilter() {
     orderSelect.addEventListener('change', event => {
         const reg = new RegExp('&_order=[a-zA-Z]+');
         url = url.replace(reg, `&${orderSelect.value}`);
-    
+
         fetchProductsData();
     });
 }
