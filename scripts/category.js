@@ -4,6 +4,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
 
 let url = `http://localhost:3000/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
+const counter = document.querySelector('.category__filter--counter');
 
 changeHeaderCategory();
 backEvent();
@@ -160,7 +161,6 @@ function flavorFilter() {
 
 function fishFilter() {
     const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
-    const counter = document.querySelector('.category__filter--counter');
     fishsBtn.forEach(btn => {
         btn.addEventListener('click', event => {
             btn.classList.toggle('active');
@@ -201,14 +201,17 @@ function subMenu() {
 
     subMenuReset.addEventListener('click', event => {
         const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
-
+        
+        counter.textContent = 0
+        
         fishsBtn.forEach(btn => {
             btn.classList.remove('active');
         });
 
         if (url.includes('&ingridients_like')) {
-            const reg = new RegExp('&ingridients_like=[a-zA-Z]+');
+            const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
             url = url.replace(reg, '');
+            console.log(url);
             fetchProductsData();
         }
     });

@@ -89,7 +89,7 @@
       "isSpicy": false,
       "isEco": true,
       "isDisposable": true,
-      "ingridients": ["salmon", "acne", "cream cheese"],
+      "ingridients": ["salmon", "acne", "creamcheese"],
       "type": "classic"
     },
     {
@@ -233,7 +233,7 @@
       "isSpicy": true,
       "isEco": true,
       "isDisposable": false,
-      "ingridients": ["tuna", "shiitake", "cream cheese"],
+      "ingridients": ["tuna", "shiitake", "creamcheese"],
       "type": "dragons"
     },
     {
@@ -249,7 +249,7 @@
       "isSpicy": false,
       "isEco": true,
       "isDisposable": false,
-      "ingridients": ["tuna", "shiitake", "cream cheese"],
+      "ingridients": ["tuna", "shiitake", "creamcheese"],
       "type": "maki"
     },
     {
@@ -265,7 +265,7 @@
       "isSpicy": true,
       "isEco": true,
       "isDisposable": true,
-      "ingridients": ["tuna", "shiitake", "cream cheese"],
+      "ingridients": ["tuna", "shiitake", "creamcheese"],
       "type": "maki"
     },
     {
@@ -281,7 +281,7 @@
       "isSpicy": true,
       "isEco": false,
       "isDisposable": true,
-      "ingridients": ["tuna", "shiitake", "cream cheese"],
+      "ingridients": ["tuna", "shiitake", "creamcheese"],
       "type": "dragons"
     },
     {
@@ -297,7 +297,7 @@
       "isSpicy": true,
       "isEco": false,
       "isDisposable": false,
-      "ingridients": ["salmon", "acne", "tuna", "chicken", "tofu", "cream cheese", "avocado", "tomato" , "shiitake"],
+      "ingridients": ["salmon", "acne", "tuna", "chicken", "tofu", "creamcheese", "avocado", "tomato" , "shiitake"],
       "type": "dragons"
     },
     {
@@ -313,7 +313,7 @@
       "isSpicy": true,
       "isEco": false,
       "isDisposable": false,
-      "ingridients": ["salmon", "acne", "tuna", "chicken", "tofu", "cream cheese", "avocado", "tomato" , "shiitake"],
+      "ingridients": ["salmon", "acne", "tuna", "chicken", "tofu", "creamcheese", "avocado", "tomato" , "shiitake"],
       "type": "baked"
     },
     {
@@ -361,7 +361,7 @@
       "isSpicy": false,
       "isEco": true,
       "isDisposable": false,
-      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "ingridients": ["avocado", "creamcheese", "tofu"],
       "type": "baked"
     },
     {
@@ -377,7 +377,7 @@
       "isSpicy": true,
       "isEco": true,
       "isDisposable": false,
-      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "ingridients": ["avocado", "creamcheese", "tofu"],
       "type": "baked"
     },
     {
@@ -393,7 +393,7 @@
       "isSpicy": true,
       "isEco": false,
       "isDisposable": true,
-      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "ingridients": ["avocado", "creamcheese", "tofu"],
       "type": "felixes"
     },
     {
@@ -409,7 +409,7 @@
       "isSpicy": false,
       "isEco": true,
       "isDisposable": true,
-      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "ingridients": ["avocado", "creamcheese", "tofu"],
       "type": "felixes"
     },
     {
@@ -425,7 +425,7 @@
       "isSpicy": true,
       "isEco": true,
       "isDisposable": false,
-      "ingridients": ["avocado", "cream cheese", "tofu"],
+      "ingridients": ["avocado", "creamcheese", "tofu"],
       "type": "felixes"
     },
     {
