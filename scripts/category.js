@@ -196,10 +196,11 @@ function configMenu() {
     const closeBtn = document.querySelector('.category__submenu--close');
 
     if (!mobileMediaQ.matches) {
-        configMenuDesktop(subMenu, openBtn, closeBtn);
+        configMenuDesktop();
     } else {
         configMenuMobile(subMenu, openBtn, closeBtn);
     }
+    configMenuBtns(subMenu, openBtn, closeBtn);
 }
 
 function orderFilter() {
@@ -256,38 +257,18 @@ function showOverlay() {
     });
 }
 
-function configMenuMobile(subMenu, openBtn, closeBtn) {
+function configMenuMobile() {
     const fitlerMenuBtn = document.querySelector('.category__filter--menu');
     const categoryMenu = document.querySelector('.category__submenu');
     
-    openBtn.addEventListener('click', event => {
-        subMenu.classList.toggle('category__submenu_active');
-        subMenu.style.width = '100%';
-    });
-
-    closeBtn.addEventListener('click', event => {
-        subMenu.classList.toggle('category__submenu_active');
-        subMenu.style.width = '0';
-    });
-
     fitlerMenuBtn.addEventListener('click', event => {
         categoryMenu.classList.toggle('category__submenu_mobile');
     })
 }
 
-function configMenuDesktop(subMenu, openBtn, closeBtn) {
+function configMenuDesktop() {
 
     const resetBtn = document.querySelector('.category__submenu--reset');
-
-    openBtn.addEventListener('click', event => {
-        subMenu.classList.toggle('category__submenu_active');
-        subMenu.style.width = '50%';
-    });
-
-    closeBtn.addEventListener('click', event => {
-        subMenu.classList.toggle('category__submenu_active');
-        subMenu.style.width = '0';
-    });
 
     resetBtn.addEventListener('click', event => {
         const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
@@ -306,4 +287,17 @@ function configMenuDesktop(subMenu, openBtn, closeBtn) {
             fetchProductsData();
         }
     });
+}
+
+function configMenuBtns(subMenu, openBtn, closeBtn) {
+    openBtn.addEventListener('click', event => {
+        subMenu.classList.toggle('category__submenu_active');
+        subMenu.style.width = mobileMediaQ.matches ? '100%' : '50%';
+    });
+
+    closeBtn.addEventListener('click', event => {
+        subMenu.classList.toggle('category__submenu_active');
+        subMenu.style.width = '0';
+    });
+
 }
