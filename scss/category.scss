@@ -65,10 +65,10 @@
             top: 0;
             left: 0;
             box-sizing: border-box;
-
+            overflow: scroll;
+            
             .category {
                 &__submenu {
-                    overflow: scroll;
 
                     &--reset {
                         display: none;
@@ -101,7 +101,7 @@
 
                     &--clear,
                     &--apply {
-                        @extend %medium1824;
+                        @extend %medium1826;
                         flex: 1 1 auto;
                         border-radius: 12px;
                         padding: 16px;
@@ -718,4 +718,8 @@
             }
         }
     }
+}
+
+.lock {
+    overflow: hidden;
 }

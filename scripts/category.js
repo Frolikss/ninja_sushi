@@ -293,11 +293,13 @@ function configMenuBtns(subMenu, openBtn, closeBtn) {
     openBtn.addEventListener('click', event => {
         subMenu.classList.toggle('category__submenu_active');
         subMenu.style.width = mobileMediaQ.matches ? '100%' : '50%';
+        document.body.classList.toggle('lock');
     });
 
     closeBtn.addEventListener('click', event => {
         subMenu.classList.toggle('category__submenu_active');
         subMenu.style.width = '0';
+        document.body.classList.toggle('lock');
     });
 
 }

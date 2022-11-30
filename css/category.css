@@ -936,8 +936,6 @@ a:link, a:visited {
   top: 0;
   left: 0;
   box-sizing: border-box;
-}
-.category__submenu_mobile .category__submenu {
   overflow: scroll;
 }
 .category__submenu_mobile .category__submenu--reset {
@@ -1399,4 +1397,8 @@ a:link, a:visited {
   .category__filter--sort {
     padding: 18px 12px;
   }
+}
+
+.lock {
+  overflow: hidden;
 }
