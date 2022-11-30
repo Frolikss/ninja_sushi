@@ -57,11 +57,11 @@
         }
 
         &_mobile {
+            position: fixed;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: 8px;
-            position: fixed;
             height: 100vh;
             top: 0;
             left: 0;
@@ -190,7 +190,6 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            position: relative;
         }
 
         &--type {
@@ -237,6 +236,7 @@
         }
 
         &--tabs {
+            position: relative;
             display: flex;
             justify-content: space-between;
             max-height: 3.75rem;

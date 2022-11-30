@@ -228,7 +228,7 @@ function headersCahnge() {
     const activeCategory = document.querySelector('.header__subitem_selected');
     const categoryHeader = document.querySelector('.category__header');
     const navigationHeader = document.querySelector('.header__navigation--itemtext');
-    
+
     categoryHeader.textContent = activeCategory.textContent;
     navigationHeader.textContent = activeCategory.textContent;
 }
@@ -263,14 +263,23 @@ function configMenuMobile() {
     categoryMenu.style.right = 'auto';
     categoryMenu.style.left = '0';
     counter.style.opacity = '0';
-    
+
     const mobileResetBtn = document.querySelector('.category__submenu--clear');
     const mobileApplyBtn = document.querySelector('.category__submenu--apply');
+    const flavorBtns = document.querySelectorAll('.category__filter--flavoritem');
 
-    mobileResetBtn.addEventListener('click', resetEvent);
+    mobileResetBtn.addEventListener('click', event => {
+        resetEvent();
+        flavorBtns.forEach(btn => {
+            btn.classList.remove('active');
+            url = url.replace(`&${btn.dataset.flavor}`, '');
+        })
+        fetchProductsData();
+    });
 
     mobileApplyBtn.addEventListener('click', event => {
         categoryMenu.classList.toggle('category__submenu_mobile');
+        document.body.classList.toggle('lock');
     })
 }
 
