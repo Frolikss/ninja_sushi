@@ -259,32 +259,43 @@ function showOverlay() {
 
 function configMenuMobile() {
     const categoryMenu = document.querySelector('.category__submenu');
+
     categoryMenu.style.right = 'auto';
     categoryMenu.style.left = '0';
-    //TODO buttons
+    counter.style.opacity = '0';
+    
+    const mobileResetBtn = document.querySelector('.category__submenu--clear');
+    const mobileApplyBtn = document.querySelector('.category__submenu--apply');
+
+    mobileResetBtn.addEventListener('click', resetEvent);
+
+    mobileApplyBtn.addEventListener('click', event => {
+        categoryMenu.classList.toggle('category__submenu_mobile');
+    })
 }
 
 function configMenuDesktop() {
 
     const resetBtn = document.querySelector('.category__submenu--reset');
+    resetBtn.addEventListener('click', resetEvent);
+}
 
-    resetBtn.addEventListener('click', event => {
-        const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
+function resetEvent() {
+    const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
 
-        counter.textContent = 0;
-        counter.style.display = 'none';
+    counter.textContent = 0;
+    counter.style.display = 'none';
 
-        fishsBtn.forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        if (url.includes('&ingridients_like')) {
-            const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
-            url = url.replace(reg, '');
-
-            fetchProductsData();
-        }
+    fishsBtn.forEach(btn => {
+        btn.classList.remove('active');
     });
+
+    if (url.includes('&ingridients_like')) {
+        const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
+        url = url.replace(reg, '');
+
+        fetchProductsData();
+    }
 }
 
 function configMenuBtns(subMenu, openBtn, closeBtn) {
