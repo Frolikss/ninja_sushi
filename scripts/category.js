@@ -258,6 +258,9 @@ function showOverlay() {
 }
 
 function configMenuMobile() {
+    const categoryMenu = document.querySelector('.category__submenu');
+    categoryMenu.style.right = 'auto';
+    categoryMenu.style.left = '0';
     //TODO buttons
 }
 
