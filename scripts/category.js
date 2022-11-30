@@ -258,12 +258,7 @@ function showOverlay() {
 }
 
 function configMenuMobile() {
-    const fitlerMenuBtn = document.querySelector('.category__filter--menu');
-    const categoryMenu = document.querySelector('.category__submenu');
-    
-    fitlerMenuBtn.addEventListener('click', event => {
-        categoryMenu.classList.toggle('category__submenu_mobile');
-    })
+    //TODO buttons
 }
 
 function configMenuDesktop() {
@@ -291,14 +286,12 @@ function configMenuDesktop() {
 
 function configMenuBtns(subMenu, openBtn, closeBtn) {
     openBtn.addEventListener('click', event => {
-        subMenu.classList.toggle('category__submenu_active');
-        subMenu.style.width = mobileMediaQ.matches ? '100%' : '50%';
+        subMenu.classList.toggle(mobileMediaQ.matches ? 'category__submenu_mobile' : 'category__submenu_active');
         document.body.classList.toggle('lock');
     });
 
     closeBtn.addEventListener('click', event => {
-        subMenu.classList.toggle('category__submenu_active');
-        subMenu.style.width = '0';
+        subMenu.classList.remove('category__submenu_active', 'category__submenu_mobile');
         document.body.classList.toggle('lock');
     });
 

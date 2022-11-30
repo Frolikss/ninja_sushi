@@ -925,6 +925,7 @@ a:link, a:visited {
 .category__submenu_active {
   z-index: 101;
   opacity: 1;
+  width: 50%;
 }
 .category__submenu_mobile {
   display: flex;
@@ -937,6 +938,9 @@ a:link, a:visited {
   left: 0;
   box-sizing: border-box;
   overflow: scroll;
+  z-index: 102;
+  opacity: 1;
+  width: 100%;
 }
 .category__submenu_mobile .category__submenu--reset {
   display: none;

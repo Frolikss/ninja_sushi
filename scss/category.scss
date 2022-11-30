@@ -53,6 +53,7 @@
         &_active {
             z-index: 101;
             opacity: 1;
+            width: 50%;
         }
 
         &_mobile {
@@ -66,7 +67,10 @@
             left: 0;
             box-sizing: border-box;
             overflow: scroll;
-            
+            z-index: 102;
+            opacity: 1;
+            width: 100%;
+
             .category {
                 &__submenu {
 
