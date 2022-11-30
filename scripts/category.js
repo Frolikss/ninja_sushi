@@ -242,4 +242,14 @@ function uiLogic() {
     changeHeaderCategory();
     backEvent();
     subMenu();
+    headersCahnge();
+}
+
+function headersCahnge() {
+    const activeCategory = document.querySelector('.header__subitem_selected');
+    const categoryHeader = document.querySelector('.category__header');
+    const navigationHeader = document.querySelector('.header__navigation--itemtext');
+    
+    categoryHeader.textContent = activeCategory.textContent;
+    navigationHeader.textContent = activeCategory.textContent;
 }
