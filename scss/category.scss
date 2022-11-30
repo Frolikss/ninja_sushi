@@ -17,7 +17,178 @@
         flex-basis: 100%;
     }
 
+
+    &__submenu {
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: 8px;
+        background: $white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0px 6px 20px rgba(29, 29, 31, 0.07);
+        transition: all .5s;
+        z-index: -1;
+
+        &--buttons {
+            display: none;
+        }
+
+        &--type {
+            display: none;
+        }
+
+        &--flavor {
+            display: none;
+        }
+
+        &--items {
+            .category__submenu--header {
+                display: none;
+            }
+        }
+
+        &_active {
+            z-index: 101;
+            opacity: 1;
+        }
+
+        &_mobile {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 8px;
+            position: fixed;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+
+            .category {
+                &__submenu {
+                    overflow: scroll;
+
+                    &--reset {
+                        display: none;
+                    }
+
+                    &--type,
+                    &--flavor,
+                    &--header {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                    }
+
+                    &--type,
+                    &--flavor,
+                    &--items {
+                        .category__submenu--header {
+                            @extend %medium1826;
+    
+                            color: $textgrey2;
+                            flex-basis: 100%;
+                        }
+                    }
+
+                    &--buttons {
+                        display: flex;
+                        gap: 16px;
+                        margin: 16px 0 0 0;
+                    }
+
+                    &--clear,
+                    &--apply {
+                        @extend %medium1824;
+                        flex: 1 1 auto;
+                        border-radius: 12px;
+                        padding: 16px;
+                    }
+
+                    &--clear {
+                        background: $bg-grey;
+                        color: $accent1;
+                    }
+
+                    &--apply {
+                        background: $accent1;
+                        color: $white;
+                    }
+                }
+
+                &__filter {
+                    &--fishitem {
+                        display: flex;
+                    }
+
+                    &--row {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                    }
+
+                    &--name {
+                        display: block;
+                    }
+
+                    &--item,
+                    &--flavoritem {
+                        background: $bg-grey;
+                    }
+                }
+            }
+        }
+
+        &--info {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 24px 0;
+        }
+
+        &--header {
+            @extend %bold2430;
+        }
+
+        &--nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        &--reset {
+            @extend %medium1624;
+
+            color: $accent2;
+        }
+
+        &--close {
+            padding: 6px;
+            background: $bg-grey;
+            border-radius: 12px;
+        }
+
+        &--items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .category__filter--fishitem {
+            outline: 2px solid $separate1;
+        }
+    }
+
     &__filter {
+        &--wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+        }
+
         &--type {
             display: flex;
             flex-basis: 100%;
@@ -36,7 +207,7 @@
             padding: 12px 16px;
 
             &_active {
-                background: $accent2;
+                background: $accent2 !important;
                 color: $white;
             }
         }
@@ -106,66 +277,9 @@
 
     }
 
-    &__submenu {
-        width: 0;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        right: 0;
-        top: 8px;
-        background: $white;
-        border-radius: 12px;
-        padding: 24px;
-        box-shadow: 0px 6px 20px rgba(29, 29, 31, 0.07);
-        transition: all .5s;
-        z-index: -1;
-
-        &_active {
-            z-index: 1;
-            opacity: 1;
-        }
-
-        &--info {
-            display: flex;
-            justify-content: space-between;
-            margin: 0 0 24px 0;
-        }
-
-        &--header {
-            @extend %bold2430;
-        }
-
-        &--nav {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        &--reset {
-            @extend %medium1624;
-
-            color: $accent2;
-        }
-
-        &--close {
-            padding: 6px;
-            background: $bg-grey;
-            border-radius: 12px;
-        }
-
-        &--items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .category__filter--fishitem {
-            outline: 2px solid $separate1;
-        }
-    }
-
     .active {
         outline: 2px solid $accent2;
+        background: $white;
     }
 
     .cards {
@@ -556,9 +670,10 @@
             &--fish {
                 width: 100%;
 
-                & > *:not(:nth-last-child(-n+2)){
-                    display: none;
-                }
+            }
+
+            &--fishitem {
+                display: none;
             }
 
             &--type,
@@ -571,6 +686,7 @@
 
             &--sort {
                 width: 100%;
+                padding: 18px;
             }
 
             &--menu {

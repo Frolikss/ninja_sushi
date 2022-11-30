@@ -406,125 +406,172 @@
     <section class="category">
       <div class="container">
         <h2 class="category__header"></h2>
-        <div class="category__filter--type">
-          <div class="category__filter--row">
-            <button class="category__filter--item category__filter--item_active" data-type="all">Все</button>
-            <button class="category__filter--item" data-type="classic">Классические</button>
-            <button class="category__filter--item" data-type="maki">Маки</button>
-            <button class="category__filter--item" data-type="dragons">Драконы</button>
-            <button class="category__filter--item" data-type="baked">Запеченные</button>
-            <button class="category__filter--item" data-type="felixes">Феликсы</button>
-            <button class="category__filter--item" data-type="sweet">Сладкие</button>
+        <div class="category__filter--wrapper">
+          <div class="category__filter--type">
+            <div class="category__filter--row">
+              <button class="category__filter--item category__filter--item_active" data-type="all">Все</button>
+              <button class="category__filter--item" data-type="classic">Классические</button>
+              <button class="category__filter--item" data-type="maki">Маки</button>
+              <button class="category__filter--item" data-type="dragons">Драконы</button>
+              <button class="category__filter--item" data-type="baked">Запеченные</button>
+              <button class="category__filter--item" data-type="felixes">Феликсы</button>
+              <button class="category__filter--item" data-type="sweet">Сладкие</button>
+            </div>
+            <select class="category__filter--sort">
+              <option value="_order=desc" selected>От дорогих к дешевым</option>
+              <option value="_order=asc">От дешевых к дорогим</option>
+            </select>
           </div>
-          <select class="category__filter--sort">
-            <option value="_order=desc" selected>От дорогих к дешевым</option>
-            <option value="_order=asc">От дешевых к дорогим</option>
-          </select>
-        </div>
-        <div class="category__filter--tabs">
-          <div class="category__filter--flavor">
-            <button class="category__filter--flavoritem" data-flavor="isSpicy=true">
-              <img src="/assets/svg/item__spicy.svg" alt="spicy">
-              <span class="category__filter--name">Острые</span>
-            </button>
-            <button class="category__filter--flavoritem" data-flavor="isEco=true">
-              <img src="/assets/svg/item__eco.svg" alt="eco">
-              <span class="category__filter--name">Вегетарианские</span>
-            </button>
-            <button class="category__filter--flavoritem" data-flavor="isDisposable=true">
-              <img src="/assets/svg/item__disposable.svg" alt="dis">
-              <span class="category__filter--name">Безлактозные</span>
-            </button>
+          <div class="category__filter--tabs">
+            <div class="category__filter--flavor">
+              <button class="category__filter--flavoritem" data-flavor="isSpicy=true">
+                <img src="/assets/svg/item__spicy.svg" alt="spicy">
+                <span class="category__filter--name">Острые</span>
+              </button>
+              <button class="category__filter--flavoritem" data-flavor="isEco=true">
+                <img src="/assets/svg/item__eco.svg" alt="eco">
+                <span class="category__filter--name">Вегетарианские</span>
+              </button>
+              <button class="category__filter--flavoritem" data-flavor="isDisposable=true">
+                <img src="/assets/svg/item__disposable.svg" alt="dis">
+                <span class="category__filter--name">Безлактозные</span>
+              </button>
+            </div>
+            <div class="category__filter--fish">
+              <button class="category__filter--fishitem" data-fish="salmon">
+                <img src="/assets/png/category__filter--fish1.png" alt="fish">
+                Лосось
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="acne">
+                <img src="/assets/png/category__filter--fish2.png" alt="fish">
+                Угорь
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="tuna">
+                <img src="/assets/png/category__filter--fish3.png" alt="fish">
+                Тунец
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="chicken">
+                <img src="/assets/png/category__filter--fish4.png" alt="fish">
+                Куриное филе
+              </button>
+
+              <button class="category__filter--menu">
+                <span class="category__filter--text">Фильтры</span>
+                <img src="/assets/svg/category__menu.svg" alt="menu">
+                <span class="category__filter--counter">0</span>
+              </button>
+
+            </div>
           </div>
-          <div class="category__filter--fish">
-            <button class="category__filter--fishitem" data-fish="salmon">
-              <img src="/assets/png/category__filter--fish1.png" alt="fish">
-              Лосось
-            </button>
-
-            <button class="category__filter--fishitem" data-fish="acne">
-              <img src="/assets/png/category__filter--fish2.png" alt="fish">
-              Угорь
-            </button>
-
-            <button class="category__filter--fishitem" data-fish="tuna">
-              <img src="/assets/png/category__filter--fish3.png" alt="fish">
-              Тунец
-            </button>
-
-            <button class="category__filter--fishitem" data-fish="chicken">
-              <img src="/assets/png/category__filter--fish4.png" alt="fish">
-              Куриное филе
-            </button>
-
-            <button class="category__filter--menu">
-              <span class="category__filter--text">Фильтр</span>
-              <img src="/assets/svg/category__menu.svg" alt="menu">
-              <span class="category__filter--counter">0</span>
-            </button>
-            <div class="category__submenu">
-              <div class="category__submenu--info">
-                <h2 class="category__submenu--header">
-                  Инградиенты
-                </h2>
-                <div class="category__submenu--nav">
-                  <button class="category__submenu--reset">
-                    Сбросить все
-                  </button>
-                  <button class="category__submenu--close">
-                    <img src="/assets/svg/close.svg" alt="close">
-                  </button>
-                </div>
-              </div>
-              <div class="category__submenu--items">
-                <button class="category__filter--fishitem" data-fish="salmon">
-                  <img src="/assets/png/category__filter--fish1.png" alt="fish">
-                  Лосось
+          <!-- category__submenu_mobile -->
+          <div class="category__submenu">
+            <div class="category__submenu--info">
+              <h2 class="category__submenu--header">
+                Инградиенты
+              </h2>
+              <div class="category__submenu--nav">
+                <button class="category__submenu--reset">
+                  Сбросить все
                 </button>
-
-                <button class="category__filter--fishitem" data-fish="acne">
-                  <img src="/assets/png/category__filter--fish2.png" alt="fish">
-                  Угорь
-                </button>
-
-                <button class="category__filter--fishitem" data-fish="tuna">
-                  <img src="/assets/png/category__filter--fish3.png" alt="fish">
-                  Тунец
-                </button>
-
-                <button class="category__filter--fishitem" data-fish="chicken">
-                  <img src="/assets/png/category__filter--fish4.png" alt="fish">
-                  Куриное филе
-                </button>
-
-                <button class="category__filter--fishitem" data-fish="tofu">
-                  <img src="/assets/png/category__filter--fish5.png" alt="fish">
-                  Тофу
-                </button>
-
-                <button class="category__filter--fishitem" data-fish="creamcheese">
-                  <img src="/assets/png/category__filter--fish6.png" alt="fish">
-                  Сливочный сыр
-                </button>
-
-                <button class="category__filter--fishitem" data-fish="avocado">
-                  <img src="/assets/png/category__filter--fish7.png" alt="fish">
-                  Авокадо
-                </button>
-
-                <button class="category__filter--fishitem" data-fish="tomato">
-                  <img src="/assets/png/category__filter--fish8.png" alt="fish">
-                  Помидор
-                </button>
-
-                <button class="category__filter--fishitem" data-fish="shiitake">
-                  <img src="/assets/png/category__filter--fish9.png" alt="fish">
-                  Гриб шитаки
+                <button class="category__submenu--close">
+                  <img src="/assets/svg/close.svg" alt="close">
                 </button>
               </div>
             </div>
+            <div class="category__submenu--type">
+              <h2 class="category__submenu--header">
+                 Категория
+              </h2>
+              <div class="category__filter--row">
+                <button class="category__filter--item category__filter--item_active" data-type="all">Все</button>
+                <button class="category__filter--item" data-type="classic">Классические</button>
+                <button class="category__filter--item" data-type="maki">Маки</button>
+                <button class="category__filter--item" data-type="dragons">Драконы</button>
+                <button class="category__filter--item" data-type="baked">Запеченные</button>
+                <button class="category__filter--item" data-type="felixes">Феликсы</button>
+                <button class="category__filter--item" data-type="sweet">Сладкие</button>
+              </div>
+            </div>
+            <div class="category__submenu--items">
+              <h2 class="category__submenu--header">
+                Инградиенты
+              </h2>
+              <button class="category__filter--fishitem" data-fish="salmon">
+                <img src="/assets/png/category__filter--fish1.png" alt="fish">
+                Лосось
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="acne">
+                <img src="/assets/png/category__filter--fish2.png" alt="fish">
+                Угорь
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="tuna">
+                <img src="/assets/png/category__filter--fish3.png" alt="fish">
+                Тунец
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="chicken">
+                <img src="/assets/png/category__filter--fish4.png" alt="fish">
+                Куриное филе
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="tofu">
+                <img src="/assets/png/category__filter--fish5.png" alt="fish">
+                Тофу
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="creamcheese">
+                <img src="/assets/png/category__filter--fish6.png" alt="fish">
+                Сливочный сыр
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="avocado">
+                <img src="/assets/png/category__filter--fish7.png" alt="fish">
+                Авокадо
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="tomato">
+                <img src="/assets/png/category__filter--fish8.png" alt="fish">
+                Помидор
+              </button>
+
+              <button class="category__filter--fishitem" data-fish="shiitake">
+                <img src="/assets/png/category__filter--fish9.png" alt="fish">
+                Гриб шитаки
+              </button>
+            </div>
+            <div class="category__submenu--flavor">
+              <h2 class="category__submenu--header">
+                Вид суши
+             </h2>
+              <button class="category__filter--flavoritem" data-flavor="isSpicy=true">
+                <img src="/assets/svg/item__spicy.svg" alt="spicy">
+                <span class="category__filter--name">Острые</span>
+              </button>
+              <button class="category__filter--flavoritem" data-flavor="isEco=true">
+                <img src="/assets/svg/item__eco.svg" alt="eco">
+                <span class="category__filter--name">Вегетарианские</span>
+              </button>
+              <button class="category__filter--flavoritem" data-flavor="isDisposable=true">
+                <img src="/assets/svg/item__disposable.svg" alt="dis">
+                <span class="category__filter--name">Безлактозные</span>
+              </button>
+            </div>
+            <div class="category__submenu--buttons">
+              <button class="category__submenu--clear">
+                Очистить
+              </button>
+              <button class="category__submenu--apply">
+                Применить
+              </button>
+            </div>
           </div>
         </div>
+
         <div class="cards">
           <div class="cards__item skeleton__item">
             <div class="cards__item--marks skeleton">

@@ -3,6 +3,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
 const counter = document.querySelector('.category__filter--counter');
+const mobileMediaQ = window.matchMedia('(max-width: 940px)');
 
 let url = `http://localhost:3000/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 
@@ -108,7 +109,7 @@ function filters() {
 function uiLogic() {
     changeHeaderCategory();
     backEvent();
-    subMenu();
+    configMenu();
     headersCahnge();
     showOverlay();
 }
@@ -189,40 +190,16 @@ function fishFilter() {
     });
 }
 
-function subMenu() {
+function configMenu() {
     const subMenu = document.querySelector('.category__submenu');
-
     const openBtn = document.querySelector('.category__filter--menu');
     const closeBtn = document.querySelector('.category__submenu--close');
-    const resetBtn = document.querySelector('.category__submenu--reset');
 
-    openBtn.addEventListener('click', event => {
-        subMenu.classList.toggle('category__submenu_active');
-        subMenu.style.width = '100%';
-    });
-
-    closeBtn.addEventListener('click', event => {
-        subMenu.classList.toggle('category__submenu_active');
-        subMenu.style.width = '0';
-    });
-
-    resetBtn.addEventListener('click', event => {
-        const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
-
-        counter.textContent = 0;
-        counter.style.display = 'none';
-
-        fishsBtn.forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        if (url.includes('&ingridients_like')) {
-            const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
-            url = url.replace(reg, '');
-
-            fetchProductsData();
-        }
-    });
+    if (!mobileMediaQ.matches) {
+        configMenuDesktop(subMenu, openBtn, closeBtn);
+    } else {
+        configMenuMobile(subMenu, openBtn, closeBtn);
+    }
 }
 
 function orderFilter() {
@@ -275,6 +252,58 @@ function showOverlay() {
             header.classList.add('overlay');
             headerOverlay.classList.add('header__menu_overlay--show');
             headerBurgerBtn.classList.add('header__menu--burger_active')
+        }
+    });
+}
+
+function configMenuMobile(subMenu, openBtn, closeBtn) {
+    const fitlerMenuBtn = document.querySelector('.category__filter--menu');
+    const categoryMenu = document.querySelector('.category__submenu');
+    
+    openBtn.addEventListener('click', event => {
+        subMenu.classList.toggle('category__submenu_active');
+        subMenu.style.width = '100%';
+    });
+
+    closeBtn.addEventListener('click', event => {
+        subMenu.classList.toggle('category__submenu_active');
+        subMenu.style.width = '0';
+    });
+
+    fitlerMenuBtn.addEventListener('click', event => {
+        categoryMenu.classList.toggle('category__submenu_mobile');
+    })
+}
+
+function configMenuDesktop(subMenu, openBtn, closeBtn) {
+
+    const resetBtn = document.querySelector('.category__submenu--reset');
+
+    openBtn.addEventListener('click', event => {
+        subMenu.classList.toggle('category__submenu_active');
+        subMenu.style.width = '50%';
+    });
+
+    closeBtn.addEventListener('click', event => {
+        subMenu.classList.toggle('category__submenu_active');
+        subMenu.style.width = '0';
+    });
+
+    resetBtn.addEventListener('click', event => {
+        const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
+
+        counter.textContent = 0;
+        counter.style.display = 'none';
+
+        fishsBtn.forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        if (url.includes('&ingridients_like')) {
+            const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
+            url = url.replace(reg, '');
+
+            fetchProductsData();
         }
     });
 }
