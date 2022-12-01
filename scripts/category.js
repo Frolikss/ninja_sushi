@@ -172,9 +172,9 @@ function configMenu() {
 function orderFilter() {
     const orderSelect = document.querySelector('.category__filter--sort');
     const reg = new RegExp('&_order=[a-zA-Z]+');
-    const order = `&${orderSelect.value}`;
 
     orderSelect.addEventListener('change', event => {
+        const order = `&${orderSelect.value}`;
         mutateURL({reg, replace: order});
         fetchProductsData();
     });
