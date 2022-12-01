@@ -1446,7 +1446,7 @@ a:link, a:visited {
 }
 @media (max-width: 1350px) {
   .category__filter--flavor, .category__filter--fish, .category__filter--row {
-    gap: 4px;
+    gap: 8px;
   }
 }
 @media (max-width: 1250px) {
@@ -1460,7 +1460,7 @@ a:link, a:visited {
     gap: 8px;
   }
 }
-@media (max-width: 940px) {
+@media (max-width: 950px) {
   .category .container {
     justify-content: space-between;
   }

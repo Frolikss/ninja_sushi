@@ -658,7 +658,7 @@
             &--flavor,
             &--fish,
             &--row {
-                gap: 4px;
+                gap: 8px;
             }
         }
     }
@@ -679,7 +679,7 @@
         }
     }
 
-    @media (max-width: 940px) {
+    @media (max-width: 950px) {
         .container {
             justify-content: space-between;
         }

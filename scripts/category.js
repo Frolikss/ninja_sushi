@@ -22,7 +22,7 @@ function mutateURL({
     flavor = '',
     fish = '',
     reg = '',
-    replace = ''} = {}) {
+    replace = '' } = {}) {
 
     url += type + flavor + fish;
 
@@ -100,11 +100,11 @@ function typeFilter() {
             btn.classList.add(activeClass);
 
             if (typeBtn === 'all') {
-                mutateURL({reg});
+                mutateURL({ reg });
             } else if (!url.includes(`&type=`)) {
-                mutateURL({type});
+                mutateURL({ type });
             } else {
-                mutateURL({type, reg});
+                mutateURL({ type, reg });
             }
             fetchProductsData();
         });
@@ -121,9 +121,9 @@ function flavorFilter() {
             const flavor = `&${btn.dataset.flavor}`;
 
             if (!url.includes(flavor)) {
-                mutateURL({flavor});
+                mutateURL({ flavor });
             } else {
-                mutateURL({reg: flavor});
+                mutateURL({ reg: flavor });
             }
             fetchProductsData();
         });
@@ -140,10 +140,10 @@ function fishFilter() {
             const fish = `&ingridients_like=${btn.dataset.fish}`;
 
             if (!url.includes(fish)) {
-                mutateURL({fish});
+                mutateURL({ fish });
                 counter.textContent = +counter.textContent + 1;
             } else {
-                mutateURL({reg: fish});
+                mutateURL({ reg: fish });
                 counter.textContent -= 1;
             }
 
@@ -173,7 +173,7 @@ function orderFilter() {
 
     orderSelect.addEventListener('change', event => {
         const order = `&${orderSelect.value}`;
-        mutateURL({reg, replace: order});
+        mutateURL({ reg, replace: order });
         fetchProductsData();
     });
 }
