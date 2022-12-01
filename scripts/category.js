@@ -17,17 +17,20 @@ filters();
 uiLogic();
 footerQuicktipToggle();
 
-function mutateURL(type, flavor, ingridients, reg, replace, order = 'desc') {
+function mutateURL({
+    type = '',
+    flavor = '',
+    fish = '',
+    reg = '',
+    replace = ''} = {}) {
 
-    const type1 = type ?? '',
-        flavor1 = flavor ?? '',
-        ingridients1 = ingridients ?? '';
-
-    url += type1 + flavor1 + ingridients1;
+    url += type + flavor + fish;
 
     if (reg) {
-        url = url.replace(reg, replace ?? '');
+        url = url.replace(reg, replace);
     }
+
+    console.log(url);
 }
 
 function fetchProductsData() {
@@ -87,7 +90,8 @@ function typeFilter() {
 
     typeBtns.forEach(btn => {
         btn.addEventListener('click', event => {
-            const type = btn.dataset.type;
+            const typeBtn = btn.dataset.type;
+            const type = `&type=${typeBtn}`;
             const reg = new RegExp('&type=[a-zA-Z]+');
             const activeClass = 'category__filter--item_active';
 
@@ -97,12 +101,12 @@ function typeFilter() {
 
             btn.classList.add(activeClass);
 
-            if (type === 'all') {
-                mutateURL(...Array(3), reg, '');
+            if (typeBtn === 'all') {
+                mutateURL({reg});
             } else if (!url.includes(`&type=`)) {
-                mutateURL(`&type=${type}`);
+                mutateURL({type});
             } else {
-                mutateURL(...Array(3), reg, `&type=${type}`);
+                mutateURL({type, reg});
             }
             fetchProductsData();
         });
@@ -119,9 +123,9 @@ function flavorFilter() {
             const flavor = `&${btn.dataset.flavor}`;
 
             if (!url.includes(flavor)) {
-                mutateURL(...Array(1), flavor);
+                mutateURL({flavor});
             } else {
-                mutateURL(...Array(3), flavor, '');
+                mutateURL({reg: flavor});
             }
             fetchProductsData();
         });
@@ -138,10 +142,10 @@ function fishFilter() {
             const fish = `&ingridients_like=${btn.dataset.fish}`;
 
             if (!url.includes(fish)) {
-                mutateURL(...Array(1), fish);
+                mutateURL({fish});
                 counter.textContent = +counter.textContent + 1;
             } else {
-                mutateURL(...Array(3), fish, '');
+                mutateURL({reg: fish});
                 counter.textContent -= 1;
             }
 
@@ -168,9 +172,10 @@ function configMenu() {
 function orderFilter() {
     const orderSelect = document.querySelector('.category__filter--sort');
     const reg = new RegExp('&_order=[a-zA-Z]+');
+    const order = `&${orderSelect.value}`;
 
     orderSelect.addEventListener('change', event => {
-        url = url.replace(reg, `&${orderSelect.value}`);
+        mutateURL({reg, replace: order});
         fetchProductsData();
     });
 }
@@ -178,7 +183,7 @@ function orderFilter() {
 function changeHeaderCategory() {
     const headerCategories = document.querySelectorAll('.header__subitem');
 
-    headerCategories.forEach(({dataset, classList}) => {
+    headerCategories.forEach(({ dataset, classList }) => {
         if (dataset.category === category) {
             classList.add('header__subitem_selected');
         }
