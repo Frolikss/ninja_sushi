@@ -29,8 +29,6 @@ function mutateURL({
     if (reg) {
         url = url.replace(reg, replace);
     }
-
-    console.log(url);
 }
 
 function fetchProductsData() {
