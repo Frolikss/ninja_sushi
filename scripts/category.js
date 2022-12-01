@@ -178,9 +178,9 @@ function orderFilter() {
 function changeHeaderCategory() {
     const headerCategories = document.querySelectorAll('.header__subitem');
 
-    headerCategories.forEach(headerCategory => {
-        if (headerCategory.dataset.category === category) {
-            headerCategory.classList.add('header__subitem_selected');
+    headerCategories.forEach(({dataset, classList}) => {
+        if (dataset.category === category) {
+            classList.add('header__subitem_selected');
         }
     });
 }
