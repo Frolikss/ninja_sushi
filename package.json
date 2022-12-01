@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Frolikss/ninja_sushi/issues"
   },
-  "homepage": "https://github.com/Frolikss/ninja_sushi#readme"
+  "homepage": "https://github.com/Frolikss/ninja_sushi#readme",
+  "dependencies": {
+    "axios": "^1.2.0"
+  }
 }

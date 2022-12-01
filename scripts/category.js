@@ -37,7 +37,7 @@ function fetchProductsData() {
 
     cardContainer.innerHTML = '';
 
-    const data = fetch(url).then(response => response.json()).then(res => {
+    axios.get(url).then(response => response.data).then(res => {
 
         res.forEach(() => {
             cardContainer.append(cardsItemTemplate.content.cloneNode(true));

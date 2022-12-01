@@ -40,12 +40,12 @@ function fetchSliderData(slider, url) {
 function fetchProductsData(url) {
 
     const cardsItemTemplate = document.querySelector('.card__template');
-    const data = fetch(url).then(response => response.json()).then(res => {
-        //clear all skeleton
+    axios.get(url).then(response => response.data).then(res => {
+
         cards.forEach(category => {
             category.innerHTML = '';
         })
-        //add real cards for n items in data
+
         res.forEach(dataItem => {
             cards.forEach(category => {
                 if (category.closest('.cards').classList.contains(dataItem.category)) {

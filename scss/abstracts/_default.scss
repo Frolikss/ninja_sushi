@@ -22,8 +22,8 @@ a {
     text-decoration: none;
     cursor: pointer;
 
-    &:link, &:visited  {
-        color: $black;
+    &:link, &:visited {
+        color: inherit;
     }
 }
 

@@ -108,7 +108,7 @@ a {
   cursor: pointer;
 }
 a:link, a:visited {
-  color: #1D1D1F;
+  color: inherit;
 }
 
 .main {
