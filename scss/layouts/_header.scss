@@ -4,6 +4,10 @@
   @extend %medium1624;
   padding: 16px;
 
+  .container {
+    position: relative;
+  }
+
   &__row {
     display: flex;
     flex-direction: column;
@@ -34,8 +38,17 @@
       align-items: center;
     }
 
-    &--flag {
-      padding: 0 8px 0 0;
+    &--city {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background: url(/assets/svg/country-flag.svg) no-repeat center left;
+        height: 100%;
+        width: 100%;
+        left: -70%;
+      }
     }
   }
 
@@ -99,12 +112,86 @@
       border: 1px solid $separate1;
       border-radius: 12px;
       padding: 16px;
+      // transition: all .25s;
 
       &:last-of-type {
         color: $textgrey1;
         gap: 8px;
-        padding: 16px 24px;
       }
+
+      &:hover {
+        border: 1px solid $accent2;
+      }
+    }
+
+    &--notif {
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: $white;
+      border-radius: 12px;
+      right: 0;
+      position: absolute;
+      padding: 30px 30px 0;
+      box-shadow: 0px 6px 20px rgba(29, 29, 31, 0.07);
+      width: 30vw;
+      z-index: -1;
+      transition: all .5s;
+
+      &--item {
+        background: $bg-grey;
+        border-radius: 12px;
+        padding: 12px 18px;
+      }
+
+      &--info {
+        @extend %bold2836;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &--text {
+        @extend %medium1624;
+      }
+
+      &--time {
+        @extend %regular1420;
+        color: $textgrey1;
+      }
+
+      &--cards {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        overflow: scroll;
+      }
+
+      &--close {
+        padding: 6px;
+        background: #F5F5F7;
+        border-radius: 12px;
+      }
+
+      &--show {
+        z-index: 1;
+        opacity: 1;
+        height: 30vh;
+      }
+    }
+
+    &--count {
+      @extend %medium1624;
+      display: none;
+      position: absolute;
+      right: -15%;
+      top: -15%;
+      color: #fff;
+      padding: 3px 10px;
+      background-color: #FF6633;
+      border-radius: 100px;
     }
 
     &--burger {
@@ -162,6 +249,7 @@
     }
 
     &_overlay {
+      opacity: 0;
       position: fixed;
       width: 100%;
       left: 0;
@@ -171,6 +259,7 @@
       transition: all 0.5s;
 
       &--show {
+        opacity: 1;
         z-index: 99;
         background: $white;
         transform: translateX(0);

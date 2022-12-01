@@ -186,6 +186,7 @@
 
     &__filter {
         &--wrapper {
+            position: relative;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -389,6 +390,7 @@
                 display: flex;
                 justify-content: space-between;
                 gap: 12px;
+                position: relative;
             }
 
             &--price {
@@ -407,10 +409,22 @@
                 padding: 16px 13px 14px;
             }
 
-            &--add {
+            &--plus,
+            &--minus {
                 background: $bg-green;
                 border-radius: 12px;
                 padding: 12px 24px;
+            }
+
+            &--minus {
+                display: none;
+                position: absolute;
+                transition: all 1s;
+                left: 54%;
+            }
+
+            &--counter {
+                display: none;
             }
 
             &_new {
@@ -651,8 +665,16 @@
 
     @media (max-width: 1250px) {
         &__filter {
+            &--flavoritem:first-child {
+                padding: 18px;
+            }
+
             &--name {
                 display: none;
+            }
+
+            &--flavor {
+                gap: 8px;
             }
         }
     }

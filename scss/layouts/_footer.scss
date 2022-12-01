@@ -184,10 +184,28 @@
         max-width: 48.75em;
         margin: 0 auto 32px;
         padding: 0 16px;
+
         &--text {
             @extend %regular1624;
 
             color: $textgrey3;
+            height: 90px;
+            overflow: hidden;
+            transition: all 1s;
+        }
+
+        &_active {
+            .footer__quicktip--text {
+                height: 300px;
+            }
+
+            .footer__quicktip--svg {
+                transform: rotate(180deg);
+            }
+        }
+
+        &--svg {
+            transition: all .25s 1s;
         }
 
         &--button {

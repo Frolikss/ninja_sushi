@@ -1,7 +1,12 @@
 "use strict"
 
+import { fillCardWithJSON } from './modules/cardData.js';
+import { showOverlay, backEvent } from './modules/header.js';
+import { footerQuicktipToggle } from './modules/footer.js';
+
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
+
 const counter = document.querySelector('.category__filter--counter');
 const mobileMediaQ = window.matchMedia('(max-width: 940px)');
 
@@ -10,13 +15,19 @@ let url = `http://localhost:3000/products?_page=1&_sort=price&_order=desc&_limit
 fetchProductsData();
 filters();
 uiLogic();
+footerQuicktipToggle();
 
-function backEvent() {
-    const backBtn = document.querySelector('.header__navigation--back');
+function mutateURL(type, flavor, ingridients, reg, replace, order = 'desc') {
 
-    backBtn.addEventListener('click', event => {
-        history.back();
-    })
+    const type1 = type ?? '',
+        flavor1 = flavor ?? '',
+        ingridients1 = ingridients ?? '';
+
+    url += type1 + flavor1 + ingridients1;
+
+    if (reg) {
+        url = url.replace(reg, replace ?? '');
+    }
 }
 
 function fetchProductsData() {
@@ -35,66 +46,22 @@ function fetchProductsData() {
         const cards = document.querySelectorAll('.cards__item');
 
         checkEmptyContainer(cards);
+        fillCardWithJSON(res);
 
-        for (let i = 0; i < res.length; i++) {
-            fillCardWithJSON(cards[i], res, i);
-        }
     });
 
     function checkEmptyContainer(cards) {
-
         if (cards.length === 0) {
             const par = document.createElement('p');
             const showMoreBtn = document.querySelector('.category__showmore');
-
-            par.textContent = 'Не найдено';
+            const notFound = 'Не найдено'
+            par.textContent = notFound;
             par.style.textAlign = 'center';
 
             cardContainer.style.justifyContent = 'center';
             cardContainer.append(par);
 
             showMoreBtn.style.display = 'none';
-        }
-    }
-
-    function fillCardWithJSON(card, res, i) {
-
-        const marks = card.firstElementChild;
-        const icons = marks.lastElementChild;
-        const data = card.lastElementChild;
-        const header = data.firstElementChild;
-        const itemInfo = data.lastElementChild;
-
-        marks.style.background = `url(/${res[i].image}) no-repeat top / contain`;
-
-        header.textContent = res[i].header;
-
-        header.nextElementSibling.textContent = res[i].category === 'drinks' ? `Объем: ${res[i].weight} л` : `Вес: ${res[i].weight} г`;
-
-        //price
-        itemInfo.firstElementChild.textContent = `${res[i].price}грн.`;
-
-        //text
-        itemInfo.previousElementSibling.textContent = res[i].text;
-
-        if (res[i].isHit) {
-            marks.classList.add('cards__item_new');
-        }
-
-        if (res[i].isNew) {
-            marks.classList.add('cards__item_hit');
-        }
-
-        if (res[i].isSpicy) {
-            icons.classList.add('cards__item_spicy');
-        }
-
-        if (res[i].isEco) {
-            icons.classList.add('cards__item_eco');
-        }
-
-        if (res[i].isDisposable) {
-            icons.classList.add('cards__item_disposable');
         }
     }
 }
@@ -110,8 +77,9 @@ function uiLogic() {
     changeHeaderCategory();
     backEvent();
     configMenu();
-    headersCahnge();
+    headersChange();
     showOverlay();
+    configBellBtn();
 }
 
 function typeFilter() {
@@ -120,26 +88,21 @@ function typeFilter() {
     typeBtns.forEach(btn => {
         btn.addEventListener('click', event => {
             const type = btn.dataset.type;
+            const reg = new RegExp('&type=[a-zA-Z]+');
+            const activeClass = 'category__filter--item_active';
 
             for (let i = 0; i < typeBtns.length; i++) {
-                typeBtns[i].classList.remove('category__filter--item_active');
+                typeBtns[i].classList.remove(activeClass);
             }
 
-            btn.classList.add('category__filter--item_active');
+            btn.classList.add(activeClass);
 
             if (type === 'all') {
-
-                const reg = new RegExp('&type=[a-zA-Z]+');
-                url = url.replace(reg, '');
-
+                mutateURL(...Array(3), reg, '');
             } else if (!url.includes(`&type=`)) {
-
-                url += `&type=${type}`;
-
+                mutateURL(`&type=${type}`);
             } else {
-
-                const reg = new RegExp('&type=[a-zA-Z]+');
-                url = url.replace(reg, `&type=${type}`);
+                mutateURL(...Array(3), reg, `&type=${type}`);
             }
             fetchProductsData();
         });
@@ -156,18 +119,18 @@ function flavorFilter() {
             const flavor = `&${btn.dataset.flavor}`;
 
             if (!url.includes(flavor)) {
-                url += flavor;
+                mutateURL(...Array(1), flavor);
             } else {
-                url = url.replace(flavor, '');
+                mutateURL(...Array(3), flavor, '');
             }
             fetchProductsData();
         });
     });
-
 }
 
 function fishFilter() {
     const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
+
     fishsBtn.forEach(btn => {
         btn.addEventListener('click', event => {
             btn.classList.toggle('active');
@@ -175,15 +138,14 @@ function fishFilter() {
             const fish = `&ingridients_like=${btn.dataset.fish}`;
 
             if (!url.includes(fish)) {
-                url += fish;
+                mutateURL(...Array(1), fish);
                 counter.textContent = +counter.textContent + 1;
             } else {
-                url = url.replace(fish, '');
+                mutateURL(...Array(3), fish, '');
                 counter.textContent -= 1;
             }
 
-            counter.textContent <= 0 ? counter.style.display = 'none' :
-                counter.style.display = 'block';
+            counter.style.display = counter.textContent <= 0 ? 'none' : 'block';
 
             fetchProductsData();
         });
@@ -205,11 +167,10 @@ function configMenu() {
 
 function orderFilter() {
     const orderSelect = document.querySelector('.category__filter--sort');
+    const reg = new RegExp('&_order=[a-zA-Z]+');
 
     orderSelect.addEventListener('change', event => {
-        const reg = new RegExp('&_order=[a-zA-Z]+');
         url = url.replace(reg, `&${orderSelect.value}`);
-
         fetchProductsData();
     });
 }
@@ -224,37 +185,13 @@ function changeHeaderCategory() {
     });
 }
 
-function headersCahnge() {
+function headersChange() {
     const activeCategory = document.querySelector('.header__subitem_selected');
     const categoryHeader = document.querySelector('.category__header');
     const navigationHeader = document.querySelector('.header__navigation--itemtext');
 
     categoryHeader.textContent = activeCategory.textContent;
     navigationHeader.textContent = activeCategory.textContent;
-}
-
-function showOverlay() {
-    const headerBurgerBtn = document.querySelector('.header__menu--burger');
-
-    headerBurgerBtn.addEventListener('click', event => {
-
-        const headerOverlay = document.querySelector('.header__menu_overlay');
-        const header = document.querySelector('.header');
-
-        if (headerOverlay.classList.contains('header__menu_overlay--show')) {
-
-            document.body.classList.remove('lock');
-            header.classList.remove('overlay');
-            headerOverlay.classList.remove('header__menu_overlay--show');
-            headerBurgerBtn.classList.remove('header__menu--burger_active')
-        } else {
-
-            document.body.classList.add('lock');
-            header.classList.add('overlay');
-            headerOverlay.classList.add('header__menu_overlay--show');
-            headerBurgerBtn.classList.add('header__menu--burger_active')
-        }
-    });
 }
 
 function configMenuMobile() {
@@ -291,6 +228,7 @@ function configMenuDesktop() {
 
 function resetEvent() {
     const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
+    const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
 
     counter.textContent = 0;
     counter.style.display = 'none';
@@ -300,22 +238,50 @@ function resetEvent() {
     });
 
     if (url.includes('&ingridients_like')) {
-        const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
         url = url.replace(reg, '');
-
         fetchProductsData();
     }
 }
 
 function configMenuBtns(subMenu, openBtn, closeBtn) {
+    const mobileClass = 'category__submenu_mobile';
+    const activeClass = 'category__submenu_active';
+
     openBtn.addEventListener('click', event => {
-        subMenu.classList.toggle(mobileMediaQ.matches ? 'category__submenu_mobile' : 'category__submenu_active');
+        subMenu.classList.toggle(mobileMediaQ.matches ? mobileClass : activeClass);
         document.body.classList.toggle('lock');
     });
 
     closeBtn.addEventListener('click', event => {
-        subMenu.classList.remove('category__submenu_active', 'category__submenu_mobile');
+        subMenu.classList.remove(mobileClass, activeClass);
         document.body.classList.toggle('lock');
     });
+}
 
+function configBellBtn() {
+
+    const url = "http://localhost:3000/notifications";
+
+    const notifBlock = document.querySelector('.header__menu--notif');
+
+    const bellBtn = document.querySelector('.header__menu--item');
+    const bellCloseBtn = document.querySelector('.header__menu--notif--close');
+
+    bellBtn.addEventListener('click', event => {
+        notifBlock.classList.add('header__menu--notif--show');
+
+        fetch(url).then(response => response.json()).then(res => {
+            const notifCards = document.querySelector('.header__menu--notif--cards');
+
+            notifCards.innerHTML = '';
+
+            res.forEach(data => {
+
+            })
+        });
+    })
+
+    bellCloseBtn.addEventListener('click', event => {
+        notifBlock.classList.remove('header__menu--notif--show');
+    });
 }
