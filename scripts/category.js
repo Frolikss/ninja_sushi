@@ -10,7 +10,7 @@ const category = urlParams.get('category');
 const counter = document.querySelector('.category__filter--counter');
 const mobileMediaQ = window.matchMedia('(max-width: 940px)');
 
-let url = `http://localhost:3000/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
+let url = `https://ninja-tests.herokuapp.com/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 
 fetchProductsData();
 filters();

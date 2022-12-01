@@ -3,9 +3,9 @@ import {fillCardWithJSON} from './modules/cardData.js';
 import {showOverlay} from './modules/header.js'
 import {footerQuicktipToggle} from './modules/footer.js';
 
-const bannerURL = 'http://localhost:3000/head';
-const specialURL = 'http://localhost:3000/special';
-const productsURL = 'http://localhost:3000/products';
+const bannerURL = 'https://ninja-tests.herokuapp.com/head';
+const specialURL = 'https://ninja-tests.herokuapp.com/special';
+const productsURL = 'https://ninja-tests.herokuapp.com/products';
 
 const bannerSliderItems = document.querySelectorAll('.banner__text');
 const specialSliderItems = document.querySelectorAll('.slider__info');
