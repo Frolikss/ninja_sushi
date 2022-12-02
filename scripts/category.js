@@ -1,7 +1,7 @@
 "use strict"
 
 import { fillCardWithJSON } from './modules/cardData.js';
-import { showOverlay, backEvent } from './modules/header.js';
+import { showOverlay, backEvent, configBellBtn } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -261,30 +261,3 @@ function configMenuBtns(subMenu, openBtn, closeBtn) {
     });
 }
 
-function configBellBtn() {
-
-    const url = "http://localhost:3000/notifications";
-
-    const notifBlock = document.querySelector('.header__menu--notif');
-
-    const bellBtn = document.querySelector('.header__menu--item');
-    const bellCloseBtn = document.querySelector('.header__menu--notif--close');
-
-    bellBtn.addEventListener('click', event => {
-        notifBlock.classList.add('header__menu--notif--show');
-
-        fetch(url).then(response => response.json()).then(res => {
-            const notifCards = document.querySelector('.header__menu--notif--cards');
-
-            notifCards.innerHTML = '';
-
-            res.forEach(data => {
-
-            })
-        });
-    })
-
-    bellCloseBtn.addEventListener('click', event => {
-        notifBlock.classList.remove('header__menu--notif--show');
-    });
-}

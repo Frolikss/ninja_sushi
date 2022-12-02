@@ -1,6 +1,6 @@
 'use strict'
 import {fillCardWithJSON} from './modules/cardData.js';
-import {showOverlay} from './modules/header.js'
+import {showOverlay, configBellBtn} from './modules/header.js'
 import {footerQuicktipToggle} from './modules/footer.js';
 
 const bannerURL = 'https://ninja-tests.herokuapp.com/head';
@@ -20,11 +20,11 @@ cards.forEach(category => {
 });
 
 showOverlay();
+configBellBtn();
 footerQuicktipToggle();
 fetchSliderData(bannerSliderItems, bannerURL);
 fetchSliderData(specialSliderItems, specialURL);
 fetchProductsData(productsURL);
-
 
 
 function fetchSliderData(slider, url) {

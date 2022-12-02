@@ -33,4 +33,74 @@ function backEvent() {
     })
 }
 
-export {showOverlay, backEvent};
+function configBellBtn() {
+
+    const url = "https://ninja-tests.herokuapp.com/notifications";
+
+    const notifBlock = document.querySelector('.header__menu--notif');
+
+    const bellBtn = document.querySelector('.header__menu--item');
+    const bellCloseBtn = document.querySelector('.header__menu--notif--close');
+
+    bellBtn.addEventListener('click', event => {
+        notifBlock.classList.add('header__menu--notif--show');
+
+        axios.get(url).then(response => response.data).then(res => {
+            const notifCards = document.querySelector('.header__menu--notif--cards');
+            const templateItem = document.querySelector('.notif__item--template');
+
+            notifCards.innerHTML = '';
+
+            res.forEach(() => {
+                notifCards.append(templateItem.content.cloneNode(true));
+            })
+
+            const notifItems = document.querySelectorAll('.header__menu--notif--item');
+
+            for (let i = 0; i < res.length; i++) {
+
+                const card = notifItems[i];
+                const text = card.firstElementChild;
+                const time = card.lastElementChild;
+                const date = new Date(res[i].time);
+                const dateFormatted = getFormattedDate(date);
+
+                card.setAttribute('href', res[i].url);
+                text.textContent = res[i].header;
+                time.textContent = `${dateFormatted.day}.${dateFormatted.month} в ${dateFormatted.hours}:${dateFormatted.minutes}`;
+
+                addCardEvent(card);
+            }
+        });
+    })
+
+    bellCloseBtn.addEventListener('click', event => {
+        notifBlock.classList.remove('header__menu--notif--show');
+    });
+
+    function addCardEvent(card) {
+        const notifIcon = card.firstElementChild.lastElementChild;
+
+        card.addEventListener('mouseover', event => {
+            notifIcon.classList.add('header__menu--notif--viewed');
+        });
+    }
+
+    function getFormattedDate(date) {
+        const obj = {
+            day: date.getDate(),
+            month: date.getMonth() + 1,
+            hours: date.getHours(),
+            minutes: date.getMinutes()
+        };
+
+        for (let [key, item] of Object.entries(obj)) {
+            if (item < 10) {
+                obj[key] = '0' + item;
+            }
+        }
+        return obj;
+    }
+}
+
+export {showOverlay, backEvent, configBellBtn};
