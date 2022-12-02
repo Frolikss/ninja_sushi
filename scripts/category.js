@@ -1,7 +1,7 @@
 "use strict"
 
 import { fillCardWithJSON } from './modules/cardData.js';
-import { showOverlay, backEvent, configBellBtn } from './modules/header.js';
+import { showOverlay, backEvent, configBellBtn, configCartBtn } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -16,6 +16,7 @@ fetchProductsData();
 filters();
 uiLogic();
 footerQuicktipToggle();
+configCartBtn();
 
 function mutateURL({
     type = '',

@@ -103,4 +103,22 @@ function configBellBtn() {
     }
 }
 
-export {showOverlay, backEvent, configBellBtn};
+function configCartBtn() {
+    const cartBtn = document.querySelector('.header__menu--cart');
+    const popUp = document.querySelector('.header__cart--popup');
+    const closeBtn = document.querySelector('.header__cart--close');
+    const popUpClass = 'header__cart--popup-show';
+    const bodyLock = () => document.body.classList.toggle('lock');
+
+    cartBtn.addEventListener('click', event => {
+        popUp.classList.toggle(popUpClass);
+        bodyLock();
+    });
+
+    closeBtn.addEventListener('click', event => {
+        popUp.classList.toggle(popUpClass);
+        bodyLock();
+    });
+}
+
+export {showOverlay, backEvent, configBellBtn, configCartBtn};
