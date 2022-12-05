@@ -278,9 +278,7 @@ function configCardCounter() {
 
         const cardItem = buttonsBlock.closest('.cards__item');
 
-        const card = prepareCardForStorage(cardItem, counterSpan.textContent);
-
- 
+        prepareCardForStorage(cardItem, counterSpan.textContent); 
     });
 }
 
@@ -310,6 +308,8 @@ function prepareCardForStorage(card, count) {
     } else {
         cards.push(data);
     }
+
+    cards = cards.filter(({amount}) => amount > 0);
 
     localStorage.setItem('cards', JSON.stringify(cards));
 }

@@ -265,11 +265,18 @@ a:link, a:visited {
   background: #fff;
   left: -2%;
   top: 32%;
+  transition: all 0.25s;
+}
+.header__cart--remove:hover {
+  background: #F44837;
 }
 .header__cart--plus, .header__cart--minus {
   padding: 12px;
   background: #fff;
   border-radius: 12px;
+}
+.header__cart--plus > img, .header__cart--minus > img, .header__cart--remove > img {
+  pointer-events: none;
 }
 .header__cart--text {
   display: flex;

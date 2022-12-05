@@ -5,7 +5,7 @@ function showOverlay() {
 
         const headerOverlay = document.querySelector('.header__menu_overlay');
         const header = document.querySelector('.header');
-        
+
         const showClass = 'header__menu_overlay--show';
         const activeClass = 'header__menu--burger_active';
 
@@ -129,6 +129,8 @@ function fillCardWithLocalData() {
     const itemTemplate = document.querySelector('.template__header__cart--item');
     const itemsContainer = document.querySelector('.header__cart--items');
 
+    itemsContainer.innerHTML = '';
+
     const confirmBtn = document.querySelector('.header__cart--confirm');
 
     items.forEach(() => {
@@ -151,6 +153,7 @@ function fillCardWithLocalData() {
         const price = summary.firstElementChild;
         const counter = summary.lastElementChild.firstElementChild.nextElementSibling;
 
+        cards[index].dataset.id = item.id
         name.textContent = item.name;
         weight.textContent = item.weight;
         price.textContent = item.price;
@@ -159,6 +162,7 @@ function fillCardWithLocalData() {
     });
 
     calculateTotalPrice(items);
+    configOrderBtns(items);
 
     function calculateTotalPrice(items) {
         let finalPrice = document.querySelector('.header__cart--finalprice');
@@ -169,17 +173,45 @@ function fillCardWithLocalData() {
             sum += (current.price.replace('грн.', '') * +current.amount);
             return sum;
         }, 0)} грн.`;
-    
+
         confirmBtn.disabled = +finalPrice.textContent.replace('грн.', '') < MIN_PRICE ? true : false;
     }
 }
 
-function configOrderBtns() {
+function configOrderBtns(items) {
     const itemsContainer = document.querySelector('.header__cart--items');
 
     itemsContainer.addEventListener('click', event => {
-
+        switch (event.target.className) {
+            case 'header__cart--remove': removeFromLocaleStorage(items, event); break;
+            case 'header__cart--plus': changeCounterLocalStorage(items, event, true); break;
+            case 'header__cart--minus': changeCounterLocalStorage(items, event, false); break;
+            default: break;
+        }
     });
 }
 
-export {showOverlay, backEvent, configBellBtn, configCartBtn};
+function removeFromLocaleStorage(items, event) {
+    const selectedItem = event.target.parentNode.parentNode;
+    const filteredItems = items.filter(({ id }) => id != selectedItem.dataset.id) ?? [];
+
+    localStorage.setItem('cards', JSON.stringify(filteredItems));
+    fillCardWithLocalData();
+}
+
+function changeCounterLocalStorage(items, event, isAdded) {
+    const selectedItem = event.target.parentNode.parentNode.parentNode;
+
+    const filteredItems = items
+        .map(item => {
+            if (item.id === selectedItem.dataset.id) {
+                isAdded ? item.amount = +item.amount + 1 : item.amount -= 1;
+            }
+            return item;
+        })
+        .filter(({ amount }) => amount > 0);
+
+    localStorage.setItem('cards', JSON.stringify(filteredItems));
+}
+
+export { showOverlay, backEvent, configBellBtn, configCartBtn };

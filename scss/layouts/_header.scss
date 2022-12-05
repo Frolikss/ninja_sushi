@@ -127,6 +127,11 @@
       background: $white;
       left: -2%;
       top: 32%;
+      transition: all .25s;
+
+      &:hover {
+        background: $red;
+      }
     }
 
     &--plus,
@@ -140,6 +145,14 @@
     &--counter,
     &--weight {
       @extend %medium1420;
+    }
+
+    &--plus,
+    &--minus,
+    &--remove {
+      & > img {
+        pointer-events: none;
+      }
     }
 
     &--name {
