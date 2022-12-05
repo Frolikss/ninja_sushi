@@ -190,6 +190,10 @@
       color: $white;
       border-radius: 12px;
       background: $accent1;
+
+      &:disabled {
+        background: lighten($color: $accent1, $amount: 50%);
+      }
     }
   }
 
@@ -268,6 +272,13 @@
 
     &--link {
       padding: 22px 8px;
+      border-radius: 12px;
+      transition: all .25s;
+
+      &:hover {
+        color: $accent2;
+        background: rgba($color: $accent2, $alpha: .15);
+      }
     }
   }
 
@@ -276,6 +287,11 @@
     align-items: center;
     gap: 12px;
     padding: 22px 18px;
+    transition: all .25s;
+
+    &:hover {
+      color: $accent2;
+    }
   }
 
   &__menu {
@@ -289,6 +305,7 @@
       border: 1px solid $separate1;
       border-radius: 12px;
       padding: 16px;
+      transition: all .25s;
 
       &:last-of-type {
         color: $textgrey1;

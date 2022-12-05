@@ -73,7 +73,7 @@
     {
       "id": 1,
       "category": "sushi",
-      "image": "assets/png/sushi__item--image1.png",
+      "image": "../assets/png/sushi__item--image1.png",
       "header": "Гункан лосось",
       "weight": 40,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -89,7 +89,7 @@
     {
       "id": 2,
       "category": "sushi",
-      "image": "assets/png/sushi__item--image2.png",
+      "image": "../assets/png/sushi__item--image2.png",
       "header": "Гункан креветка",
       "weight": 41,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -105,7 +105,7 @@
     {
       "id": 3,
       "category": "sushi",
-      "image": "assets/png/sushi__item--image3.png",
+      "image": "../assets/png/sushi__item--image3.png",
       "header": "Нигири угорь",
       "weight": 42,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -121,7 +121,7 @@
     {
       "id": 4,
       "category": "sushi",
-      "image": "assets/png/sushi__item--image4.png",
+      "image": "../assets/png/sushi__item--image4.png",
       "header": "Нигири угорь",
       "weight": 252,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -137,7 +137,7 @@
     {
       "id": 5,
       "category": "sushi",
-      "image": "assets/png/sushi__item--image5.png",
+      "image": "../assets/png/sushi__item--image5.png",
       "header": "Гункан с тунцом и трюфелем",
       "weight": 50,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -153,7 +153,7 @@
     {
       "id": 6,
       "category": "sushi",
-      "image": "assets/png/sushi__item--image6.png",
+      "image": "../assets/png/sushi__item--image6.png",
       "header": "Гункан тунец спайси",
       "weight": 60,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -169,7 +169,7 @@
     {
       "id": 7,
       "category": "sushi",
-      "image": "assets/png/sushi__item--image7.png",
+      "image": "../assets/png/sushi__item--image7.png",
       "header": "Гункан угорь",
       "weight": 70,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -185,7 +185,7 @@
     {
       "id": 8,
       "category": "sushi",
-      "image": "assets/png/sushi__item--image8.png",
+      "image": "../assets/png/sushi__item--image8.png",
       "header": "Нигири тунец",
       "weight": 70,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -201,7 +201,7 @@
     {
       "id": 9,
       "category": "rolls",
-      "image": "assets/png/rolls__item--image1.png",
+      "image": "../assets/png/rolls__item--image1.png",
       "header": "Филадельфия с лососем",
       "weight": 320,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -217,7 +217,7 @@
     {
       "id": 10,
       "category": "rolls",
-      "image": "assets/png/rolls__item--image2.png",
+      "image": "../assets/png/rolls__item--image2.png",
       "header": "Филадельфия с угрем",
       "weight": 320,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -233,7 +233,7 @@
     {
       "id": 11,
       "category": "rolls",
-      "image": "assets/png/rolls__item--image3.png",
+      "image": "../assets/png/rolls__item--image3.png",
       "header": "Кратос",
       "weight": 310,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -249,7 +249,7 @@
     {
       "id": 12,
       "category": "rolls",
-      "image": "assets/png/rolls__item--image4.png",
+      "image": "../assets/png/rolls__item--image4.png",
       "header": "Ямамото",
       "weight": 330,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -265,7 +265,7 @@
     {
       "id": 13,
       "category": "rolls",
-      "image": "assets/png/rolls__item--image5.png",
+      "image": "../assets/png/rolls__item--image5.png",
       "header": "Запеченная креветка",
       "weight": 350,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -281,7 +281,7 @@
     {
       "id": 14,
       "category": "rolls",
-      "image": "assets/png/rolls__item--image6.png",
+      "image": "../assets/png/rolls__item--image6.png",
       "header": "Сырный с лососем",
       "weight": 315,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -297,7 +297,7 @@
     {
       "id": 15,
       "category": "rolls",
-      "image": "assets/png/rolls__item--image7.png",
+      "image": "../assets/png/rolls__item--image7.png",
       "header": "Микаса",
       "weight": 235,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -313,7 +313,7 @@
     {
       "id": 16,
       "category": "rolls",
-      "image": "assets/png/rolls__item--image8.png",
+      "image": "../assets/png/rolls__item--image8.png",
       "header": "Комбо Филадельфия",
       "weight": 325,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -329,7 +329,7 @@
     {
       "id": 17,
       "category": "sets",
-      "image": "assets/png/sets__item--image1.png",
+      "image": "../assets/png/sets__item--image1.png",
       "header": "Сет #1",
       "weight": 950,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -345,7 +345,7 @@
     {
       "id": 18,
       "category": "sets",
-      "image": "assets/png/sets__item--image2.png",
+      "image": "../assets/png/sets__item--image2.png",
       "header": "Сет #2",
       "weight": 895,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -361,7 +361,7 @@
     {
       "id": 19,
       "category": "sets",
-      "image": "assets/png/sets__item--image3.png",
+      "image": "../assets/png/sets__item--image3.png",
       "header": "Сет #3",
       "weight": 900,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -377,7 +377,7 @@
     {
       "id": 20,
       "category": "sets",
-      "image": "assets/png/sets__item--image4.png",
+      "image": "../assets/png/sets__item--image4.png",
       "header": "Сет Осака",
       "weight": 252,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -393,7 +393,7 @@
     {
       "id": 21,
       "category": "sets",
-      "image": "assets/png/sets__item--image5.png",
+      "image": "../assets/png/sets__item--image5.png",
       "header": "Сет лосось в нори",
       "weight": 1600,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -409,7 +409,7 @@
     {
       "id": 22,
       "category": "sets",
-      "image": "assets/png/sets__item--image6.png",
+      "image": "../assets/png/sets__item--image6.png",
       "header": "Сет #6",
       "weight": 1400,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -425,7 +425,7 @@
     {
       "id": 23,
       "category": "sets",
-      "image": "assets/png/sets__item--image7.png",
+      "image": "../assets/png/sets__item--image7.png",
       "header": "Сет #7",
       "weight": 950,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -441,7 +441,7 @@
     {
       "id": 24,
       "category": "sets",
-      "image": "assets/png/sets__item--image8.png",
+      "image": "../assets/png/sets__item--image8.png",
       "header": "Гункан Сет",
       "weight": 1400,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -457,7 +457,7 @@
     {
       "id": 25,
       "category": "snacks",
-      "image": "assets/png/snacks__item--image1.png",
+      "image": "../assets/png/snacks__item--image1.png",
       "header": "Тартар из лосося с халапеньо",
       "weight": 180,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -473,7 +473,7 @@
     {
       "id": 26,
       "category": "snacks",
-      "image": "assets/png/snacks__item--image2.png",
+      "image": "../assets/png/snacks__item--image2.png",
       "header": "Тартар из лосося с авокадо",
       "weight": 200,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -489,7 +489,7 @@
     {
       "id": 27,
       "category": "snacks",
-      "image": "assets/png/snacks__item--image3.png",
+      "image": "../assets/png/snacks__item--image3.png",
       "header": "Салат Чука-Вакаме",
       "weight": 185,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -505,7 +505,7 @@
     {
       "id": 28,
       "category": "snacks",
-      "image": "assets/png/snacks__item--image4.png",
+      "image": "../assets/png/snacks__item--image4.png",
       "header": "Салат с киноа, авокадо и курицей",
       "weight": 265,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -521,7 +521,7 @@
     {
       "id": 29,
       "category": "snacks",
-      "image": "assets/png/snacks__item--image5.png",
+      "image": "../assets/png/snacks__item--image5.png",
       "header": "Инари с тунцом и трюфелем",
       "weight": 240,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -537,7 +537,7 @@
     {
       "id": 30,
       "category": "snacks",
-      "image": "assets/png/snacks__item--image6.png",
+      "image": "../assets/png/snacks__item--image6.png",
       "header": "Инари с морским гребешком и сыром",
       "weight": 190,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -553,7 +553,7 @@
     {
       "id": 31,
       "category": "snacks",
-      "image": "assets/png/snacks__item--image7.png",
+      "image": "../assets/png/snacks__item--image7.png",
       "header": "Инари с лососем и авокадо",
       "weight": 300,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -569,7 +569,7 @@
     {
       "id": 32,
       "category": "snacks",
-      "image": "assets/png/snacks__item--image8.png",
+      "image": "../assets/png/snacks__item--image8.png",
       "header": "Тартар микс",
       "weight": 160,
       "text": "Нори, рис, японский майонез, бальзамик, трюфельная сальса, кунжутное масло",
@@ -585,7 +585,7 @@
     {
       "id": 33,
       "category": "drinks",
-      "image": "assets/png/drinks__item--image1.png",
+      "image": "../assets/png/drinks__item--image1.png",
       "header": "Coca-Cola 0.25(ст)",
       "weight": 0.25,
       "text": null,
@@ -601,7 +601,7 @@
     {
       "id": 34,
       "category": "drinks",
-      "image": "assets/png/drinks__item--image2.png",
+      "image": "../assets/png/drinks__item--image2.png",
       "header": "Fanta",
       "weight": 0.5,
       "text": null,
@@ -617,7 +617,7 @@
     {
       "id": 35,
       "category": "drinks",
-      "image": "assets/png/drinks__item--image3.png",
+      "image": "../assets/png/drinks__item--image3.png",
       "header": "Моршинская негаз.",
       "weight": 0.5,
       "text": null,
@@ -633,7 +633,7 @@
     {
       "id": 36,
       "category": "drinks",
-      "image": "assets/png/drinks__item--image4.png",
+      "image": "../assets/png/drinks__item--image4.png",
       "header": "Burn",
       "weight": 0.5,
       "text": null,
@@ -649,7 +649,7 @@
     {
       "id": 37,
       "category": "drinks",
-      "image": "assets/png/drinks__item--image5.png",
+      "image": "../assets/png/drinks__item--image5.png",
       "header": "Coca-Cola Vanilla",
       "weight": 0.33,
       "text": null,
@@ -665,7 +665,7 @@
     {
       "id": 38,
       "category": "drinks",
-      "image": "assets/png/drinks__item--image6.png",
+      "image": "../assets/png/drinks__item--image6.png",
       "header": "Dr Pepper вишня",
       "weight": 0.33,
       "text": null,
@@ -681,7 +681,7 @@
     {
       "id": 39,
       "category": "drinks",
-      "image": "assets/png/drinks__item--image7.png",
+      "image": "../assets/png/drinks__item--image7.png",
       "header": "Dr Pepper классический",
       "weight": 0.33,
       "text": null,
@@ -697,7 +697,7 @@
     {
       "id": 40,
       "category": "drinks",
-      "image": "assets/png/drinks__item--image8.png",
+      "image": "../assets/png/drinks__item--image8.png",
       "header": "Sprite",
       "weight": 0.5,
       "text": null,

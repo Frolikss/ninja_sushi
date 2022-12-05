@@ -9,6 +9,7 @@ const category = urlParams.get('category');
 
 const counter = document.querySelector('.category__filter--counter');
 const mobileMediaQ = window.matchMedia('(max-width: 940px)');
+const cardContainer = document.querySelector('.cards');
 
 let url = `https://ninja-tests.herokuapp.com/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 
@@ -35,7 +36,6 @@ function mutateURL({
 function fetchProductsData() {
 
     const cardsItemTemplate = document.querySelector('.card__template');
-    const cardContainer = document.querySelector('.cards');
 
     cardContainer.innerHTML = '';
 
@@ -48,8 +48,9 @@ function fetchProductsData() {
         const cards = document.querySelectorAll('.cards__item');
 
         checkEmptyContainer(cards);
-        fillCardWithJSON(res);
 
+        fillCardWithJSON(res);
+        configCardCounter();
     });
 
     function checkEmptyContainer(cards) {
@@ -262,3 +263,53 @@ function configMenuBtns(subMenu, openBtn, closeBtn) {
     });
 }
 
+function configCardCounter() {
+
+    cardContainer.addEventListener('click', event => {
+        const buttonsBlock = event.target.parentElement;
+        if (buttonsBlock.parentElement.className !== 'cards__item--buttons') return;
+
+        const counterSpan = buttonsBlock.childNodes[1];
+        const plus = buttonsBlock.childNodes[3];
+        const minus = buttonsBlock.childNodes[5];
+
+        event.target.className === plus.className ? counterSpan.textContent = +counterSpan.textContent + 1 : counterSpan.textContent -= 1;
+        +counterSpan.textContent > 0 ? buttonsBlock.classList.add('cards__item--add--added') : buttonsBlock.classList.remove('cards__item--add--added');
+
+        const cardItem = buttonsBlock.closest('.cards__item');
+
+        const card = prepareCardForStorage(cardItem, counterSpan.textContent);
+
+ 
+    });
+}
+
+function prepareCardForStorage(card, count) {
+    let cards = JSON.parse(localStorage.getItem('cards')) ?? [];
+
+    const image = `${card.firstElementChild.style.background}`;
+    const imageLink = image.split(/[()]/)[1].replaceAll(`"`, ``);
+    const info = card.lastElementChild;
+    const header = info.firstElementChild;
+    const weight = header.nextElementSibling;
+    const price = info.lastElementChild.firstElementChild;
+
+    let data = {
+        id: card.dataset.id,
+        image: imageLink,
+        name: header.textContent,
+        weight: weight.textContent,
+        price: price.textContent,
+        amount: count
+    }
+
+    let cardArr = cards.find(({id}) => id === data.id);
+
+    if (cardArr) {
+        cardArr.amount = count;
+    } else {
+        cards.push(data);
+    }
+
+    localStorage.setItem('cards', JSON.stringify(cards));
+}

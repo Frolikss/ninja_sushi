@@ -104,20 +104,81 @@ function configBellBtn() {
 }
 
 function configCartBtn() {
+
     const cartBtn = document.querySelector('.header__menu--cart');
     const popUp = document.querySelector('.header__cart--popup');
     const closeBtn = document.querySelector('.header__cart--close');
+
     const popUpClass = 'header__cart--popup-show';
     const bodyLock = () => document.body.classList.toggle('lock');
 
     cartBtn.addEventListener('click', event => {
         popUp.classList.toggle(popUpClass);
         bodyLock();
+        fillCardWithLocalData();
     });
 
     closeBtn.addEventListener('click', event => {
         popUp.classList.toggle(popUpClass);
         bodyLock();
+    });
+}
+
+function fillCardWithLocalData() {
+    const items = JSON.parse(localStorage.getItem('cards'));
+    const itemTemplate = document.querySelector('.template__header__cart--item');
+    const itemsContainer = document.querySelector('.header__cart--items');
+
+    const confirmBtn = document.querySelector('.header__cart--confirm');
+
+    items.forEach(() => {
+        itemsContainer.append(itemTemplate.content.cloneNode(true));
+    });
+
+    items.forEach((item, index) => {
+        const cards = document.querySelectorAll('.header__cart--item');
+
+        const row = cards[index].firstElementChild;
+        const summary = cards[index].lastElementChild;
+
+        const info = row.lastElementChild;
+        const img = info.firstElementChild;
+
+        const text = info.lastElementChild;
+        const name = text.firstElementChild;
+        const weight = text.lastElementChild;
+
+        const price = summary.firstElementChild;
+        const counter = summary.lastElementChild.firstElementChild.nextElementSibling;
+
+        name.textContent = item.name;
+        weight.textContent = item.weight;
+        price.textContent = item.price;
+        counter.textContent = item.amount;
+        img.src = item.image;
+    });
+
+    calculateTotalPrice(items);
+
+    function calculateTotalPrice(items) {
+        let finalPrice = document.querySelector('.header__cart--finalprice');
+
+        const MIN_PRICE = 400;
+
+        finalPrice.textContent = `${items.reduce((sum, current) => {
+            sum += (current.price.replace('грн.', '') * +current.amount);
+            return sum;
+        }, 0)} грн.`;
+    
+        confirmBtn.disabled = +finalPrice.textContent.replace('грн.', '') < MIN_PRICE ? true : false;
+    }
+}
+
+function configOrderBtns() {
+    const itemsContainer = document.querySelector('.header__cart--items');
+
+    itemsContainer.addEventListener('click', event => {
+
     });
 }
 

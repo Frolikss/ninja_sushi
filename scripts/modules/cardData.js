@@ -9,6 +9,7 @@ function fillCardWithJSON(res) {
         const header = data.firstElementChild;
         const itemInfo = data.lastElementChild;
 
+        card.setAttribute('data-id', res[i].id);
         marks.style.background = `url(/${res[i].image}) no-repeat top / contain`;
 
         header.textContent = res[i].header;

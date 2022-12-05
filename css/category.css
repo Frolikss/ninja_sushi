@@ -295,6 +295,9 @@ a:link, a:visited {
   border-radius: 12px;
   background: #00CC2D;
 }
+.header__cart--confirm:disabled {
+  background: #ccffd7;
+}
 .header__wrapper {
   display: flex;
   justify-content: space-between;
@@ -356,12 +359,22 @@ a:link, a:visited {
 }
 .header__nav--link {
   padding: 22px 8px;
+  border-radius: 12px;
+  transition: all 0.25s;
+}
+.header__nav--link:hover {
+  color: #FF6633;
+  background: rgba(255, 102, 51, 0.15);
 }
 .header__phone {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 22px 18px;
+  transition: all 0.25s;
+}
+.header__phone:hover {
+  color: #FF6633;
 }
 .header__menu {
   display: flex;
@@ -373,6 +386,7 @@ a:link, a:visited {
   border: 1px solid #D2D2D7;
   border-radius: 12px;
   padding: 16px;
+  transition: all 0.25s;
 }
 .header__menu--item:last-of-type {
   color: #686870;
@@ -980,10 +994,22 @@ a:link, a:visited {
   flex-direction: column;
   gap: 8px;
 }
+.footer__menu--link {
+  transition: all 0.25s;
+}
+.footer__menu--link:hover {
+  color: #FF6633;
+}
 .footer__list {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+.footer__list--link {
+  transition: all 0.25s;
+}
+.footer__list--link:hover {
+  color: #FF6633;
 }
 .footer__time--name, .footer__social--name, .footer__menu--name {
   color: #686870;
@@ -1431,6 +1457,22 @@ a:link, a:visited {
   gap: 12px;
   position: relative;
 }
+.category .cards__item--add--added {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.category .cards__item--add--added .cards__item--counter {
+  display: block;
+}
+.category .cards__item--add--added .cards__item--minus {
+  z-index: 1;
+  opacity: 1;
+  left: 0;
+}
+.category .cards__item--add--added .cards__item--plus, .category .cards__item--add--added .cards__item--minus {
+  padding: 12px;
+}
 .category .cards__item--price {
   align-self: flex-end;
 }
@@ -1447,15 +1489,20 @@ a:link, a:visited {
   background: #CCF5D5;
   border-radius: 12px;
   padding: 12px 24px;
+  transition: all 1s;
+}
+.category .cards__item--plus > svg, .category .cards__item--minus > svg {
+  pointer-events: none;
 }
 .category .cards__item--minus {
-  display: none;
+  z-index: -1;
+  opacity: 0;
   position: absolute;
-  transition: all 1s;
-  left: 54%;
+  left: 46%;
 }
 .category .cards__item--counter {
   display: none;
+  font-weight: 600;
 }
 .category .cards__item_new .new {
   display: inline;
