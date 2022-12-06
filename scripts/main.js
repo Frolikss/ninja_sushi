@@ -46,7 +46,7 @@ function fetchProductsData(url) {
             category.innerHTML = '';
         })
 
-        res.forEach((dataItem, index) => {
+        res.forEach(dataItem => {
             cards.forEach(category => {
                 if (category.closest('.cards').classList.contains(dataItem.category)) {
                     category.append(cardsItemTemplate.content.cloneNode(true));

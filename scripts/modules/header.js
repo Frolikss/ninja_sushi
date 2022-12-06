@@ -42,7 +42,6 @@ function configBellBtn() {
     const url = "https://ninja-tests.herokuapp.com/notifications";
 
     const notifBlock = document.querySelector('.header__menu--notif');
-
     const bellBtn = document.querySelector('.header__menu--item');
     const bellCloseBtn = document.querySelector('.header__menu--notif--close');
 
@@ -64,8 +63,8 @@ function configBellBtn() {
             for (let i = 0; i < res.length; i++) {
 
                 const card = notifItems[i];
-                const text = card.firstElementChild;
-                const time = card.lastElementChild;
+                const text = card.querySelector('.header__menu--notif--text');
+                const time = card.querySelector('.header__menu--notif--time');
                 const date = new Date(res[i].time);
                 const dateFormatted = getFormattedDate(date);
 
@@ -83,7 +82,7 @@ function configBellBtn() {
     });
 
     function addCardEvent(card) {
-        const notifIcon = card.firstElementChild.lastElementChild;
+        const notifIcon = card.querySelector('.header__menu--notif--new');
 
         card.addEventListener('mouseover', event => {
             notifIcon.classList.add('header__menu--notif--viewed');
@@ -108,7 +107,6 @@ function configBellBtn() {
 }
 
 function configCartBtn() {
-
     const cartBtn = document.querySelector('.header__menu--cart');
     const popUp = document.querySelector('.header__cart--popup');
     const closeBtn = document.querySelector('.header__cart--close');
@@ -130,37 +128,32 @@ function configCartBtn() {
 }
 
 function fillCardWithLocalData() {
-    const items = localData(); 
+    const items = localData();
     const itemTemplate = document.querySelector('.template__header__cart--item');
     const itemsContainer = document.querySelector('.header__cart--items');
     const confirmBtn = document.querySelector('.header__cart--confirm');
 
     itemsContainer.innerHTML = '';
 
-    items.forEach(() => {
-        itemsContainer.append(itemTemplate.content.cloneNode(true));
-    });
-
     items.forEach((item, index) => {
+        itemsContainer.append(itemTemplate.content.cloneNode(true));
+
         const cards = document.querySelectorAll('.header__cart--item');
+        const card = cards[index];
 
-        const row = cards[index].firstElementChild;
-        const summary = cards[index].lastElementChild;
+        const info = card.querySelector('.header__cart--info');
+        const img = card.querySelector('.header__cart--image');
 
-        const info = row.lastElementChild;
-        const img = info.firstElementChild;
+        const name = card.querySelector('.header__cart--name');
+        const weight = card.querySelector('.header__cart--weight');
 
-        const text = info.lastElementChild;
-        const name = text.firstElementChild;
-        const weight = text.lastElementChild;
+        const price = card.querySelector('.header__cart--price');
+        const counter = card.querySelector('.header__cart--counter');
 
-        const price = summary.firstElementChild;
-        const counter = summary.lastElementChild.firstElementChild.nextElementSibling;
-
-        cards[index].dataset.id = item.id
+        card.dataset.id = item.id;
         name.textContent = item.name;
         weight.textContent = item.weight;
-        price.textContent = item.price;
+        price.textContent = `${item.price} грн.`;
         counter.textContent = item.amount;
         img.src = item.image;
     });
@@ -168,16 +161,16 @@ function fillCardWithLocalData() {
     calculateTotalPrice(items);
 
     function calculateTotalPrice(items) {
-        let finalPrice = document.querySelector('.header__cart--finalprice');
+        let finalPrice = document.querySelector('.header__cart--sum');
 
         const MIN_PRICE = 400;
 
-        finalPrice.textContent = `${items.reduce((sum, current) => {
-            sum += (current.price.replace('грн.', '') * +current.amount);
+        finalPrice.textContent = items.reduce((sum, current) => {
+            sum += (current.price * +current.amount);
             return sum;
-        }, 0)} грн.`;
+        }, 0);
 
-        confirmBtn.disabled = +finalPrice.textContent.replace('грн.', '') < MIN_PRICE ? true : false;
+        confirmBtn.disabled = +finalPrice.textContent < MIN_PRICE ? true : false;
     }
 }
 
@@ -188,14 +181,14 @@ function configOrderBtns(items) {
         switch (event.target.className) {
             case 'header__cart--remove': removeFromLocaleStorage(event); break;
             case 'header__cart--plus': changeCounterLocalStorage(event, true); break;
-            case 'header__cart--minus': changeCounterLocalStorage( event, false); break;
+            case 'header__cart--minus': changeCounterLocalStorage(event, false); break;
             default: break;
         }
     });
 }
 
 function removeFromLocaleStorage(event) {
-    const items = localData(); 
+    const items = localData();
     const selectedItem = event.target.parentNode.parentNode;
     const filteredItems = items.filter(({ id }) => id !== selectedItem.dataset.id) ?? [];
 
@@ -204,13 +197,12 @@ function removeFromLocaleStorage(event) {
 }
 
 function changeCounterLocalStorage(event, isAdded) {
-    const items = localData(); 
+    const items = localData();
     const selectedItem = event.target.parentNode.parentNode.parentNode;
     const filteredItems = items
         .map(item => {
-            if (item.id === selectedItem.dataset.id) {
-                isAdded ? item.amount = `${+item.amount + 1}` : `${item.amount -= 1}`;
-            }
+            if (item.id !== selectedItem.dataset.id) { return item; }
+            isAdded ? item.amount += + 1 : item.amount -= 1;
             return item;
         })
         .filter(({ amount }) => +amount > 0);
