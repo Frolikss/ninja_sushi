@@ -1090,7 +1090,7 @@ a:link, a:visited {
 }
 .footer__quicktip--text {
   color: #9E9E9E;
-  height: 90px;
+  height: 12vh;
   overflow: hidden;
   transition: all 1s;
 }
@@ -1388,9 +1388,9 @@ a:link, a:visited {
 .category .cards {
   flex-basis: 100%;
   display: grid;
+  justify-content: space-between;
   grid-template-columns: repeat(auto-fit, 24%);
   gap: 16px;
-  flex-wrap: wrap;
 }
 .category .cards__preloader {
   position: relative;
@@ -1629,9 +1629,6 @@ a:link, a:visited {
   .category .cards__item--favorite svg {
     width: 24px;
     height: 24px;
-  }
-  .category .cards__item--add {
-    padding: 6px 14px;
   }
 }
 @media (max-width: 1500px) {

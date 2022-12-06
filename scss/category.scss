@@ -288,9 +288,9 @@
     .cards {
         flex-basis: 100%;
         display: grid;
+        justify-content: space-between;
         grid-template-columns: repeat(auto-fit, 24%);
         gap: 16px;
-        flex-wrap: wrap;
 
         &__preloader {
             position: relative;
@@ -614,10 +614,6 @@
                         width: 24px;
                         height: 24px;
                     }
-                }
-
-                &--add {
-                    padding: 6px 14px;
                 }
             }
         }

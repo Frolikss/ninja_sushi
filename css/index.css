@@ -1096,7 +1096,7 @@ a:link, a:visited {
 }
 .footer__quicktip--text {
   color: #9E9E9E;
-  height: 90px;
+  height: 12vh;
   overflow: hidden;
   transition: all 1s;
 }
