@@ -115,7 +115,8 @@ function configCartBtn() {
     cartBtn.addEventListener('click', event => {
         popUp.classList.toggle(popUpClass);
         bodyLock();
-        fillCardWithLocalData();
+        const items = fillCardWithLocalData();
+        configOrderBtns(items);
     });
 
     closeBtn.addEventListener('click', event => {
@@ -162,7 +163,7 @@ function fillCardWithLocalData() {
     });
 
     calculateTotalPrice(items);
-    configOrderBtns(items);
+    return items;
 
     function calculateTotalPrice(items) {
         let finalPrice = document.querySelector('.header__cart--finalprice');
@@ -201,7 +202,6 @@ function removeFromLocaleStorage(items, event) {
 
 function changeCounterLocalStorage(items, event, isAdded) {
     const selectedItem = event.target.parentNode.parentNode.parentNode;
-
     const filteredItems = items
         .map(item => {
             if (item.id === selectedItem.dataset.id) {
@@ -212,6 +212,7 @@ function changeCounterLocalStorage(items, event, isAdded) {
         .filter(({ amount }) => amount > 0);
 
     localStorage.setItem('cards', JSON.stringify(filteredItems));
+    fillCardWithLocalData();
 }
 
 export { showOverlay, backEvent, configBellBtn, configCartBtn };
