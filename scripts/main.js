@@ -27,7 +27,6 @@ fetchSliderData(bannerSliderItems, bannerURL);
 fetchSliderData(specialSliderItems, specialURL);
 fetchProductsData(productsURL);
 
-
 function fetchSliderData(slider, url) {
     const data = fetch(url).then(response => response.json()).then(data => {
         for (let i = 0; i < slider.length; i++) {

@@ -1290,6 +1290,9 @@ a:link, a:visited {
   }
 }
 
+.cards {
+  padding: 0 16px;
+}
 .cards .container {
   display: flex;
   justify-content: space-between;
@@ -1316,9 +1319,9 @@ a:link, a:visited {
 }
 .cards__row {
   display: flex;
+  flex-basis: 100%;
   flex-wrap: wrap;
   gap: 16px;
-  grid-column: span 2;
 }
 .cards__item {
   display: flex;
@@ -1376,6 +1379,8 @@ a:link, a:visited {
 }
 .cards__item--add--added .cards__item--counter {
   display: block;
+  width: 20px;
+  text-align: center;
 }
 .cards__item--add--added .cards__item--minus {
   z-index: 1;
@@ -1436,9 +1441,6 @@ a:link, a:visited {
   display: inline;
 }
 @media (max-width: 1350px) {
-  .cards {
-    grid-template-columns: repeat(auto-fit, 32%);
-  }
   .cards__item--price {
     font-size: 1.5rem;
   }
@@ -1452,22 +1454,12 @@ a:link, a:visited {
     flex: 25%;
   }
 }
-@media (max-width: 940px) {
-  .cards {
-    grid-template-columns: repeat(auto-fit, 49%);
-  }
-}
 @media (max-width: 900px) {
   .cards__row::after {
     content: none;
   }
   .cards__item--buttons {
     gap: 8px;
-  }
-}
-@media (max-width: 830px) {
-  .cards {
-    grid-template-columns: repeat(auto-fit, 100%);
   }
 }
 @media (max-width: 760px) {
@@ -1479,21 +1471,13 @@ a:link, a:visited {
   .cards .main {
     gap: 48px;
   }
-  .cards .container {
-    grid-template-areas: "header header" "cards cards" "button button";
-  }
-  .cards__row {
-    grid-area: cards;
-  }
   .cards__header {
-    grid-area: header;
     text-align: center;
     font-size: 1.5rem;
   }
   .cards__button {
     padding: 16px;
     text-align: center;
-    grid-area: button;
     align-self: start;
     justify-self: stretch;
   }

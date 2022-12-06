@@ -1,3 +1,7 @@
+let localData = () => {
+    return JSON.parse(localStorage.getItem('cards'));
+}
+
 function showOverlay() {
     const headerBurgerBtn = document.querySelector('.header__menu--burger');
 
@@ -115,8 +119,8 @@ function configCartBtn() {
     cartBtn.addEventListener('click', event => {
         popUp.classList.toggle(popUpClass);
         bodyLock();
-        const items = fillCardWithLocalData();
-        configOrderBtns(items);
+        fillCardWithLocalData();
+        configOrderBtns(localData());
     });
 
     closeBtn.addEventListener('click', event => {
@@ -126,13 +130,12 @@ function configCartBtn() {
 }
 
 function fillCardWithLocalData() {
-    const items = JSON.parse(localStorage.getItem('cards'));
+    const items = localData(); 
     const itemTemplate = document.querySelector('.template__header__cart--item');
     const itemsContainer = document.querySelector('.header__cart--items');
+    const confirmBtn = document.querySelector('.header__cart--confirm');
 
     itemsContainer.innerHTML = '';
-
-    const confirmBtn = document.querySelector('.header__cart--confirm');
 
     items.forEach(() => {
         itemsContainer.append(itemTemplate.content.cloneNode(true));
@@ -163,7 +166,6 @@ function fillCardWithLocalData() {
     });
 
     calculateTotalPrice(items);
-    return items;
 
     function calculateTotalPrice(items) {
         let finalPrice = document.querySelector('.header__cart--finalprice');
@@ -184,32 +186,34 @@ function configOrderBtns(items) {
 
     itemsContainer.addEventListener('click', event => {
         switch (event.target.className) {
-            case 'header__cart--remove': removeFromLocaleStorage(items, event); break;
-            case 'header__cart--plus': changeCounterLocalStorage(items, event, true); break;
-            case 'header__cart--minus': changeCounterLocalStorage(items, event, false); break;
+            case 'header__cart--remove': removeFromLocaleStorage(event); break;
+            case 'header__cart--plus': changeCounterLocalStorage(event, true); break;
+            case 'header__cart--minus': changeCounterLocalStorage( event, false); break;
             default: break;
         }
     });
 }
 
-function removeFromLocaleStorage(items, event) {
+function removeFromLocaleStorage(event) {
+    const items = localData(); 
     const selectedItem = event.target.parentNode.parentNode;
-    const filteredItems = items.filter(({ id }) => id != selectedItem.dataset.id) ?? [];
+    const filteredItems = items.filter(({ id }) => id !== selectedItem.dataset.id) ?? [];
 
     localStorage.setItem('cards', JSON.stringify(filteredItems));
     fillCardWithLocalData();
 }
 
-function changeCounterLocalStorage(items, event, isAdded) {
+function changeCounterLocalStorage(event, isAdded) {
+    const items = localData(); 
     const selectedItem = event.target.parentNode.parentNode.parentNode;
     const filteredItems = items
         .map(item => {
             if (item.id === selectedItem.dataset.id) {
-                isAdded ? item.amount = +item.amount + 1 : item.amount -= 1;
+                isAdded ? item.amount = `${+item.amount + 1}` : `${item.amount -= 1}`;
             }
             return item;
         })
-        .filter(({ amount }) => amount > 0);
+        .filter(({ amount }) => +amount > 0);
 
     localStorage.setItem('cards', JSON.stringify(filteredItems));
     fillCardWithLocalData();

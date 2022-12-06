@@ -1471,6 +1471,8 @@ a:link, a:visited {
 }
 .category .cards__item--add--added .cards__item--counter {
   display: block;
+  width: 20px;
+  text-align: center;
 }
 .category .cards__item--add--added .cards__item--minus {
   z-index: 1;

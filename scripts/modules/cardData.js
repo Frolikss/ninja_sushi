@@ -76,7 +76,7 @@ function configCardCounter(cards) {
             +counterSpan.textContent > 0 ? buttonsBlock.classList.add('cards__item--add--added') : buttonsBlock.classList.remove('cards__item--add--added');
     
             const cardItem = buttonsBlock.closest('.cards__item');
-            console.log(counterSpan.textContent);
+
             prepareCardForStorage(cardItem, counterSpan.textContent); 
         });
     })
