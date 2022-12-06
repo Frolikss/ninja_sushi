@@ -1,5 +1,5 @@
 let localData = () => {
-    return JSON.parse(localStorage.getItem('cards'));
+    return JSON.parse(localStorage.getItem('cards')) ?? [];
 }
 
 function showOverlay() {
@@ -121,6 +121,28 @@ function configCartBtn() {
     closeBtn.addEventListener('click', event => {
         popUp.classList.toggle(popUpClass);
         bodyLock();
+        // const cards = document.querySelectorAll('.cards__item');
+        // const items = localData();
+        // const buttonsClass = 'cards__item--add--added';
+
+        // items.forEach((item) => {
+        //     console.log(items);
+        //     cards.forEach(card => {
+        //         const counter = card.querySelector('.cards__item--counter');
+        //         const buttonsBlock = card.querySelector('.cards__item--add');
+        //         const buttonsNewClass = 'cards__item--add--added';
+
+        //         if (buttonsBlock.classList.contains(buttonsNewClass)) {
+        //             buttonsBlock.classList.remove(buttonsNewClass);
+        //         }
+
+        //         if (item.id === card.dataset.id) {
+        //             buttonsBlock.classList.add(buttonsNewClass);                
+        //             counter.textContent = item.amount;
+        //         }
+        //     });
+        // });
+        document.location.reload();
     });
 }
 
@@ -199,7 +221,7 @@ function changeCounterLocalStorage(event, isAdded) {
     const filteredItems = items
         .map(item => {
             if (item.id !== selectedItem.dataset.id) { return item; }
-            isAdded ? item.amount += + 1 : item.amount -= 1;
+            isAdded ? item.amount++ : item.amount--;
             return item;
         })
         .filter(({ amount }) => +amount > 0);
