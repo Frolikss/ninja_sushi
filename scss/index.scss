@@ -123,12 +123,8 @@
 }
 
 .cards {
-  .container {
-    display: grid;
-    grid-template-rows: 64px 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    padding: 0 16px;
+  &__preloader {
+      position: relative;
   }
 
   .hit,
@@ -136,327 +132,374 @@
   .spicy,
   .eco,
   .disposable {
-    display: none;
+      display: none;
   }
 
   &__header {
-    @extend %bold4864;
+      @extend %bold4864;
   }
 
   &__button {
-    align-self: center;
-    justify-self: end;
-    color: $accent1;
-    background: $white;
-    border-radius: 12px;
-    padding: 12px 24px;
+      align-self: center;
+      justify-self: end;
+      color: $accent1;
+      background: $white;
+      border-radius: 12px;
+      padding: 12px 24px;
   }
 
   &__row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    grid-column: span 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      grid-column: span 2;
   }
 
   &__item {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 8px;
-    background: $white;
-    border-radius: 12px;
-    flex: 1 1 20%;
-    padding: 24px;
-
-    &--marks {
-      @extend %medium1820;
-
       display: flex;
+      justify-content: space-between;
       flex-direction: column;
-      justify-content: space-between;
-      height: 290px;
-      background-size: contain;
-    }
-
-    &--marktext {
-      & > * {
-        padding: 8px 16px;
-        border-radius: 8px;
-      }
-    }
-
-    &--header {
-      @extend %bold2732;
-
-      flex-grow: 0;
-    }
-
-    &--weight {
-      @extend %medium1826;
-
-      color: $accent2;
-      flex-grow: 0;
-    }
-
-    &--data {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &--text {
-      @extend %regular1624;
-
-      flex-grow: 1;
-      max-width: 330px;
-      color: $textgrey1;
-      overflow: hidden;
-    }
-
-    &--info {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      height: 20vh;
-    }
-
-    &--buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    &--price {
-      @extend %bold3840;
-      align-self: flex-end;
-    }
-
-    &--currency {
-      font-size: 1.625rem;
-      color: $textgrey1;
-    }
-
-    &--favorite {
-      background: $bg-grey;
+      gap: 8px;
+      background: $white;
       border-radius: 12px;
-      padding: 16px 13px 14px;
-    }
+      flex: 1 1 20%;
+      padding: 24px;
 
-    &--add {
-      background: $bg-green;
-      border-radius: 12px;
-      padding: 12px 24px;
-    }
+      &--marks {
+          @extend %medium1820;
 
-    &_new {
-      .new {
-        display: inline;
-        color: $accent1;
-        background: $bg-green;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 290px;
       }
-    }
-
-    &_hit {
-      .hit {
-        display: inline;
-        color: $accent2;
-        background: $bg-orange;
-      }
-    }
-
-    &_spicy {
-      .spicy {
-        display: inline;
-      }
-    }
-
-    &_eco {
-      .eco {
-        display: inline;
-      }
-    }
-
-    &_disposable {
-      .disposable {
-        display: inline;
-      }
-    }
-  }
-
-  @media (max-width: 1350px) {
-    &__item {
-      &--price {
-        font-size: 1.5rem;
-      }
-
-      &--currency {
-        font-size: 1rem;
-      }
-    }
-  }
-
-  @media (max-width: 1240px) {
-    &__row::after {
-      content: "";
-      flex: 25%;
-    }
-  }
-
-  @media (max-width: 900px) {
-    &__row::after {
-      content: none;
-    }
-
-    &__item {
-      flex: 1 1 30%;
-
-      &--buttons {
-        gap: 8px;
-      }
-    }
-  }
-
-  @media (max-width: 760px) {
-    &__item {
 
       &--marktext {
-        padding: 12px;
+          & > * {
+              padding: 8px 16px;
+              border-radius: 8px;
+          }
       }
-    }
-  }
-
-  @media (max-width: 550px) {
-    .main {
-      gap: 48px;
-    }
-
-    .container {
-      grid-template-areas:
-                "header header"
-                "cards cards"
-                "button button";
-    }
-
-    &__row {
-      grid-area: cards;
-    }
-
-    &__header {
-      grid-area: header;
-      text-align: center;
-      font-size: 1.5rem;
-    }
-
-    &__button {
-      padding: 16px;
-      text-align: center;
-      grid-area: button;
-      align-self: start;
-      justify-self: stretch;
-    }
-
-    &__item {
-      flex-direction: row;
-      padding: 12px;
 
       &--header {
-        font-size: 1rem;
+          @extend %bold2732;
+
+          flex-grow: 0;
+      }
+
+      &--weight {
+          @extend %medium1826;
+
+          color: $accent2;
+          flex-grow: 0;
       }
 
       &--data {
-        gap: 8px;
+          display: flex;
+          flex-direction: column;
       }
 
-      &--marks {
-        justify-content: flex-end;
-        height: auto;
-        flex: 0 1 60%;
-        background-position: top;
-      }
+      &--text {
+          @extend %regular1624;
 
-      &--marktext {
-        display: flex;
-        gap: 8px;
-      }
-
-      &--icons {
-        display: none;
+          flex-grow: 1;
+          max-width: 330px;
+          color: $textgrey1;
+          overflow: hidden;
       }
 
       &--info {
-        height: auto;
-        margin: 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          height: 20vh;
       }
 
-      &--favorite {
-        align-self: center;
-        padding: 8px 12px;
-
-        & svg {
-          width: 24px;
-          height: 24px;
-        }
+      &--buttons {
+          display: flex;
+          justify-content: space-between;
+          gap: 12px;
+          position: relative;
       }
 
       &--add {
-        padding: 6px 14px;
-      }
+          &--added {
+              display: flex;
+              align-items: center;
+              gap: 8px;
 
-      &:nth-last-child(-n + 4) {
-        display: none;
-      }
-    }
-  }
+              .cards {
+                  &__item {
+                      &--counter {
+                          display: block;
+                      }
 
-  @media (max-width: 1500px) {
-    &__item {
-      &--price {
-        font-size: 1.5rem;
-        line-height: 1rem;
-      }
-    }
-  }
+                      &--minus {
+                          z-index: 1;
+                          opacity: 1;
+                          left: 0;
+                      }
 
-  @media (max-width: 950px) {
-    &__item {
-      &--price {
-        font-size: 1.4rem;
-        line-height: 1rem;
-      }
-    }
-  }
-
-  @media (max-width: 440px) {
-    &__item {
-      &--marks {
-        flex: 0 1 60%;
-      }
-
-      &--marktext {
-        flex-direction: column;
-      }
-    }
-  }
-
-  @media (max-width: 350px) {
-    &__item {
-      &--text {
-        font-size: 0.75rem;
+                      &--plus,
+                      &--minus {
+                          padding: 12px;
+                      }
+                  }
+              }
+          }
       }
 
       &--price {
-        font-size: 1rem;
+          @extend %bold3840;
+          align-self: flex-end;
       }
 
       &--currency {
-        font-size: 0.75rem;
+          font-size: 1.625rem;
+          color: $textgrey1;
       }
 
-      &--marks {
-        font-size: 0.875rem;
-        line-height: 1.25rem;
+      &--favorite {
+          background: $bg-grey;
+          border-radius: 12px;
+          padding: 16px 13px 14px;
       }
-    }
+
+      &--plus,
+      &--minus {
+          background: $bg-green;
+          border-radius: 12px;
+          padding: 12px 24px;
+          transition: all .25s;
+
+          & > svg {
+              pointer-events: none;
+          }
+      }
+
+      &--minus {
+          z-index: -1;
+          opacity: 0;
+          position: absolute;
+          left: 46%;
+      }
+
+      &--counter {
+          display: none;
+          font-weight: 600;
+      }
+
+      &_new {
+          .new {
+              display: inline;
+              color: $accent1;
+              background: $bg-green;
+          }
+      }
+
+      &_hit {
+          .hit {
+              display: inline;
+              color: $accent2;
+              background: $bg-orange;
+          }
+      }
+
+      &_spicy {
+          .spicy {
+              display: inline;
+          }
+      }
+
+      &_eco {
+          .eco {
+              display: inline;
+          }
+      }
+
+      &_disposable {
+          .disposable {
+              display: inline;
+          }
+      }
+  }
+
+  @media (max-width: 1350px) {
+      grid-template-columns: repeat(auto-fit, 32%);
+      &__item {
+          &--price {
+              font-size: 1.5rem;
+          }
+
+          &--currency {
+              font-size: 1rem;
+          }
+      }
+  }
+
+  @media (max-width: 1240px) {
+      &__row::after {
+          content: "";
+          flex: 25%;
+      }
+  }
+
+  @media (max-width: 940px) {
+      grid-template-columns: repeat(auto-fit, 49%);
+  }
+
+  @media (max-width: 900px) {
+      &__row::after {
+          content: none;
+      }
+
+      &__item {
+          &--buttons {
+              gap: 8px;
+          }
+      }
+  }
+
+  @media (max-width: 830px) {
+      grid-template-columns: repeat(auto-fit, 100%);
+  }
+
+  @media (max-width: 760px) {
+      &__item {
+          &--marktext {
+              padding: 12px;
+          }
+      }
+  }
+
+  @media (max-width: 550px) {
+      .main {
+          gap: 48px;
+      }
+
+      .container {
+          grid-template-areas:
+              "header header"
+              "cards cards"
+              "button button";
+      }
+
+      &__row {
+          grid-area: cards;
+      }
+
+      &__header {
+          grid-area: header;
+          text-align: center;
+          font-size: 1.5rem;
+      }
+
+      &__button {
+          padding: 16px;
+          text-align: center;
+          grid-area: button;
+          align-self: start;
+          justify-self: stretch;
+      }
+
+      &__item {
+          flex-direction: row;
+          padding: 12px;
+
+          &--header {
+              font-size: 1rem;
+          }
+
+          &--data {
+              gap: 8px;
+          }
+
+          &--marks {
+              justify-content: flex-end;
+              height: auto;
+              flex: 0 1 60%;
+              background-position: top;
+          }
+
+          &--marktext {
+              display: flex;
+              gap: 8px;
+          }
+
+          &--icons {
+              display: none;
+          }
+
+          &--info {
+              height: auto;
+              margin: 0;
+          }
+
+          &--favorite {
+              align-self: center;
+              padding: 8px 12px;
+
+              & svg {
+                  width: 24px;
+                  height: 24px;
+              }
+          }
+
+          &--add {
+              padding: 6px 14px;
+          }
+      }
+  }
+
+  @media (max-width: 1500px) {
+      &__item {
+          &--price {
+              font-size: 1.5rem;
+              line-height: 1rem;
+          }
+      }
+  }
+
+  @media (max-width: 950px) {
+      &__item {
+          &--price {
+              font-size: 1.4rem;
+              line-height: 1rem;
+          }
+      }
+  }
+
+  @media (max-width: 440px) {
+      &__item {
+          &--marks {
+              flex: 0 1 60%;
+          }
+
+          &--marktext {
+              flex-direction: column;
+          }
+      }
+  }
+
+  @media (max-width: 350px) {
+      &__item {
+          &--text {
+              font-size: 0.75rem;
+          }
+
+          &--price {
+              font-size: 1rem;
+          }
+
+          &--currency {
+              font-size: 0.75rem;
+          }
+
+          &--marks {
+              font-size: 0.875rem;
+              line-height: 1.25rem;
+          }
+      }
   }
 }
 

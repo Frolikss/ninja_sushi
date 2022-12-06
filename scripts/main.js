@@ -1,7 +1,7 @@
 'use strict'
-import {fillCardWithJSON} from './modules/cardData.js';
-import {showOverlay, configBellBtn, configCartBtn} from './modules/header.js'
-import {footerQuicktipToggle} from './modules/footer.js';
+import { fillCardWithJSON, configCardCounter } from './modules/cardData.js';
+import { showOverlay, configBellBtn, configCartBtn } from './modules/header.js'
+import { footerQuicktipToggle } from './modules/footer.js';
 
 const bannerURL = 'https://ninja-tests.herokuapp.com/head';
 const specialURL = 'https://ninja-tests.herokuapp.com/special';
@@ -31,9 +31,9 @@ fetchProductsData(productsURL);
 function fetchSliderData(slider, url) {
     const data = fetch(url).then(response => response.json()).then(data => {
         for (let i = 0; i < slider.length; i++) {
-           const sliderItem = slider[i].firstElementChild;
-           sliderItem.textContent = data[i].header;
-           sliderItem.nextElementSibling.textContent = data[i].subtext;
+            const sliderItem = slider[i].firstElementChild;
+            sliderItem.textContent = data[i].header;
+            sliderItem.nextElementSibling.textContent = data[i].subtext;
         }
     }).catch(error => console.log(error));
 }
@@ -47,7 +47,7 @@ function fetchProductsData(url) {
             category.innerHTML = '';
         })
 
-        res.forEach(dataItem => {
+        res.forEach((dataItem, index) => {
             cards.forEach(category => {
                 if (category.closest('.cards').classList.contains(dataItem.category)) {
                     category.append(cardsItemTemplate.content.cloneNode(true));
@@ -55,5 +55,6 @@ function fetchProductsData(url) {
             });
         });
         fillCardWithJSON(res);
+        configCardCounter(cards);
     });
 }

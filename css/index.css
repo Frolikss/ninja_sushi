@@ -1290,12 +1290,8 @@ a:link, a:visited {
   }
 }
 
-.cards .container {
-  display: grid;
-  grid-template-rows: 64px 1fr;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  padding: 0 16px;
+.cards__preloader {
+  position: relative;
 }
 .cards .hit,
 .cards .new,
@@ -1333,7 +1329,6 @@ a:link, a:visited {
   flex-direction: column;
   justify-content: space-between;
   height: 290px;
-  background-size: contain;
 }
 .cards__item--marktext > * {
   padding: 8px 16px;
@@ -1366,6 +1361,23 @@ a:link, a:visited {
   display: flex;
   justify-content: space-between;
   gap: 12px;
+  position: relative;
+}
+.cards__item--add--added {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cards__item--add--added .cards__item--counter {
+  display: block;
+}
+.cards__item--add--added .cards__item--minus {
+  z-index: 1;
+  opacity: 1;
+  left: 0;
+}
+.cards__item--add--added .cards__item--plus, .cards__item--add--added .cards__item--minus {
+  padding: 12px;
 }
 .cards__item--price {
   align-self: flex-end;
@@ -1379,10 +1391,24 @@ a:link, a:visited {
   border-radius: 12px;
   padding: 16px 13px 14px;
 }
-.cards__item--add {
+.cards__item--plus, .cards__item--minus {
   background: #CCF5D5;
   border-radius: 12px;
   padding: 12px 24px;
+  transition: all 0.25s;
+}
+.cards__item--plus > svg, .cards__item--minus > svg {
+  pointer-events: none;
+}
+.cards__item--minus {
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+  left: 46%;
+}
+.cards__item--counter {
+  display: none;
+  font-weight: 600;
 }
 .cards__item_new .new {
   display: inline;
@@ -1404,6 +1430,9 @@ a:link, a:visited {
   display: inline;
 }
 @media (max-width: 1350px) {
+  .cards {
+    grid-template-columns: repeat(auto-fit, 32%);
+  }
   .cards__item--price {
     font-size: 1.5rem;
   }
@@ -1417,15 +1446,22 @@ a:link, a:visited {
     flex: 25%;
   }
 }
+@media (max-width: 940px) {
+  .cards {
+    grid-template-columns: repeat(auto-fit, 49%);
+  }
+}
 @media (max-width: 900px) {
   .cards__row::after {
     content: none;
   }
-  .cards__item {
-    flex: 1 1 30%;
-  }
   .cards__item--buttons {
     gap: 8px;
+  }
+}
+@media (max-width: 830px) {
+  .cards {
+    grid-template-columns: repeat(auto-fit, 100%);
   }
 }
 @media (max-width: 760px) {
@@ -1492,9 +1528,6 @@ a:link, a:visited {
   }
   .cards__item--add {
     padding: 6px 14px;
-  }
-  .cards__item:nth-last-child(-n+4) {
-    display: none;
   }
 }
 @media (max-width: 1500px) {

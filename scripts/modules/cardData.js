@@ -20,6 +20,8 @@ function fillCardWithJSON(res) {
 
         marks.classList.add(...checkIconsData(res[i]));
     }
+
+    setCardCounter(cardsItem);
 }
 
 function checkIconsData(data) {
@@ -44,4 +46,72 @@ function checkIconsData(data) {
     return arr;
 }
 
-export {fillCardWithJSON};
+function setCardCounter(cards) {
+    let items = JSON.parse(localStorage.getItem('cards')) ?? [];
+
+    cards.forEach((card, index) => {
+        const item = items.find(({id}) => id === cards[index].dataset.id);
+
+        if (item) {
+            let counter = card.querySelector('.cards__item--counter');
+            const counterContainer = card.querySelector('.cards__item--add');
+            counterContainer.classList.add('cards__item--add--added');
+            counter.textContent = item.amount;
+        }
+    });
+}
+
+function configCardCounter(cards) {
+
+    cards.forEach(item => {
+        item.addEventListener('click', event => {
+            const buttonsBlock = event.target.parentElement;
+            if (buttonsBlock.parentElement.className !== 'cards__item--buttons') return;
+    
+            const counterSpan = buttonsBlock.childNodes[1];
+            const plus = buttonsBlock.childNodes[3];
+            const minus = buttonsBlock.childNodes[5];
+    
+            event.target.className === plus.className ? counterSpan.textContent = +counterSpan.textContent + 1 : counterSpan.textContent -= 1;
+            +counterSpan.textContent > 0 ? buttonsBlock.classList.add('cards__item--add--added') : buttonsBlock.classList.remove('cards__item--add--added');
+    
+            const cardItem = buttonsBlock.closest('.cards__item');
+            console.log(counterSpan.textContent);
+            prepareCardForStorage(cardItem, counterSpan.textContent); 
+        });
+    })
+}
+
+function prepareCardForStorage(card, count) {
+    let cards = JSON.parse(localStorage.getItem('cards')) ?? [];
+
+    const image = `${card.firstElementChild.style.background}`;
+    const imageLink = image.split(/[()]/)[1].replaceAll(`"`, ``);
+    const info = card.lastElementChild;
+    const header = info.firstElementChild;
+    const weight = header.nextElementSibling;
+    const price = info.lastElementChild.firstElementChild;
+
+    let data = {
+        id: card.dataset.id,
+        image: imageLink,
+        name: header.textContent,
+        weight: weight.textContent,
+        price: price.textContent,
+        amount: count
+    }
+
+    let cardArr = cards.find(({id}) => id === data.id);
+
+    if (cardArr) {
+        cardArr.amount = count;
+    } else {
+        cards.push(data);
+    }
+
+    cards = cards.filter(({amount}) => amount > 0);
+
+    localStorage.setItem('cards', JSON.stringify(cards));
+}
+
+export {fillCardWithJSON, configCardCounter};
