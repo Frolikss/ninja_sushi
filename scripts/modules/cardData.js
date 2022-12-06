@@ -1,6 +1,5 @@
 const addClass = 'cards__item--add--added';
 
-
 function fillCardWithJSON(res) {
     const cardsItem = document.querySelectorAll('.cards__item');
 
@@ -65,7 +64,6 @@ function setCardCounter(cards) {
 }
 
 function configCardCounter(cards) {
-
     cards.forEach(item => {
         item.addEventListener('click', event => {
             const buttonsBlock = event.target.parentElement;

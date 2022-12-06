@@ -211,6 +211,7 @@
             &_active {
                 background: $accent2 !important;
                 color: $white;
+                pointer-events: none;
             }
         }
 

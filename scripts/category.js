@@ -26,7 +26,9 @@ function mutateURL({
     reg = '',
     replace = '' } = {}) {
 
-    url += type + flavor + fish;
+    if (type || flavor || fish) {
+        url += type + flavor + fish;
+    }
 
     if (reg) {
         url = url.replace(reg, replace);
@@ -34,7 +36,6 @@ function mutateURL({
 }
 
 function fetchProductsData() {
-
     const cardsItemTemplate = document.querySelector('.card__template');
 
     cardContainer.innerHTML = '';
@@ -94,9 +95,9 @@ function typeFilter() {
             const reg = new RegExp('&type=[a-zA-Z]+');
             const activeClass = 'category__filter--item_active';
 
-            for (let i = 0; i < typeBtns.length; i++) {
-                typeBtns[i].classList.remove(activeClass);
-            }
+            typeBtns.forEach(btn => {
+                btn.classList.remove(activeClass);
+            })
 
             btn.classList.add(activeClass);
 
@@ -225,7 +226,6 @@ function configMenuMobile() {
 }
 
 function configMenuDesktop() {
-
     const resetBtn = document.querySelector('.category__submenu--reset');
     resetBtn.addEventListener('click', resetEvent);
 }

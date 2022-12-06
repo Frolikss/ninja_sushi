@@ -38,7 +38,6 @@ function backEvent() {
 }
 
 function configBellBtn() {
-
     const url = "https://ninja-tests.herokuapp.com/notifications";
 
     const notifBlock = document.querySelector('.header__menu--notif');

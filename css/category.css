@@ -1333,6 +1333,7 @@ a:link, a:visited {
 .category__filter--item_active {
   background: #FF6633 !important;
   color: #fff;
+  pointer-events: none;
 }
 .category__filter--sort {
   outline: none;
