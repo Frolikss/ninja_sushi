@@ -38,8 +38,8 @@ function fetchSliderData(slider, url) {
 }
 
 function fetchProductsData(url) {
-
     const cardsItemTemplate = document.querySelector('.card__template');
+    
     axios.get(url).then(response => response.data).then(res => {
 
         cards.forEach(category => {

@@ -54,26 +54,24 @@ function configBellBtn() {
 
             notifCards.innerHTML = '';
 
-            res.forEach(() => {
+            res.forEach((resItem, index) => {
                 notifCards.append(templateItem.content.cloneNode(true));
-            })
 
-            const notifItems = document.querySelectorAll('.header__menu--notif--item');
+                const notifItems = document.querySelectorAll('.header__menu--notif--item');
+                const card = notifItems[index];
 
-            for (let i = 0; i < res.length; i++) {
-
-                const card = notifItems[i];
                 const text = card.querySelector('.header__menu--notif--text');
                 const time = card.querySelector('.header__menu--notif--time');
-                const date = new Date(res[i].time);
+
+                const date = new Date(resItem.time);
                 const dateFormatted = getFormattedDate(date);
 
-                card.setAttribute('href', res[i].url);
-                text.textContent = res[i].header;
+                card.setAttribute('href', resItem.url);
+                text.textContent = resItem.header;
                 time.textContent = `${dateFormatted.day}.${dateFormatted.month} в ${dateFormatted.hours}:${dateFormatted.minutes}`;
 
                 addCardEvent(card);
-            }
+            })
         });
     })
 
@@ -118,7 +116,7 @@ function configCartBtn() {
         popUp.classList.toggle(popUpClass);
         bodyLock();
         fillCardWithLocalData();
-        configOrderBtns(localData());
+        configOrderBtns();
     });
 
     closeBtn.addEventListener('click', event => {
@@ -161,9 +159,8 @@ function fillCardWithLocalData() {
     calculateTotalPrice(items);
 
     function calculateTotalPrice(items) {
-        let finalPrice = document.querySelector('.header__cart--sum');
-
         const MIN_PRICE = 400;
+        const finalPrice = document.querySelector('.header__cart--sum');
 
         finalPrice.textContent = items.reduce((sum, current) => {
             sum += (current.price * +current.amount);
@@ -174,7 +171,7 @@ function fillCardWithLocalData() {
     }
 }
 
-function configOrderBtns(items) {
+function configOrderBtns() {
     const itemsContainer = document.querySelector('.header__cart--items');
 
     itemsContainer.addEventListener('click', event => {
@@ -199,6 +196,7 @@ function removeFromLocaleStorage(event) {
 function changeCounterLocalStorage(event, isAdded) {
     const items = localData();
     const selectedItem = event.target.parentNode.parentNode.parentNode;
+
     const filteredItems = items
         .map(item => {
             if (item.id !== selectedItem.dataset.id) { return item; }
