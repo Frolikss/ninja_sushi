@@ -1,4 +1,4 @@
-import { configCardCounter } from './cardData.js';
+const popUp = document.querySelector('.header__cart--popup');
 
 let localData = () => {
     return JSON.parse(localStorage.getItem('cards')) ?? [];
@@ -107,7 +107,6 @@ function configBellBtn() {
 
 function configCartBtn() {
     const cartBtn = document.querySelector('.header__menu--cart');
-    const popUp = document.querySelector('.header__cart--popup');
     const closeBtn = document.querySelector('.header__cart--close');
 
     const popUpClass = 'header__cart--popup-show';
@@ -116,6 +115,7 @@ function configCartBtn() {
     cartBtn.addEventListener('click', event => {
         popUp.classList.toggle(popUpClass);
         bodyLock();
+        checkEmptyCart();
         fillCardWithLocalData();
     });
 
@@ -178,6 +178,7 @@ function fillCardWithLocalData() {
     });
 
     calculateTotalPrice(items);
+    checkEmptyCart();
 
     function calculateTotalPrice(items) {
         const MIN_PRICE = 400;
@@ -229,6 +230,13 @@ function changeCounterLocalStorage(event, isAdded) {
 
     localStorage.setItem('cards', JSON.stringify(filteredItems));
     fillCardWithLocalData();
+}
+
+function checkEmptyCart() {
+    const emptyClass = 'header__cart--popup_empty';
+    const items = localData();
+
+    items.length === 0 ? popUp.classList.add(emptyClass) : popUp.classList.remove(emptyClass)
 }
 
 export { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns };
