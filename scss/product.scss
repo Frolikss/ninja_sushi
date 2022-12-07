@@ -6,6 +6,47 @@
         padding: 0 16px;
     }
 
+    .slick-initialized .slick-slide {
+        display: grid;
+    }
+
+    .slick-prev:before {
+        content: url(/assets/svg/slider__arrow.svg);
+        display: inline-block;
+        transform: rotate(180deg);
+    }
+
+    .slick-next:before {
+        content: url(/assets/svg/slider__arrow.svg);
+        display: inline-block;
+    }
+
+    .slick-prev,
+    .slick-next {
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $bg-transperent1;
+        border-radius: 12px;
+        padding: 70px 30px;
+        margin: 0 40px;
+
+        &:hover {
+            background: rgba(39, 39, 39, 0.05);
+        }
+    }
+
+    .slick-list {
+        overflow: unset;
+        overflow-x: clip;
+    }
+
+    .slick-disabled {
+        opacity: 0;
+        pointer-events: none;
+    }
+
     &__item {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -91,6 +132,53 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+            max-width: 60%;
+
+            .slick-initialized .slick-slide {
+                display: flex;
+            }
+
+            .slick-prev:before {
+                content: url(/assets/svg/slider__arrow.svg);
+                display: inline-block;
+                transform: rotate(180deg);
+            }
+
+            .slick-next:before {
+                content: url(/assets/svg/slider__arrow.svg);
+                display: inline-block;
+            }
+
+            .slick-prev,
+            .slick-next {
+                position: static;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: $white;
+                border-radius: 12px;
+                padding: 70px 30px;
+                margin: 0;
+                -webkit-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                transform: translate(0, 0);
+
+                &:hover {
+                    background: $white;
+                }
+            }
+
+            .slick-list {
+                overflow: unset;
+                overflow-x: clip;
+            }
+
+            .slick-disabled {
+                display: none;
+                opacity: 0;
+                pointer-events: none;
+            }
 
             &--slider {
                 display: flex;
@@ -474,7 +562,7 @@
                 background: $bg-green;
                 border-radius: 12px;
                 padding: 12px 24px;
-                transition: all .25s;
+                transition: all 0.25s;
 
                 & > svg {
                     pointer-events: none;

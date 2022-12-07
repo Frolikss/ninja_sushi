@@ -1260,6 +1260,41 @@ a:link, a:visited {
 .products .container {
   padding: 0 16px;
 }
+.products .slick-initialized .slick-slide {
+  display: grid;
+}
+.products .slick-prev:before {
+  content: url(/assets/svg/slider__arrow.svg);
+  display: inline-block;
+  transform: rotate(180deg);
+}
+.products .slick-next:before {
+  content: url(/assets/svg/slider__arrow.svg);
+  display: inline-block;
+}
+.products .slick-prev,
+.products .slick-next {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(39, 39, 39, 0.05);
+  border-radius: 12px;
+  padding: 70px 30px;
+  margin: 0 40px;
+}
+.products .slick-prev:hover,
+.products .slick-next:hover {
+  background: rgba(39, 39, 39, 0.05);
+}
+.products .slick-list {
+  overflow: unset;
+  overflow-x: clip;
+}
+.products .slick-disabled {
+  opacity: 0;
+  pointer-events: none;
+}
 .products__item {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1323,6 +1358,45 @@ a:link, a:visited {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-width: 60%;
+}
+.products__item--consist .slick-initialized .slick-slide {
+  display: flex;
+}
+.products__item--consist .slick-prev:before {
+  content: url(/assets/svg/slider__arrow.svg);
+  display: inline-block;
+  transform: rotate(180deg);
+}
+.products__item--consist .slick-next:before {
+  content: url(/assets/svg/slider__arrow.svg);
+  display: inline-block;
+}
+.products__item--consist .slick-prev,
+.products__item--consist .slick-next {
+  position: static;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 70px 30px;
+  margin: 0;
+  transform: translate(0, 0);
+}
+.products__item--consist .slick-prev:hover,
+.products__item--consist .slick-next:hover {
+  background: #fff;
+}
+.products__item--consist .slick-list {
+  overflow: unset;
+  overflow-x: clip;
+}
+.products__item--consist .slick-disabled {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 .products__item--consist--slider {
   display: flex;
