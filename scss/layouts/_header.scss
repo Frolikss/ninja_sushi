@@ -94,8 +94,11 @@
 
       &_empty {
         .header__cart {
+          justify-content: flex-start;
+
           &--empty {
             display: flex;
+            justify-content: flex-start;
           }
   
           &--items {
@@ -255,6 +258,7 @@
     }
 
     &--currency {
+      color: $textgrey1;
       font-size: 1.3125rem;
       line-height: 40%;
     }
@@ -667,6 +671,15 @@
   }
 
   @media (max-width: 1430px) {
+    &__cart {
+      &--empty {
+        &--repeat,
+        &--history {
+          width: 50%;
+        }
+      }
+    }
+
     &__phone {
       &--text {
         display: none;
@@ -864,6 +877,15 @@
     &__logo {
       &--text {
         display: none;
+      }
+    }
+
+    &__cart {
+      &--empty {
+        &--repeat,
+        &--history {
+          width: 80%;
+        }
       }
     }
   }
