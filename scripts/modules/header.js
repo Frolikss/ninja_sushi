@@ -1,3 +1,5 @@
+import { configCardCounter } from './cardData.js';
+
 let localData = () => {
     return JSON.parse(localStorage.getItem('cards')) ?? [];
 }
@@ -115,34 +117,32 @@ function configCartBtn() {
         popUp.classList.toggle(popUpClass);
         bodyLock();
         fillCardWithLocalData();
-        configOrderBtns();
     });
 
     closeBtn.addEventListener('click', event => {
         popUp.classList.toggle(popUpClass);
         bodyLock();
-        // const cards = document.querySelectorAll('.cards__item');
-        // const items = localData();
-        // const buttonsClass = 'cards__item--add--added';
+        const cards = document.querySelectorAll('.cards__item');
 
-        // items.forEach((item) => {
-        //     console.log(items);
-        //     cards.forEach(card => {
-        //         const counter = card.querySelector('.cards__item--counter');
-        //         const buttonsBlock = card.querySelector('.cards__item--add');
-        //         const buttonsNewClass = 'cards__item--add--added';
+        const items = localData();
+        const buttonsNewClass = 'cards__item--add--added';
 
-        //         if (buttonsBlock.classList.contains(buttonsNewClass)) {
-        //             buttonsBlock.classList.remove(buttonsNewClass);
-        //         }
+        cards.forEach(card => {
+            const counter = card.querySelector('.cards__item--counter');
+            const buttonsBlock = card.querySelector('.cards__item--add');
 
-        //         if (item.id === card.dataset.id) {
-        //             buttonsBlock.classList.add(buttonsNewClass);                
-        //             counter.textContent = item.amount;
-        //         }
-        //     });
-        // });
-        document.location.reload();
+            if (buttonsBlock.classList.contains(buttonsNewClass)) {
+                buttonsBlock.classList.remove(buttonsNewClass);
+                counter.textContent = 0;
+            }
+
+            items.forEach(item => {
+                if (item.id === card.dataset.id) {
+                    buttonsBlock.classList.add(buttonsNewClass);
+                    counter.textContent = item.amount;
+                }
+            });
+        });
     });
 }
 
@@ -226,8 +226,9 @@ function changeCounterLocalStorage(event, isAdded) {
         })
         .filter(({ amount }) => +amount > 0);
 
+
     localStorage.setItem('cards', JSON.stringify(filteredItems));
     fillCardWithLocalData();
 }
 
-export { showOverlay, backEvent, configBellBtn, configCartBtn };
+export { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns };

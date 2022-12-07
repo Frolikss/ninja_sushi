@@ -73,7 +73,7 @@ function configCardCounter(cards) {
             const plus = buttonsBlock.childNodes[3];
             const minus = buttonsBlock.childNodes[5];
 
-            event.target.className === plus.className ? counterSpan.textContent = +counterSpan.textContent + 1 : counterSpan.textContent -= 1;
+            event.target.className === plus.className ? counterSpan.textContent++ : counterSpan.textContent--;
             +counterSpan.textContent > 0 ? buttonsBlock.classList.add(addClass) : buttonsBlock.classList.remove(addClass);
 
             const cardItem = buttonsBlock.closest('.cards__item');

@@ -1,7 +1,7 @@
 "use strict"
 
 import { fillCardWithJSON, configCardCounter } from './modules/cardData.js';
-import { showOverlay, backEvent, configBellBtn, configCartBtn } from './modules/header.js';
+import { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -14,10 +14,13 @@ const cardContainer = document.querySelector('.cards');
 let url = `https://ninja-tests.herokuapp.com/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 
 fetchProductsData();
+
 filters();
 uiLogic();
 footerQuicktipToggle();
 configCartBtn();
+configOrderBtns();
+configCardCounter([cardContainer]);
 
 function mutateURL({
     type = '',
@@ -50,7 +53,6 @@ function fetchProductsData() {
 
         checkEmptyContainer(cards);
         fillCardWithJSON(res);
-        configCardCounter([cardContainer]);
     });
 
     function checkEmptyContainer(cards) {
