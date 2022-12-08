@@ -1,49 +1,54 @@
 import { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
 
+const MAX_ITEMS = 40;
+
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get('category');
+let id = urlParams.get('id');
+
 configBellBtn();
 configCartBtn();
 configOrderBtns();
+configChangeBtns();
 backEvent();
 showOverlay();
 footerQuicktipToggle();
-setCards();
+setCard();
 
-function setCards() {
-    fetchCards().then(data => {
+function setCard() {
+    fetchCard(id).then(data => {
         const cardTemplate = document.querySelector('.products__slider--template');
+        const show = document.querySelector('.products__show');
 
-        const slider = document.querySelector('.products__slider');
+        show.innerHTML = '';
+        show.append(cardTemplate.content.cloneNode(true));
 
-        data.forEach((dataItem, index) => {
-            slider.append(cardTemplate.content.cloneNode(true));
+        const card = document.querySelector('.products__item');
+        const contains = data.contains[0].items;
 
-            const card = document.querySelectorAll('.products__item')[index];
-            const contains = dataItem.contains[0].items;
+        const marks = {
+            isNew: card.querySelector('.new'),
+            isHit: card.querySelector('.hit'),
+            isEco: card.querySelector('.products__item--eco'),
+            isSpicy: card.querySelector('.products__item--spicy'),
+        }
 
-            const marks = {
-                isNew: card.querySelector('.new'),
-                isHit: card.querySelector('.hit'),
-                isEco: card.querySelector('.products__item--eco'),
-                isSpicy: card.querySelector('.products__item--spicy'),
-            }
+        setIconsClasses(data, marks);
+        setCardContent(data, card);
+        setContainsSlider(contains, card);
+        setSwitch(data, card);
 
-            setIconsClasses(dataItem, marks);
-            setCardContent(dataItem, card);
-            setContainsSlider(contains, card);
-            setSwitch(dataItem, card);
-        });
-    }).then(res => setSlider());
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            createSwipe();
+        }
+    })
 }
 
-async function fetchCards() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const category = urlParams.get('category');
-
-    const url = `https://ninja-tests.herokuapp.com/products?_embed=contains&category=${category}`;
+async function fetchCard(id) {
+    const url = `https://ninja-tests.herokuapp.com/products/${id}?_embed=contains&category=${category}`;
     const response = await axios.get(url);
-
-    return await response.data;
+    return response.data;
 }
 
 function setIconsClasses(data, marks) {
@@ -86,9 +91,11 @@ function setCardContent(data, card) {
 }
 
 function setContainsSlider(contains, card) {
+    const consistSlider = card.querySelector('.products__item--consist--slider');
+    const containTemplate = document.querySelector('.products__item--consist--template');
+    consistSlider.innerHTML = '';
+
     contains.forEach((item, i) => {
-        const consistSlider = card.querySelector('.products__item--consist--slider');
-        const containTemplate = document.querySelector('.products__item--consist--template');
 
         consistSlider.append(containTemplate.content.cloneNode(true));
 
@@ -139,7 +146,64 @@ function setCartBtn(card, info) {
 
         let existingCard = storage.find(({ id }) => id === data.id);
         existingCard ? existingCard.amount++ : storage.push(data);
-    
+
         localStorage.setItem('cards', JSON.stringify(storage));
     });
+}
+
+function configChangeBtns() {
+    const prevBtn = document.querySelector('.products__prev');
+    const nextBtn = document.querySelector('.products__next');
+
+    prevBtn.addEventListener('click', event => {
+        id--;
+        setCard();
+    });
+
+    nextBtn.addEventListener('click', event => {
+        id++;
+        setCard();
+    });
+}
+
+function createSwipe() {
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+
+    let xDown = null;
+    let yDown = null;
+
+    function getTouches(evt) {
+        return evt.touches;
+    }
+
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+    }
+
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        let xUp = evt.touches[0].clientX;
+        let yUp = evt.touches[0].clientY;
+
+        let xDiff = xDown - xUp;
+        let yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+            if ( xDiff > 0 ) {
+                id++;
+                setCard();
+            } else {
+                id--;
+                setCard();
+            }
+        }
+        xDown = null;
+        yDown = null;
+    }
 }
