@@ -220,6 +220,10 @@
                 padding: 12px 16px;
                 background: $white;
                 border-radius: 12px;
+
+                &_nonlac {
+                    display: none !important;
+                }
             }
         }
 
@@ -228,16 +232,12 @@
         }
 
         &--lactose {
-            display: none;
+            display: flex;
             align-items: center;
             gap: 8px;
 
             &--text {
                 @extend %medium2028;
-            }
-
-            &_show {
-                display: flex;
             }
         }
 
@@ -249,6 +249,18 @@
             background: $accent2;
             border-radius: 100px;
             position: relative;
+            cursor: pointer;
+
+
+            &_active {
+                background: $accent1;
+
+                .products__item--switch--image {
+                    left: auto;
+                    right: 5%;
+                    transition: all 0.5s ease-in-out;
+                }
+            }
 
             &--image {
                 background: url(/assets/svg/item__disposable.svg) no-repeat center, $white;
@@ -258,11 +270,7 @@
                 height: 85%;
                 border-radius: 100px;
                 left: 5%;
-                transition: left 0.5s ease-in-out;
-                //TODO switch add in js products__item--switch--image_active
-                &_active {
-                    left: 45%;
-                }
+                transition: all 0.5s ease-in-out;
             }
         }
 
@@ -812,3 +820,7 @@
         }
     }
 }
+
+.lock {
+    overflow: hidden;
+  }

@@ -1431,13 +1431,13 @@ a:link, a:visited {
   background: #fff;
   border-radius: 12px;
 }
+.products__item--consist--item_nonlac {
+  display: none !important;
+}
 .products__item--lactose {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 8px;
-}
-.products__item--lactose_show {
-  display: flex;
 }
 .products__item--switch {
   display: flex;
@@ -1447,6 +1447,15 @@ a:link, a:visited {
   background: #FF6633;
   border-radius: 100px;
   position: relative;
+  cursor: pointer;
+}
+.products__item--switch_active {
+  background: #00CC2D;
+}
+.products__item--switch_active .products__item--switch--image {
+  left: auto;
+  right: 5%;
+  transition: all 0.5s ease-in-out;
 }
 .products__item--switch--image {
   background: url(/assets/svg/item__disposable.svg) no-repeat center, #fff;
@@ -1456,10 +1465,7 @@ a:link, a:visited {
   height: 85%;
   border-radius: 100px;
   left: 5%;
-  transition: left 0.5s ease-in-out;
-}
-.products__item--switch--image_active {
-  left: 45%;
+  transition: all 0.5s ease-in-out;
 }
 .products__item--data {
   display: flex;
@@ -1855,4 +1861,8 @@ a:link, a:visited {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+}
+
+.lock {
+  overflow: hidden;
 }
