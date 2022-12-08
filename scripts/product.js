@@ -118,7 +118,6 @@ function setSwitch(data, card) {
 
         slides.forEach(slide => {
             if (!slide.dataset.lac.includes('lac_')) return;
-            console.log(slide);
             slide.classList.toggle('products__item--consist--item_nonlac');
         });
     });
