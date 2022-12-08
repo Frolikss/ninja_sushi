@@ -1,5 +1,40 @@
 const addClass = 'cards__item--add--added';
 
+function fetchProductsData(url, cardContainer) {
+    const cardsItemTemplate = document.querySelector('.card__template');
+
+    if (!cardContainer.classList.contains('cards__showmore')) {
+        cardContainer.innerHTML = '';
+    }
+
+    axios.get(url).then(response => response.data).then(res => {
+
+        res.forEach(() => {
+            cardContainer.append(cardsItemTemplate.content.cloneNode(true));
+        });
+
+        const cards = document.querySelectorAll('.cards__item');
+
+        checkEmptyContainer(cards);
+        fillCardWithJSON(res);
+    });
+
+    function checkEmptyContainer(cards) {
+        if (cards.length === 0) {
+            const par = document.createElement('p');
+            const showMoreBtn = document.querySelector('.category__showmore');
+            const notFound = 'Не найдено'
+            par.textContent = notFound;
+            par.style.textAlign = 'center';
+
+            cardContainer.style.justifyContent = 'center';
+            cardContainer.append(par);
+
+            showMoreBtn.style.display = 'none';
+        }
+    }
+}
+
 function fillCardWithJSON(res) {
     const cardsItem = document.querySelectorAll('.cards__item');
 
@@ -109,4 +144,4 @@ function prepareCardForStorage(card, count) {
     localStorage.setItem('cards', JSON.stringify(cards));
 }
 
-export { fillCardWithJSON, configCardCounter };
+export { fillCardWithJSON, configCardCounter, fetchProductsData };

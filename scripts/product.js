@@ -39,9 +39,8 @@ function setCards() {
 async function fetchCards() {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');
-    const id = urlParams.get('id');
 
-    const url = `https://ninja-tests.herokuapp.com/products?_embed=contains&category=${category}`
+    const url = `https://ninja-tests.herokuapp.com/products?_embed=contains&category=${category}`;
     const response = await axios.get(url);
 
     return await response.data;

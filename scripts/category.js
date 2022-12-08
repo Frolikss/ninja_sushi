@@ -1,6 +1,6 @@
 "use strict"
 
-import { fillCardWithJSON, configCardCounter } from './modules/cardData.js';
+import { configCardCounter, fetchProductsData } from './modules/cardData.js';
 import { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
 
@@ -13,7 +13,7 @@ const cardContainer = document.querySelector('.cards');
 
 let url = `https://ninja-tests.herokuapp.com/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 
-fetchProductsData();
+fetchProductsData(url, cardContainer);
 filters();
 uiLogic();
 footerQuicktipToggle();
@@ -34,39 +34,6 @@ function mutateURL({
 
     if (reg) {
         url = url.replace(reg, replace);
-    }
-}
-
-function fetchProductsData() {
-    const cardsItemTemplate = document.querySelector('.card__template');
-
-    cardContainer.innerHTML = '';
-
-    axios.get(url).then(response => response.data).then(res => {
-
-        res.forEach(() => {
-            cardContainer.append(cardsItemTemplate.content.cloneNode(true));
-        });
-
-        const cards = document.querySelectorAll('.cards__item');
-
-        checkEmptyContainer(cards);
-        fillCardWithJSON(res);
-    });
-
-    function checkEmptyContainer(cards) {
-        if (cards.length === 0) {
-            const par = document.createElement('p');
-            const showMoreBtn = document.querySelector('.category__showmore');
-            const notFound = 'Не найдено'
-            par.textContent = notFound;
-            par.style.textAlign = 'center';
-
-            cardContainer.style.justifyContent = 'center';
-            cardContainer.append(par);
-
-            showMoreBtn.style.display = 'none';
-        }
     }
 }
 
