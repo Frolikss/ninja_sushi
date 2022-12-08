@@ -14,7 +14,6 @@ const cardContainer = document.querySelector('.cards');
 let url = `https://ninja-tests.herokuapp.com/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
 
 fetchProductsData();
-
 filters();
 uiLogic();
 footerQuicktipToggle();

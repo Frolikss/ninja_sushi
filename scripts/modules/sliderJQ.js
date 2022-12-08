@@ -23,24 +23,26 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
-    $('.products__slider').slick({
-        autoplay: false,
-        infinite: false,
-        dots: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true
+function setSlider() {
+    $(document).ready(function () {
+        $('.products__slider').slick({
+            autoplay: false,
+            infinite: false,
+            dots: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true
+        });
     });
-});
 
-$(document).ready(function () {
-    $('.products__item--consist--slider').slick({
-        autoplay: false,
-        infinite: false,
-        dots: false,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        arrows: true
+    $(document).ready(function () {
+        $('.products__item--consist--slider').slick({
+            autoplay: false,
+            infinite: false,
+            dots: false,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows: true
+        });
     });
-});
+}
