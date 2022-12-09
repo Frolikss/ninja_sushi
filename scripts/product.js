@@ -6,7 +6,10 @@ const MAX_ITEMS = 32;
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
 let id = urlParams.get('id');
+const show = document.querySelector('.products__show');
 
+
+fillWithSkeleton();
 configBellBtn();
 configCartBtn();
 configOrderBtns();
@@ -27,7 +30,6 @@ function setCard() {
 
     fetchCard(id).then(data => {
         const cardTemplate = document.querySelector('.products__slider--template');
-        const show = document.querySelector('.products__show');
 
         show.innerHTML = '';
         show.append(cardTemplate.content.cloneNode(true));
@@ -162,14 +164,16 @@ function setCartBtn(card, info) {
 function configChangeBtns() {
     const prevBtn = document.querySelector('.products__prev');
     const nextBtn = document.querySelector('.products__next');
-    
+
     prevBtn.addEventListener('click', event => {
         id--;
+        fillWithSkeleton();
         setCard();
     });
 
     nextBtn.addEventListener('click', event => {
         id++;
+        fillWithSkeleton()
         setCard();
     });
 }
@@ -192,7 +196,7 @@ function createSwipe() {
     }
 
     function handleTouchMove(evt) {
-        if ( ! xDown || ! yDown ) {
+        if (!xDown || !yDown) {
             return;
         }
 
@@ -202,8 +206,8 @@ function createSwipe() {
         let xDiff = xDown - xUp;
         let yDiff = yDown - yUp;
 
-        if ( Math.abs( xDiff ) > Math.abs( yDiff )) {
-            if ( xDiff > 0) {
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            if (xDiff > 0) {
                 id++;
             } else {
                 id--;
@@ -213,4 +217,10 @@ function createSwipe() {
         xDown = null;
         yDown = null;
     }
+}
+
+function fillWithSkeleton() {
+    show.innerHTML = '';
+    const skeleton = document.querySelector('.card__template--skeleton');
+    show.append(skeleton.content.cloneNode(true));
 }
