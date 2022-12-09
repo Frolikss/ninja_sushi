@@ -2,21 +2,35 @@ const addClass = 'cards__item--add--added';
 
 function fetchProductsData(url, cardContainer) {
     const cardsItemTemplate = document.querySelector('.card__template');
+    const isPaginatable = cardContainer.classList.contains('cards__showmore');
 
-    if (!cardContainer.classList.contains('cards__showmore')) {
+    if (!isPaginatable) {
         cardContainer.innerHTML = '';
     }
 
+    let index = url.search('_page');
+    let page = +url[index + 6];
+    let newIndex = 0;
+
+    if (page > 1) {
+        newIndex = (page * 4) - 4;
+    }
+ 
     axios.get(url).then(response => response.data).then(res => {
 
         res.forEach(() => {
             cardContainer.append(cardsItemTemplate.content.cloneNode(true));
         });
 
-        const cards = document.querySelectorAll('.cards__item');
+        const cards = [...cardContainer.querySelectorAll('.cards__item')];
 
         checkEmptyContainer(cards);
-        fillCardWithJSON(res);
+
+        if (isPaginatable) {
+            fillCardWithJSON(res, cards.slice(newIndex));
+        } else {
+            fillCardWithJSON(res, cards);
+        }
     });
 
     function checkEmptyContainer(cards) {
@@ -35,8 +49,7 @@ function fetchProductsData(url, cardContainer) {
     }
 }
 
-function fillCardWithJSON(res) {
-    const cardsItem = document.querySelectorAll('.cards__item');
+function fillCardWithJSON(res, cardsItem) {
 
     for (let i = 0; i < res.length; i++) {
         const card = cardsItem[i];

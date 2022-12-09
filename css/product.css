@@ -1389,24 +1389,24 @@ a:link, a:visited {
   border-radius: 100px;
   position: relative;
   cursor: pointer;
+  transition: all 0.25s ease-in-out;
 }
 .products__item--switch_active {
   background: #00CC2D;
+  transition: all 0.25s ease-in-out;
 }
 .products__item--switch_active .products__item--switch--image {
-  left: auto;
-  right: 5%;
-  transition: all 0.5s ease-in-out;
+  left: 45%;
 }
 .products__item--switch--image {
   background: url(/assets/svg/item__disposable.svg) no-repeat center, #fff;
   background-size: 65%;
   position: absolute;
   width: 50%;
-  height: 85%;
+  height: 83%;
   border-radius: 100px;
   left: 5%;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 .products__item--data {
   display: flex;

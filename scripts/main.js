@@ -58,7 +58,9 @@ function fetchProductsData(url) {
                 }
             });
         });
-        fillCardWithJSON(res);
+        const cardItems = document.querySelectorAll('.cards__item');
+        
+        fillCardWithJSON(res, cardItems);
         configCardCounter(cards);
     });
 }

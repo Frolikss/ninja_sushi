@@ -4,6 +4,7 @@ const MAX_PAGE = 4;
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
+
 const cardContainer = document.querySelector('.cards');
 const reg = new RegExp('_limit=[0-9]+');
 
@@ -12,21 +13,23 @@ max.textContent = MAX_PAGE;
 
 let baseUrl = `https://ninja-tests.herokuapp.com/products?_limit=4&_page=1&id_ne=${id}`;
 
-switch (window.screen.width) {
-    case 1350:
+
+function setLimit() {
+    if (window.screen.width < 1350) {
         baseUrl = baseUrl.replace(reg, '_limit=3');
-        break;
-    case 940:
+    }
+
+    if (window.screen.width < 940) {
         baseUrl = baseUrl.replace(reg, '_limit=2');
-        break;
-    case 830:
+    }
+    
+    if (window.screen.width < 830) {
         baseUrl = baseUrl.replace(reg, '_limit=4');
-        cardContainer.classList.add('cards__showmore');
-        break;
-    default:
-        break;
+        cardContainer.classList.add('cards__showmore'); 
+    }
 }
 
+setLimit();
 fetchProductsData(baseUrl, cardContainer);
 configSliderBtns();
 showMore();
@@ -67,4 +70,3 @@ function showMore() {
         changePage(true);
     });
 }
-

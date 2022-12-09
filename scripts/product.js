@@ -1,7 +1,7 @@
 import { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
 
-const MAX_ITEMS = 40;
+const MAX_ITEMS = 32;
 
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
@@ -17,6 +17,14 @@ footerQuicktipToggle();
 setCard();
 
 function setCard() {
+    if (id <= 0) {
+        id = MAX_ITEMS;
+    }
+
+    if (id > MAX_ITEMS) {
+        id = 1;
+    }
+
     fetchCard(id).then(data => {
         const cardTemplate = document.querySelector('.products__slider--template');
         const show = document.querySelector('.products__show');
@@ -154,7 +162,7 @@ function setCartBtn(card, info) {
 function configChangeBtns() {
     const prevBtn = document.querySelector('.products__prev');
     const nextBtn = document.querySelector('.products__next');
-
+    
     prevBtn.addEventListener('click', event => {
         id--;
         setCard();
@@ -194,14 +202,13 @@ function createSwipe() {
         let xDiff = xDown - xUp;
         let yDiff = yDown - yUp;
 
-        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-            if ( xDiff > 0 ) {
+        if ( Math.abs( xDiff ) > Math.abs( yDiff )) {
+            if ( xDiff > 0) {
                 id++;
-                setCard();
             } else {
                 id--;
-                setCard();
             }
+            setCard();
         }
         xDown = null;
         yDown = null;
