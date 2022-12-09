@@ -607,7 +607,12 @@
     }
 
     &--itemtext {
+      @extend %medium1420;
       color: $textgrey3;
+
+      &:visited {
+        color: $textgrey3;
+      }
     }
   }
 

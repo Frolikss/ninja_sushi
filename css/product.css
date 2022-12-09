@@ -10,7 +10,7 @@
   line-height: 1.25rem;
 }
 
-.products__item--consist--item, .footer__logo--copyright, .footer__logo--text, .footer__subinfo--politics, .header__cart--price, .header__cart--counter, .header__cart--weight, .header__cart--minimum {
+.products__item--consist--item, .footer__logo--copyright, .footer__logo--text, .footer__subinfo--politics, .header__cart--price, .header__cart--counter, .header__cart--weight, .header__cart--minimum, .header__navigation--itemtext {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -645,6 +645,9 @@ a:link, a:visited {
   transform: rotate(-90deg);
 }
 .header__navigation--itemtext {
+  color: #9E9E9E;
+}
+.header__navigation--itemtext:visited {
   color: #9E9E9E;
 }
 .header__categories {

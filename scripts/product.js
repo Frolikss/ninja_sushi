@@ -1,5 +1,6 @@
 import { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
+import { categories } from './modules/categoty_types.js';
 
 const MAX_ITEMS = 32;
 
@@ -18,7 +19,6 @@ backEvent();
 showOverlay();
 footerQuicktipToggle();
 
-
 function setCard() {
     if (id <= 0) {
         id = MAX_ITEMS;
@@ -30,6 +30,9 @@ function setCard() {
 
     fetchCard(id).then(data => {
         const cardTemplate = document.querySelector('.products__slider--template');
+
+        const category = document.querySelector('.header__navigation--category');
+        const prod = document.querySelector('.header__navigation--product');
 
         show.innerHTML = '';
         show.append(cardTemplate.content.cloneNode(true));
@@ -43,6 +46,10 @@ function setCard() {
             isEco: card.querySelector('.products__item--eco'),
             isSpicy: card.querySelector('.products__item--spicy'),
         }
+
+        category.href = `/views/category.html?category=${data.category}`;
+        category.textContent = categories[data.category];
+        prod.textContent = data.header.slice(0, 5).concat('...');
 
         setIconsClasses(data, marks);
         setCardContent(data, card);
