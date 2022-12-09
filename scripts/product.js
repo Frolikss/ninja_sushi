@@ -8,8 +8,8 @@ const category = urlParams.get('category');
 let id = urlParams.get('id');
 const show = document.querySelector('.products__show');
 
-
 fillWithSkeleton();
+setCard();
 configBellBtn();
 configCartBtn();
 configOrderBtns();
@@ -17,7 +17,7 @@ configChangeBtns();
 backEvent();
 showOverlay();
 footerQuicktipToggle();
-setCard();
+
 
 function setCard() {
     if (id <= 0) {

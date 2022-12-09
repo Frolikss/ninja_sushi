@@ -59,7 +59,7 @@ function fillCardWithJSON(res, cardsItem) {
         const text = card.querySelector('.cards__item--text');
         const price = card.querySelector('.cards__item--price');
 
-        card.href = `/views/product.html?category=${res[i].category}&id=${res[i].id}`;
+        marks.href = `/views/product.html?category=${res[i].category}&id=${res[i].id}`;
         card.setAttribute('data-id', res[i].id);
         marks.style.background = `url(/${res[i].image}) no-repeat top / contain`;
 
