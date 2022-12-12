@@ -1407,6 +1407,11 @@ input[type=radio] {
 .order__payment--type input[type=radio] {
   display: inline-block;
 }
+.order__payment--type > * {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .order__payment--change {
   display: flex;
   flex-direction: column;
@@ -1471,4 +1476,35 @@ input[type=radio] {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+.order__comment--pets--animal {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+.order__comment--checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 2px solid #9E9E9E;
+  border-radius: 6px;
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 24px;
+  outline-offset: -2px;
+}
+.order__comment--checkbox:hover, .order__comment--checkbox:checked {
+  outline: 2px solid #FF6633;
+}
+.order__comment--checkbox:checked::before {
+  content: "";
+  background: url(/assets/svg/checkbox.svg) 50%, #FF6633;
+  border-radius: 50%;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
