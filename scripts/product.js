@@ -151,7 +151,7 @@ function setCartBtn(card, info) {
         let data = {
             id: card.dataset.id,
             image: info.image,
-            name: info.header,
+            name: info.name,
             weight: info.weight,
             price: +info.price.replace('грн.', ''),
             amount: 1

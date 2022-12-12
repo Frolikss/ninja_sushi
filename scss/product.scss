@@ -29,6 +29,7 @@
     }
 
     &__item {
+        height: 70vh;
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-content: center;
@@ -252,7 +253,7 @@
 
     .skeleton {
         &__item {
-            height: 530px;
+            height: 70vh;
             width: 100%;
     
             .products__item--info {

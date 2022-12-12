@@ -366,6 +366,7 @@ a {
 .header__cart--confirm {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 16px 24px;
   color: #fff;
   border-radius: 12px;
@@ -1303,6 +1304,7 @@ a {
   right: -2%;
 }
 .products__item {
+  height: 70vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
@@ -1469,7 +1471,7 @@ a {
   border-radius: 12px;
 }
 .products .skeleton__item {
-  height: 530px;
+  height: 70vh;
   width: 100%;
 }
 .products .skeleton__item .products__item--info {
