@@ -1336,9 +1336,12 @@ input[type=radio] {
   gap: 16px;
 }
 .order__delivery--info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1;
-  text-align: center;
   padding: 8px;
+  margin: 6px;
 }
 .order__delivery--data {
   display: flex;
@@ -1351,17 +1354,24 @@ input[type=radio] {
   display: flex;
   justify-content: space-between;
 }
-.order__delivery--radio:checked {
+.order__delivery--radio {
+  cursor: pointer;
+}
+.order__delivery--radio:checked + label {
   background: #FF6633;
+  border-radius: 12px;
   color: #fff;
 }
 .order__delivery--city {
   display: flex;
   gap: 8px;
 }
-.order__delivery--city > * {
+.order__delivery--city > label {
+  display: flex;
+  align-items: center;
   background: #F5F5F7;
   border-radius: 12px;
+  justify-content: center;
   padding: 12px;
 }
 .order__delivery--address {
@@ -1382,6 +1392,7 @@ input[type=radio] {
   display: flex;
   flex-direction: column;
   flex: 1;
+  gap: 8px;
 }
 .order__payment {
   display: flex;
@@ -1394,13 +1405,44 @@ input[type=radio] {
   gap: 12px;
 }
 .order__payment--type input[type=radio] {
-  display: inline;
+  display: inline-block;
 }
 .order__payment--change {
   display: flex;
   flex-direction: column;
   gap: 8px;
   max-width: 40%;
+}
+.order__payment--radio {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #9E9E9E;
+  border-radius: 50%;
+  background: #fff;
+  height: 24px;
+  width: 24px;
+  outline-offset: -1px;
+  color: #FF6633;
+}
+.order__payment--radio:hover {
+  outline: 1px solid #FF6633;
+}
+.order__payment--radio:checked {
+  outline: 1px solid #FF6633;
+}
+.order__payment--radio:checked::before {
+  content: "";
+  background: #FF6633 center;
+  border-radius: 50%;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .order__comment {
   display: flex;
