@@ -1545,16 +1545,29 @@ a:link, a:visited {
   .products__item--data {
     grid-area: price;
   }
+  .products__item--consist {
+    max-width: 100%;
+    overflow: auto;
+  }
   .products__item--consist--slider {
     grid-area: consist;
     display: flex;
     justify-content: center;
     overflow: scroll;
+    align-self: flex-start;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .products__item--consist--slider::-webkit-scrollbar {
+    display: none;
   }
 }
 @media (max-width: 768px) {
   .products__prev, .products__next {
-    display: none;
+    padding: 40px 10px;
+  }
+  .products__prev img, .products__next img {
+    width: 60%;
   }
 }
 @media (max-width: 420px) {

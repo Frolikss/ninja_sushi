@@ -378,11 +378,22 @@
                 grid-area: price;
             }
 
-            &--consist--slider {
-                grid-area: consist;
-                display: flex;
-                justify-content: center;
-                overflow: scroll;
+            &--consist {
+                max-width: 100%;
+                overflow: auto;
+                &--slider {
+                    grid-area: consist;
+                    display: flex;
+                    justify-content: center;
+                    overflow: scroll;
+                    align-self: flex-start;
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+              
+                    &::-webkit-scrollbar {
+                      display: none;
+                    }
+                }
             }
         }
     }
@@ -390,7 +401,11 @@
     @media (max-width: 768px) {
         &__prev,
         &__next {
-            display: none;
+            padding: 40px 10px;
+
+            img {
+                width: 60%;
+            }
         }
     }
 
