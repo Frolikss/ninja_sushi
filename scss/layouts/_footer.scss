@@ -73,6 +73,11 @@
         &--link {
             @extend %medium1624;
             transition: all .25s;
+            color: $black;
+
+            &:visited {
+                color: $black;
+            }
 
             &:hover {
                 color: $accent2;
@@ -89,6 +94,11 @@
 
         &--link {
             transition: all .25s;
+            color: $black;
+
+            &:visited {
+                color: $black;
+            }
 
             &:hover {
                 color: $accent2;

@@ -26,7 +26,7 @@ function fetchProductsData(url, cardContainer) {
         const cards = [...cardContainer.querySelectorAll('.cards__item')];
 
         checkEmptyContainer(cards);
-        console.log(url);
+
         if (isPaginatable) {
             fillCardWithJSON(res, cards.slice(newIndex));
         } else {
