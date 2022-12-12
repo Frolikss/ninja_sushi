@@ -1868,8 +1868,10 @@ a:link, a:visited {
     height: auto;
     margin: 0;
   }
+  .recomend .cards__item--plus, .recomend .cards__item--minus {
+    padding: 12px;
+  }
   .recomend .cards__item--favorite {
-    align-self: center;
     padding: 8px 12px;
   }
   .recomend .cards__item--favorite svg {
@@ -1885,6 +1887,9 @@ a:link, a:visited {
 @media (max-width: 440px) {
   .recomend .cards__item--marks {
     flex: 0 1 60%;
+  }
+  .recomend .cards__item--price {
+    font-size: 1.1rem;
   }
   .recomend .cards__item--marktext {
     flex-direction: column;

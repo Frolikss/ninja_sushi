@@ -1677,8 +1677,10 @@ a:link, a:visited {
     height: auto;
     margin: 0;
   }
+  .category .cards__item--plus, .category .cards__item--minus {
+    padding: 12px;
+  }
   .category .cards__item--favorite {
-    align-self: center;
     padding: 8px 12px;
   }
   .category .cards__item--favorite svg {

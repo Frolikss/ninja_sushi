@@ -1563,8 +1563,10 @@ a:link, a:visited {
     height: auto;
     margin: 0;
   }
+  .cards__item--plus, .cards__item--minus {
+    padding: 12px;
+  }
   .cards__item--favorite {
-    align-self: center;
     padding: 8px 12px;
   }
   .cards__item--favorite svg {

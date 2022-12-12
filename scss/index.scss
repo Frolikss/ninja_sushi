@@ -424,8 +424,13 @@
               margin: 0;
           }
 
+
+          &--plus,
+          &--minus {
+              padding: 12px;
+          }
+
           &--favorite {
-              align-self: center;
               padding: 8px 12px;
 
               & svg {
