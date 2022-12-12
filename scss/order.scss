@@ -1,2 +1,253 @@
 @use "abstracts" as *;
 @use "layouts" as *;
+
+.order {
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__header {
+        @extend %bold4864;
+    }
+
+    &__forms {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__login {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        &--enter {
+            background: $white;
+            border-radius: 12px;
+            color: $accent1;
+            text-align: center;
+            max-width: 100%;
+            padding: 16px;
+        }
+
+        &--order {
+            align-self: center;
+        }
+
+        &--social {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        &--item {
+            align-items: center;
+            background: $white;
+            border-radius: 12px;
+            color: $black;
+            display: flex;
+            flex: 1;
+            gap: 12px;
+            justify-content: center;
+            padding: 10px;
+
+            &:visited {
+                color: $black;
+            }
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &--name {
+            @extend %medium2430;
+        }
+
+        &--subtext {
+            @extend %regular1420;
+            color: $textgrey1;
+        }
+
+        &--input {
+            @extend %regular1624;
+            background: $bg-grey;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 16px;
+            outline: none;
+        }
+
+        &--data {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        &--header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &--zone {
+            align-items: center;
+            display: flex;
+            color: $accent2;
+            gap: 12px;
+            white-space: nowrap;
+        }
+    }
+
+    &__personal,
+    &__delivery,
+    &__time,
+    &__payment,
+    &__comment {
+        background: $white;
+        border-radius: 12px;
+        padding: 24px;
+    }
+
+    &__personal {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &--row {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 8px;
+        }
+    }
+
+    &__delivery {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &--info {
+            @extend %medium1624;
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+        }
+
+        &--data {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        &--row {
+            background: $bg-grey;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &--radio {
+            &:checked {
+                background: $accent2;
+                color: $white;
+            }
+        }
+
+        &--city {
+            @extend %medium1624;
+
+            display: flex;
+            gap: 8px;
+
+            & > * {
+                background: $bg-grey;
+                border-radius: 12px;
+                padding: 12px;
+            }
+        }
+
+        &--address {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+
+    &__time {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &--data {
+            display: flex;
+            gap: 8px;
+        }
+
+        &--day {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+    }
+
+    &__payment {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &--type {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            & input[type="radio"] {
+                display: inline;
+            }
+        }
+
+        &--change {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 40%;
+        }
+    }
+
+    &__comment {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &--row {
+            display: flex;
+            gap: 8px;
+        }
+
+        &--sticks {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 8px;
+        }
+
+        &--txt {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            & textarea {
+                resize: none;
+            }
+        }
+
+        &--pets {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+    }
+}

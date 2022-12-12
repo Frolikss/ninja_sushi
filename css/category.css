@@ -119,6 +119,10 @@ a {
   margin: 0 auto;
 }
 
+input[type=radio] {
+  display: none;
+}
+
 .skeleton {
   opacity: 0.7;
   border-radius: 12px;
