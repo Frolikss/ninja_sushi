@@ -20,5 +20,4 @@ function fillCardWithLocalData() {
 
     itemsContainer.innerHTML = '';
     setCardData(items, itemsContainer, itemTemplate);
-    console.log('here');
 }
