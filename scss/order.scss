@@ -378,6 +378,11 @@
             padding: 7px;
             left: -2%;
             top: 30%;
+            transition: background .25s ease-in-out;
+
+            &:hover {
+                background: $accent2;
+            }
         }
 
         .cart__info {
@@ -422,6 +427,11 @@
             padding: 7px;
             background: #f5f5f7;
             border-radius: 8px;
+            transition: background .25s ease-in;
+
+            &:hover {
+                background: $bg-green;
+            }
         }
 
         .cart__plus,
@@ -664,7 +674,7 @@
             }
 
             @media (max-width: 1350px) {
-                grid-template-columns: repeat(auto-fit, 32%);
+                grid-template-columns: repeat(auto-fit, 48%);
                 &__item {
                     &--price {
                         font-size: 1.5rem;
@@ -684,150 +694,8 @@
             }
 
             @media (max-width: 940px) {
+                display: none;
                 grid-template-columns: repeat(auto-fit, 49%);
-            }
-
-            @media (max-width: 900px) {
-                &__row::after {
-                    content: none;
-                }
-
-                &__item {
-                    &--buttons {
-                        gap: 8px;
-                    }
-                }
-            }
-
-            @media (max-width: 830px) {
-                grid-template-columns: repeat(auto-fit, 100%);
-            }
-
-            @media (max-width: 760px) {
-                &__item {
-                    &--marktext {
-                        padding: 12px;
-                    }
-                }
-            }
-
-            @media (max-width: 550px) {
-                &__row {
-                    grid-area: cards;
-                }
-
-                &__header {
-                    grid-area: header;
-                    text-align: center;
-                    font-size: 1.5rem;
-                }
-
-                &__button {
-                    padding: 16px;
-                    text-align: center;
-                    grid-area: button;
-                    align-self: start;
-                    justify-self: stretch;
-                }
-
-                &__item {
-                    flex-direction: row;
-                    padding: 12px;
-
-                    &--header {
-                        font-size: 1rem;
-                    }
-
-                    &--data {
-                        gap: 8px;
-                    }
-
-                    &--marks {
-                        justify-content: flex-end;
-                        height: auto;
-                        flex: 0 1 60%;
-                        background-position: top;
-                    }
-
-                    &--marktext {
-                        display: flex;
-                        gap: 8px;
-                    }
-
-                    &--icons {
-                        display: none;
-                    }
-
-                    &--info {
-                        height: auto;
-                        margin: 0;
-                    }
-
-                    &--plus,
-                    &--minus {
-                        padding: 12px;
-                    }
-
-                    &--favorite {
-                        padding: 8px 12px;
-
-                        & svg {
-                            width: 24px;
-                            height: 24px;
-                        }
-                    }
-                }
-            }
-
-            @media (max-width: 1500px) {
-                &__item {
-                    &--price {
-                        font-size: 1.5rem;
-                        line-height: 1rem;
-                    }
-                }
-            }
-
-            @media (max-width: 950px) {
-                &__item {
-                    &--price {
-                        font-size: 1.4rem;
-                        line-height: 1rem;
-                    }
-                }
-            }
-
-            @media (max-width: 440px) {
-                &__item {
-                    &--marks {
-                        flex: 0 1 60%;
-                    }
-
-                    &--marktext {
-                        flex-direction: column;
-                    }
-                }
-            }
-
-            @media (max-width: 350px) {
-                &__item {
-                    &--text {
-                        font-size: 0.75rem;
-                    }
-
-                    &--price {
-                        font-size: 1rem;
-                    }
-
-                    &--currency {
-                        font-size: 0.75rem;
-                    }
-
-                    &--marks {
-                        font-size: 0.875rem;
-                        line-height: 1.25rem;
-                    }
-                }
             }
         }
     }

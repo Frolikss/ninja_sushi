@@ -51,9 +51,8 @@ function calculateTotalPrice(items) {
             sum += (current.price * +current.amount);
             return sum;
         }, 0);
-
-        confirmBtn[index].disabled = +finalPrice.textContent < MIN_PRICE ? true : false;
-    })
+    });
+    confirmBtn[0].disabled = +finalPrice.textContent < MIN_PRICE ? true : false;
 }
 
 export { configOrderBtns, calculateTotalPrice };

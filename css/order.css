@@ -288,6 +288,11 @@ input[type=radio] {
 .header__cart .cart__minus,
 .header__cart .cart__plus {
   display: flex;
+  transition: background 0.25s ease-out;
+}
+.header__cart .cart__minus:hover,
+.header__cart .cart__plus:hover {
+  background: #CCF5D5;
 }
 .header__cart .cart__image {
   width: 80px;
@@ -298,6 +303,12 @@ input[type=radio] {
   padding: 6px;
   background: #f5f5f7;
   border-radius: 12px;
+}
+.header__cart--close {
+  transition: background 0.25s ease-in-out;
+}
+.header__cart--close:hover {
+  background: #F44837;
 }
 .header__cart .cart__remove {
   position: absolute;
@@ -353,6 +364,9 @@ input[type=radio] {
   color: #fff;
   border-radius: 12px;
   background: #00CC2D;
+}
+.header__cart .cart__confirm:hover {
+  opacity: 0.7;
 }
 .header__cart .cart__confirm:visited {
   color: #fff;
@@ -1573,6 +1587,10 @@ input[type=radio] {
   padding: 7px;
   left: -2%;
   top: 30%;
+  transition: background 0.25s ease-in-out;
+}
+.order .cart__items .cart__remove:hover {
+  background: #FF6633;
 }
 .order .cart__items .cart__info {
   display: flex;
@@ -1604,6 +1622,11 @@ input[type=radio] {
   padding: 7px;
   background: #f5f5f7;
   border-radius: 8px;
+  transition: background 0.25s ease-in;
+}
+.order .cart__items .cart__minus:hover,
+.order .cart__items .cart__plus:hover {
+  background: #CCF5D5;
 }
 .order .cart__items .cart__plus > img,
 .order .cart__items .cart__minus > img,
@@ -1777,7 +1800,7 @@ input[type=radio] {
 }
 @media (max-width: 1350px) {
   .order__recommend .cards {
-    grid-template-columns: repeat(auto-fit, 32%);
+    grid-template-columns: repeat(auto-fit, 48%);
   }
   .order__recommend .cards__item--price {
     font-size: 1.5rem;
@@ -1794,114 +1817,8 @@ input[type=radio] {
 }
 @media (max-width: 940px) {
   .order__recommend .cards {
-    grid-template-columns: repeat(auto-fit, 49%);
-  }
-}
-@media (max-width: 900px) {
-  .order__recommend .cards__row::after {
-    content: none;
-  }
-  .order__recommend .cards__item--buttons {
-    gap: 8px;
-  }
-}
-@media (max-width: 830px) {
-  .order__recommend .cards {
-    grid-template-columns: repeat(auto-fit, 100%);
-  }
-}
-@media (max-width: 760px) {
-  .order__recommend .cards__item--marktext {
-    padding: 12px;
-  }
-}
-@media (max-width: 550px) {
-  .order__recommend .cards__row {
-    grid-area: cards;
-  }
-  .order__recommend .cards__header {
-    grid-area: header;
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  .order__recommend .cards__button {
-    padding: 16px;
-    text-align: center;
-    grid-area: button;
-    align-self: start;
-    justify-self: stretch;
-  }
-  .order__recommend .cards__item {
-    flex-direction: row;
-    padding: 12px;
-  }
-  .order__recommend .cards__item--header {
-    font-size: 1rem;
-  }
-  .order__recommend .cards__item--data {
-    gap: 8px;
-  }
-  .order__recommend .cards__item--marks {
-    justify-content: flex-end;
-    height: auto;
-    flex: 0 1 60%;
-    background-position: top;
-  }
-  .order__recommend .cards__item--marktext {
-    display: flex;
-    gap: 8px;
-  }
-  .order__recommend .cards__item--icons {
     display: none;
-  }
-  .order__recommend .cards__item--info {
-    height: auto;
-    margin: 0;
-  }
-  .order__recommend .cards__item--plus, .order__recommend .cards__item--minus {
-    padding: 12px;
-  }
-  .order__recommend .cards__item--favorite {
-    padding: 8px 12px;
-  }
-  .order__recommend .cards__item--favorite svg {
-    width: 24px;
-    height: 24px;
-  }
-}
-@media (max-width: 1500px) {
-  .order__recommend .cards__item--price {
-    font-size: 1.5rem;
-    line-height: 1rem;
-  }
-}
-@media (max-width: 950px) {
-  .order__recommend .cards__item--price {
-    font-size: 1.4rem;
-    line-height: 1rem;
-  }
-}
-@media (max-width: 440px) {
-  .order__recommend .cards__item--marks {
-    flex: 0 1 60%;
-  }
-  .order__recommend .cards__item--marktext {
-    flex-direction: column;
-  }
-}
-@media (max-width: 350px) {
-  .order__recommend .cards__item--text {
-    font-size: 0.75rem;
-  }
-  .order__recommend .cards__item--price {
-    font-size: 1rem;
-  }
-  .order__recommend .cards__item--currency {
-    font-size: 0.75rem;
-  }
-  .order__recommend .cards__item--marks {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    grid-template-columns: repeat(auto-fit, 49%);
   }
 }
 .order__promo {

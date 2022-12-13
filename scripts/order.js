@@ -7,7 +7,6 @@ let localData = () => {
     return JSON.parse(localStorage.getItem('cards')) ?? [];
 }
 
-let url = 'https://ninja-tests.herokuapp.com/products?_limit=4&page=1&category=drinks';
 const cardContainer = document.querySelector('.cards');
 const itemsContainer = document.querySelectorAll('.cart__items')[1];
 
@@ -18,10 +17,14 @@ footerQuicktipToggle();
 fillCardWithLocalData();
 configCartBtn();
 configOrderBtns(1, fillCardWithLocalData);
-fetchProductsData(url, cardContainer);
-configCardCounter([cardContainer]);
 addCardsEvent();
 addItemsEvent();
+
+if (window.screen.width > 940) {
+    let url = 'https://ninja-tests.herokuapp.com/products?_limit=4&page=1&category=drinks';
+    fetchProductsData(url, cardContainer);
+    configCardCounter([cardContainer]);
+}
 
 function fillCardWithLocalData() {
     let items = localData();

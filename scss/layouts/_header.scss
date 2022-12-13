@@ -174,6 +174,11 @@
     .cart__minus,
     .cart__plus {
       display: flex;
+      transition: background 0.25s ease-out;
+
+      &:hover {
+        background: $bg-green;
+      }
     }
 
     .cart__image {
@@ -186,6 +191,13 @@
       padding: 6px;
       background: #f5f5f7;
       border-radius: 12px;
+    }
+
+    &--close {
+      transition: background .25s ease-in-out;
+      &:hover {
+        background: $red;
+      }
     }
 
     .cart__remove {
@@ -273,6 +285,10 @@
       color: $white;
       border-radius: 12px;
       background: $accent1;
+
+      &:hover {
+        opacity: .7;
+      }
 
       &:visited {
         color: $white;
