@@ -403,7 +403,7 @@
             display: flex;
         }
 
-        &--amount {
+        .cart__sum {
             align-items: center;
             display: flex;
             gap: 8px;
@@ -864,7 +864,7 @@
             color: $textgrey1;
         }
 
-        &--amount {
+        .cart__sum {
             @extend %bold3240;
         }
 
@@ -874,7 +874,7 @@
             color: $textgrey1;
         }
 
-        &--submit {
+        .cart__confirm {
             @extend %medium1624;
             background: $accent1;
             border: none;

@@ -1,4 +1,4 @@
-import { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns } from './modules/header.js';
+import { showOverlay, backEvent, configBellBtn, configCartBtn } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
 import { categories } from './modules/categoty_types.js';
 
@@ -13,7 +13,6 @@ fillWithSkeleton();
 setCard();
 configBellBtn();
 configCartBtn();
-configOrderBtns();
 configChangeBtns();
 backEvent();
 showOverlay();

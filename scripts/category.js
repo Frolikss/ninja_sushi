@@ -1,7 +1,7 @@
 "use strict"
 
 import { configCardCounter, fetchProductsData } from './modules/cardData.js';
-import { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns } from './modules/header.js';
+import { showOverlay, backEvent, configBellBtn, configCartBtn } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -18,7 +18,6 @@ filters();
 uiLogic();
 footerQuicktipToggle();
 configCartBtn();
-configOrderBtns();
 configCardCounter([cardContainer]);
 
 function mutateURL({

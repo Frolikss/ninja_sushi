@@ -1,3 +1,5 @@
+import { configOrderBtns, calculateTotalPrice } from "./cart.js";
+configOrderBtns(0, fillCardWithLocalData);
 const popUp = document.querySelector('.header__cart--popup');
 
 let localData = () => {
@@ -175,66 +177,12 @@ function fillCardWithLocalData() {
     const items = localData();
     const itemTemplate = document.querySelector('.template__header__cart--item');
     const itemsContainer = document.querySelector('.cart__items');
-    const confirmBtn = document.querySelector('.header__cart--confirm');
 
     itemsContainer.innerHTML = '';
 
     setCardData(items, itemsContainer, itemTemplate)
     calculateTotalPrice(items);
     checkEmptyCart();
-
-    function calculateTotalPrice(items) {
-        const MIN_PRICE = 400;
-        const finalPrice = document.querySelector('.header__cart--sum');
-
-        finalPrice.textContent = items.reduce((sum, current) => {
-            sum += (current.price * +current.amount);
-            return sum;
-        }, 0);
-
-        confirmBtn.disabled = +finalPrice.textContent < MIN_PRICE ? true : false;
-    }
-}
-
-function configOrderBtns() {
-    const itemsContainer = document.querySelectorAll('.cart__items');
-
-    itemsContainer.forEach(container => {
-        container.addEventListener('click', event => {
-            switch (event.target.className) {
-                case 'cart__remove': removeFromLocaleStorage(event); break;
-                case 'cart__plus': changeCounterLocalStorage(event, true); break;
-                case 'cart__minus': changeCounterLocalStorage(event, false); break;
-                default: break;
-            }
-        });
-    })
-}
-
-function removeFromLocaleStorage(event) {
-    const items = localData();
-    const selectedItem = event.target.parentNode.parentNode;
-    const filteredItems = items.filter(({ id }) => id !== selectedItem.dataset.id) ?? [];
-
-    localStorage.setItem('cards', JSON.stringify(filteredItems));
-    fillCardWithLocalData();
-}
-
-function changeCounterLocalStorage(event, isAdded) {
-    const items = localData();
-    const selectedItem = event.target.parentNode.parentNode.parentNode;
-
-    const filteredItems = items
-        .map(item => {
-            if (item.id !== selectedItem.dataset.id) { return item; }
-            isAdded ? item.amount++ : item.amount--;
-            return item;
-        })
-        .filter(({ amount }) => +amount > 0);
-
-
-    localStorage.setItem('cards', JSON.stringify(filteredItems));
-    fillCardWithLocalData();
 }
 
 function checkEmptyCart() {
@@ -244,4 +192,4 @@ function checkEmptyCart() {
     items.length === 0 ? popUp.classList.add(emptyClass) : popUp.classList.remove(emptyClass)
 }
 
-export { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns, setCardData };
+export { showOverlay, backEvent, configBellBtn, configCartBtn, setCardData };

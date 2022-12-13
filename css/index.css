@@ -18,7 +18,7 @@
   line-height: 1.5rem;
 }
 
-.slider__add, .footer__menu--link, .footer__list, .footer__time--text, .footer__social--tech, .footer__hashtag--link, .footer__quicktip--button, .header, .header__cart--empty--head, .header__cart--empty--repeat, .header__cart--empty--history, .header__cart--confirm, .header__buttons > *, .header__menu--item, .header__menu--notif--text, .header__menu--count, .header__menu_overlay .overlay__buttons > *, .header__menu_overlay .overlay__contacts--link {
+.slider__add, .footer__menu--link, .footer__list, .footer__time--text, .footer__social--tech, .footer__hashtag--link, .footer__quicktip--button, .header, .header__cart--empty--head, .header__cart--empty--repeat, .header__cart--empty--history, .header__cart .cart__confirm, .header__buttons > *, .header__menu--item, .header__menu--notif--text, .header__menu--count, .header__menu_overlay .overlay__buttons > *, .header__menu_overlay .overlay__contacts--link {
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -357,7 +357,7 @@ input[type=radio] {
   font-size: 1.3125rem;
   line-height: 40%;
 }
-.header__cart--confirm {
+.header__cart .cart__confirm {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -366,10 +366,10 @@ input[type=radio] {
   border-radius: 12px;
   background: #00CC2D;
 }
-.header__cart--confirm:visited {
+.header__cart .cart__confirm:visited {
   color: #fff;
 }
-.header__cart--confirm:disabled {
+.header__cart .cart__confirm:disabled {
   background: #ccffd7;
 }
 .header__wrapper {

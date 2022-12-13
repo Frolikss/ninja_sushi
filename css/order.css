@@ -18,7 +18,7 @@
   line-height: 1.5rem;
 }
 
-.order__delivery--info, .order__delivery--city, .order .cart__items .cart__price, .order__promo--check, .order__final--submit, .footer__menu--link, .footer__list, .footer__time--text, .footer__social--tech, .footer__hashtag--link, .footer__quicktip--button, .header, .header__cart--empty--head, .header__cart--empty--repeat, .header__cart--empty--history, .header__cart--confirm, .header__buttons > *, .header__menu--item, .header__menu--notif--text, .header__menu--count, .header__menu_overlay .overlay__buttons > *, .header__menu_overlay .overlay__contacts--link {
+.order__delivery--info, .order__delivery--city, .order .cart__items .cart__price, .order__promo--check, .order__final .cart__confirm, .footer__menu--link, .footer__list, .footer__time--text, .footer__social--tech, .footer__hashtag--link, .footer__quicktip--button, .header, .header__cart--empty--head, .header__cart--empty--repeat, .header__cart--empty--history, .header__cart .cart__confirm, .header__buttons > *, .header__menu--item, .header__menu--notif--text, .header__menu--count, .header__menu_overlay .overlay__buttons > *, .header__menu_overlay .overlay__contacts--link {
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -66,7 +66,7 @@
   line-height: 2.25rem;
 }
 
-.order__final--amount, .header__cart--finalprice {
+.order__final .cart__sum, .header__cart--finalprice {
   font-weight: 700;
   font-size: 2rem;
   line-height: 2.5rem;
@@ -351,7 +351,7 @@ input[type=radio] {
   font-size: 1.3125rem;
   line-height: 40%;
 }
-.header__cart--confirm {
+.header__cart .cart__confirm {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -360,10 +360,10 @@ input[type=radio] {
   border-radius: 12px;
   background: #00CC2D;
 }
-.header__cart--confirm:visited {
+.header__cart .cart__confirm:visited {
   color: #fff;
 }
-.header__cart--confirm:disabled {
+.header__cart .cart__confirm:disabled {
   background: #ccffd7;
 }
 .header__wrapper {
@@ -1595,7 +1595,7 @@ input[type=radio] {
   align-items: center;
   display: flex;
 }
-.order .cart__items--amount {
+.order .cart__items .cart__sum {
   align-items: center;
   display: flex;
   gap: 8px;
@@ -1939,7 +1939,7 @@ input[type=radio] {
   font-weight: 700;
   color: #686870;
 }
-.order__final--submit {
+.order__final .cart__confirm {
   background: #00CC2D;
   border: none;
   border-radius: 12px;
