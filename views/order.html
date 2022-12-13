@@ -826,6 +826,24 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="order__cart_mobile">
+                            <h3 class="order__cart--header">Ваш заказ</h3>
+                            <div class="order__cart--list">
+                                <div class="order__cart--item" data-id="">
+                                    <img src="/assets/png/category__filter--fish1.png" alt="image">
+                                </div>
+                                <div class="order__cart--item" data-id="">
+                                    <img src="/assets/png/sushi__item--image8.png" alt="image">
+                                </div>
+                                <div class="order__cart--item" data-id="">
+                                    <img src="/assets/png/category__filter--fish1.png" alt="image">
+                                </div>
+                                <div class="order__cart--item" data-id="">
+                                    <img src="/assets/png/category__filter--fish1.png" alt="image">
+                                </div>
+                            </div>
+                            <p class="order__cart--string">Гункан с тунцом и трюфелем, нигири лосось, гункан угорь, гункан тунец спайси</p>
+                        </div>
                         <div class="order__recommend">
                             <h2 class="order__recommend--header">Рекомендуем добавить</h2>
                             <div class="cards">
@@ -1044,6 +1062,35 @@
                 </div>
             </div>
         </section>
+        <template>
+            <div class="order__cart--item" data-id="">
+                <div class="order__cart--row">
+                    <button class="order__cart--remove">
+                        <img src="/assets/svg/close.svg" alt="close">
+                    </button>
+                    <div class="order__cart--info">
+                        <img class="order__cart--image" src=""
+                            alt="item">
+                        <div class="order__cart--text">
+                            <p class="order__cart--name"></p>
+                            <span class="order__cart--weight"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order__cart--summary">
+                    <span class="order__cart--price"></span>
+                    <div class="order__cart--amount">
+                        <button class="order__cart--minus">
+                            <img src="/assets/svg/minus.svg" alt="minus">
+                        </button>
+                        <span class="order__cart--counter"></span>
+                        <button class="order__cart--plus">
+                            <img src="/assets/svg/plus.svg" alt="plus">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
     </main>
     <footer class="footer">
         <div class="footer__quicktip">
