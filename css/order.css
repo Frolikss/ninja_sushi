@@ -1,4 +1,4 @@
-.order__form--subtext, .footer__time--name, .footer__social--name, .footer__menu--name, .header__cart--subtext, .header__menu--notif--time, .header__menu_overlay .overlay__contacts--name, .header__menu_overlay .overlay__contacts--info {
+.order__form--subtext, .order__final--subtext, .footer__time--name, .footer__social--name, .footer__menu--name, .header__cart--subtext, .header__menu--notif--time, .header__menu_overlay .overlay__contacts--name, .header__menu_overlay .overlay__contacts--info {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -10,13 +10,13 @@
   line-height: 1.25rem;
 }
 
-.order__form--input, .order__recommend .cards__item--text, .footer__hashtag--text, .footer__quicktip--text, .header__cart--empty--text {
+.order__form--input, .order__recommend .cards__item--text, .order__final--min, .footer__hashtag--text, .footer__quicktip--text, .header__cart--empty--text {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.order__delivery--info, .order__delivery--city, .order__cart--price, .order__promo--check, .footer__menu--link, .footer__list, .footer__time--text, .footer__social--tech, .footer__hashtag--link, .footer__quicktip--button, .header, .header__cart--empty--head, .header__cart--empty--repeat, .header__cart--empty--history, .header__cart--confirm, .header__buttons > *, .header__menu--item, .header__menu--notif--text, .header__menu--count, .header__menu_overlay .overlay__buttons > *, .header__menu_overlay .overlay__contacts--link {
+.order__delivery--info, .order__delivery--city, .order__cart--price, .order__promo--check, .order__final--submit, .footer__menu--link, .footer__list, .footer__time--text, .footer__social--tech, .footer__hashtag--link, .footer__quicktip--button, .header, .header__cart--empty--head, .header__cart--empty--repeat, .header__cart--empty--history, .header__cart--confirm, .header__buttons > *, .header__menu--item, .header__menu--notif--text, .header__menu--count, .header__menu_overlay .overlay__buttons > *, .header__menu_overlay .overlay__contacts--link {
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -64,7 +64,7 @@
   line-height: 2.25rem;
 }
 
-.header__cart--finalprice {
+.order__final--amount, .header__cart--finalprice {
   font-weight: 700;
   font-size: 2rem;
   line-height: 2.5rem;
@@ -1890,4 +1890,42 @@ input[type=radio] {
   color: #00CC2D;
   padding: 16px;
   flex-basis: 15%;
+}
+.order__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.order__final {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 24px;
+}
+.order__final--info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.order__final--text {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+.order__final--subtext {
+  color: #686870;
+}
+.order__final--currency {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  color: #686870;
+}
+.order__final--submit {
+  background: #00CC2D;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  padding: 16px 24px;
+}
+.order__final--min {
+  color: #FF6633;
 }
