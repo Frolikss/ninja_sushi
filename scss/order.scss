@@ -344,6 +344,14 @@
         gap: 64px;
     }
 
+    &__cart {
+        &--amount {
+            align-items: center;
+            display: flex;
+            gap: 8px;
+        }
+    }
+
     .order__cart_mobile {
         display: none;
     }
@@ -419,9 +427,9 @@
         .cart__plus,
         .cart__minus,
         .cart__remove {
-          & > img {
-            pointer-events: none;
-          }
+            & > img {
+                pointer-events: none;
+            }
         }
     }
 
@@ -483,13 +491,18 @@
                 flex: 1 1 20%;
                 padding: 24px;
 
+                &--info {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
                 &--marks {
                     @extend %medium1820;
 
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    height: 290px;
+                    height: 150px;
                 }
 
                 &--marktext {
@@ -500,13 +513,15 @@
                 }
 
                 &--header {
-                    @extend %bold2732;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    line-height: 150%;
 
                     flex-grow: 0;
                 }
 
                 &--weight {
-                    @extend %medium1826;
+                    @extend %medium1420;
 
                     color: $accent2;
                     flex-grow: 0;
@@ -550,19 +565,21 @@
                             &__item {
                                 &--counter {
                                     display: block;
+                                    position: absolute;
                                     width: 20px;
                                     text-align: center;
+                                    left: -45%;
                                 }
 
                                 &--minus {
                                     z-index: 1;
                                     opacity: 1;
-                                    left: 0;
+                                    left: -150%;
                                 }
 
                                 &--plus,
                                 &--minus {
-                                    padding: 12px;
+                                    padding: 8px;
                                 }
                             }
                         }
@@ -570,7 +587,9 @@
                 }
 
                 &--price {
-                    @extend %bold2430;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    line-height: 1.875rem;
                     align-self: flex-end;
                 }
 
@@ -589,7 +608,7 @@
                 &--minus {
                     background: $bg-green;
                     border-radius: 12px;
-                    padding: 12px 24px;
+                    padding: 8px 24px;
                     transition: all 0.25s;
 
                     & > svg {
@@ -974,7 +993,7 @@
                 justify-content: center;
                 gap: 8px;
             }
-            
+
             &--item {
                 background: $bg-grey;
                 border-radius: 50%;

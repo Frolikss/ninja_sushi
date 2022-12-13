@@ -2,29 +2,29 @@ let localData = () => {
     return JSON.parse(localStorage.getItem('cards')) ?? [];
 }
 
-function configOrderBtns(index, callback) {
+function configOrderBtns(index, fillCards) {
     const itemsContainer = document.querySelectorAll('.cart__items')[index];
 
     itemsContainer.addEventListener('click', event => {
         switch (event.target.className) {
-            case 'cart__remove': removeFromLocaleStorage(event, callback); break;
-            case 'cart__plus': changeCounterLocalStorage(event, true, callback); break;
-            case 'cart__minus': changeCounterLocalStorage(event, false, callback); break;
+            case 'cart__remove': removeFromLocaleStorage(event, fillCards); break;
+            case 'cart__plus': changeCounterLocalStorage(event, true, fillCards); break;
+            case 'cart__minus': changeCounterLocalStorage(event, false, fillCards); break;
             default: break;
         }
     });
 }
 
-function removeFromLocaleStorage(event, callback) {
+function removeFromLocaleStorage(event, fillCards) {
     const items = localData();
     const selectedItem = event.target.parentNode.parentNode;
     const filteredItems = items.filter(({ id }) => id !== selectedItem.dataset.id) ?? [];
 
     localStorage.setItem('cards', JSON.stringify(filteredItems));
-    callback();
+    fillCards();
 }
 
-function changeCounterLocalStorage(event, isAdded, callback) {
+function changeCounterLocalStorage(event, isAdded, fillCards) {
     const items = localData();
     const selectedItem = event.target.parentNode.parentNode.parentNode;
 
@@ -38,7 +38,7 @@ function changeCounterLocalStorage(event, isAdded, callback) {
 
 
     localStorage.setItem('cards', JSON.stringify(filteredItems));
-    callback();
+    fillCards();
 }
 
 function calculateTotalPrice(items) {
