@@ -124,26 +124,29 @@ function configCartBtn() {
     closeBtn.addEventListener('click', event => {
         popUp.classList.toggle(popUpClass);
         bodyLock();
-        const cards = document.querySelectorAll('.cards__item');
+        checkCardClass();
+    });
+}
 
-        const items = localData();
-        const buttonsNewClass = 'cards__item--add--added';
+function checkCardClass() {
+    const cards = document.querySelectorAll('.cards__item');
+    const items = localData();
+    const buttonsNewClass = 'cards__item--add--added';
 
-        cards.forEach(card => {
-            const counter = card.querySelector('.cards__item--counter');
-            const buttonsBlock = card.querySelector('.cards__item--add');
+    cards.forEach(card => {
+        const counter = card.querySelector('.cards__item--counter');
+        const buttonsBlock = card.querySelector('.cards__item--add');
 
-            if (buttonsBlock.classList.contains(buttonsNewClass)) {
-                buttonsBlock.classList.remove(buttonsNewClass);
-                counter.textContent = 0;
+        if (buttonsBlock.classList.contains(buttonsNewClass)) {
+            buttonsBlock.classList.remove(buttonsNewClass);
+            counter.textContent = 0;
+        }
+
+        items.forEach(item => {
+            if (item.id === card.dataset.id) {
+                buttonsBlock.classList.add(buttonsNewClass);
+                counter.textContent = item.amount;
             }
-
-            items.forEach(item => {
-                if (item.id === card.dataset.id) {
-                    buttonsBlock.classList.add(buttonsNewClass);
-                    counter.textContent = item.amount;
-                }
-            });
         });
     });
 }
@@ -192,4 +195,4 @@ function checkEmptyCart() {
     items.length === 0 ? popUp.classList.add(emptyClass) : popUp.classList.remove(emptyClass)
 }
 
-export { showOverlay, backEvent, configBellBtn, configCartBtn, setCardData };
+export { showOverlay, backEvent, configBellBtn, configCartBtn, setCardData, checkCardClass };
