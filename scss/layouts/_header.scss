@@ -101,7 +101,7 @@
             justify-content: flex-start;
           }
   
-          &--items {
+          .cart__items {
             display: none;
           }
   
@@ -130,7 +130,7 @@
     }
 
     &--minimum,
-    &--items {
+    .cart__items {
       padding: 0 32px;
     }
 
@@ -139,14 +139,14 @@
       justify-content: space-between;
     }
 
-    &--info,
+    .cart__info,
     &--summary {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    &--items {
+    .cart__items {
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -154,7 +154,7 @@
       overflow: scroll;
     }
 
-    &--item {
+    .cart__item {
       position: relative;
       display: flex;
       justify-content: space-between;
@@ -171,24 +171,24 @@
       gap: 8px;
     }
 
-    &--minus,
-    &--plus {
+    .cart__minus,
+    .cart__plus {
       display: flex;
     }
 
-    &--image {
+    .cart__image {
       width: 80px;
       height: 70px;
     }
 
     &--close,
-    &--remove {
+    .cart__remove {
       padding: 6px;
       background: #f5f5f7;
       border-radius: 12px;
     }
 
-    &--remove {
+    .cart__remove {
       position: absolute;
       background: $white;
       left: -2%;
@@ -200,28 +200,28 @@
       }
     }
 
-    &--plus,
-    &--minus {
+    .cart__plus,
+    .cart__minus {
       padding: 12px;
       background: $white;
       border-radius: 12px;
     }
 
-    &--price,
-    &--counter,
-    &--weight {
+    .cart__price,
+    .cart__counter,
+    .cart__weight {
       @extend %medium1420;
     }
 
-    &--plus,
-    &--minus,
-    &--remove {
+    .cart__plus,
+    .cart__minus,
+    .cart__remove {
       & > img {
         pointer-events: none;
       }
     }
 
-    &--name {
+    .cart__name {
       @extend %bold1624;
     }
 
@@ -231,7 +231,7 @@
       justify-content: space-between;
     }
 
-    &--weight {
+    .cart__weight {
       color: $accent2;
     }
 
@@ -815,7 +815,7 @@
       width: 100vw;
       height: 100vh;
 
-      &--items {
+      .cart__items {
         flex-basis: 100%;
         max-height: 100%;
       }

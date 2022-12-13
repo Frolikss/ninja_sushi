@@ -146,28 +146,21 @@ function configCartBtn() {
     });
 }
 
-function fillCardWithLocalData() {
-    const items = localData();
-    const itemTemplate = document.querySelector('.template__header__cart--item');
-    const itemsContainer = document.querySelector('.header__cart--items');
-    const confirmBtn = document.querySelector('.header__cart--confirm');
+function setCardData(data, container, template) {
+    data.forEach((item, index) => {
+        container.append(template.content.cloneNode(true));
 
-    itemsContainer.innerHTML = '';
-
-    items.forEach((item, index) => {
-        itemsContainer.append(itemTemplate.content.cloneNode(true));
-
-        const cards = document.querySelectorAll('.header__cart--item');
+        const cards = document.querySelectorAll('.cart__item');
         const card = cards[index];
 
-        const info = card.querySelector('.header__cart--info');
-        const img = card.querySelector('.header__cart--image');
+        const info = card.querySelector('.cart__info');
+        const img = card.querySelector('.cart__image');
 
-        const name = card.querySelector('.header__cart--name');
-        const weight = card.querySelector('.header__cart--weight');
+        const name = card.querySelector('.cart__name');
+        const weight = card.querySelector('.cart__weight');
 
-        const price = card.querySelector('.header__cart--price');
-        const counter = card.querySelector('.header__cart--counter');
+        const price = card.querySelector('.cart__price');
+        const counter = card.querySelector('.cart__counter');
 
         card.dataset.id = item.id;
         name.textContent = item.name;
@@ -176,7 +169,17 @@ function fillCardWithLocalData() {
         counter.textContent = item.amount;
         img.src = item.image;
     });
+}
 
+function fillCardWithLocalData() {
+    const items = localData();
+    const itemTemplate = document.querySelector('.template__header__cart--item');
+    const itemsContainer = document.querySelector('.cart__items');
+    const confirmBtn = document.querySelector('.header__cart--confirm');
+
+    itemsContainer.innerHTML = '';
+
+    setCardData(items, itemsContainer, itemTemplate)
     calculateTotalPrice(items);
     checkEmptyCart();
 
@@ -194,16 +197,18 @@ function fillCardWithLocalData() {
 }
 
 function configOrderBtns() {
-    const itemsContainer = document.querySelector('.header__cart--items');
+    const itemsContainer = document.querySelectorAll('.cart__items');
 
-    itemsContainer.addEventListener('click', event => {
-        switch (event.target.className) {
-            case 'header__cart--remove': removeFromLocaleStorage(event); break;
-            case 'header__cart--plus': changeCounterLocalStorage(event, true); break;
-            case 'header__cart--minus': changeCounterLocalStorage(event, false); break;
-            default: break;
-        }
-    });
+    itemsContainer.forEach(container => {
+        container.addEventListener('click', event => {
+            switch (event.target.className) {
+                case 'cart__remove': removeFromLocaleStorage(event); break;
+                case 'cart__plus': changeCounterLocalStorage(event, true); break;
+                case 'cart__minus': changeCounterLocalStorage(event, false); break;
+                default: break;
+            }
+        });
+    })
 }
 
 function removeFromLocaleStorage(event) {
@@ -239,4 +244,4 @@ function checkEmptyCart() {
     items.length === 0 ? popUp.classList.add(emptyClass) : popUp.classList.remove(emptyClass)
 }
 
-export { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns };
+export { showOverlay, backEvent, configBellBtn, configCartBtn, configOrderBtns, setCardData };
