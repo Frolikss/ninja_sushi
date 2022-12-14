@@ -72,6 +72,7 @@ function fillCardWithJSON(res, cardsItem) {
     }
 
     setCardCounter(cardsItem);
+    hidePreloader();
 }
 
 function getIconsClasses(data) {
@@ -154,6 +155,11 @@ function prepareCardForStorage(card, count) {
 
     cards = cards.filter(({ amount }) => amount > 0);
     localStorage.setItem('cards', JSON.stringify(cards));
+}
+
+function hidePreloader() {
+    const preloader = document.querySelector('.preloader');
+    preloader.classList.remove('preloader_hide');
 }
 
 export { fillCardWithJSON, configCardCounter, fetchProductsData };

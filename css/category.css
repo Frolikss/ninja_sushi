@@ -158,6 +158,21 @@ input[type=radio] {
   }
 }
 
+.preloader {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transition: all 1s;
+}
+.preloader_hide {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  z-index: 1;
+  background: url(/assets/svg/preloader.svg) no-repeat center, #fff;
+}
+
 .header {
   padding: 16px;
 }
