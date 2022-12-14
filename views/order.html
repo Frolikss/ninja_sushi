@@ -616,7 +616,7 @@
                                 </a>
                             </div>
                         </div>
-                        <form class="order__form" id="order__form">
+                        <form method="get" class="order__form" id="order__form">
                             <div class="order__personal">
                                 <h3 class="order__form--name">Личные данные</h3>
                                 <div class="order__form--data">
@@ -627,7 +627,7 @@
                                     </div>
                                     <div class="order__personal--row">
                                         <label class="order__form--subtext" for="telephone">Телефон</label>
-                                        <input class="order__form--input order__form--input--telephone" type="tel"
+                                        <input class="order__form--input order__form--input--telephone" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                                             name="telephone" id="telephone" required />
                                     </div>
                                 </div>
@@ -775,22 +775,9 @@
                         </div>
                         <div class="order__cart_mobile">
                             <h3 class="order__cart--header">Ваш заказ</h3>
-                            <div class="order__cart--list">
-                                <div class="order__cart--item" data-id="">
-                                    <img src="/assets/png/category__filter--fish1.png" alt="image">
-                                </div>
-                                <div class="order__cart--item" data-id="">
-                                    <img src="/assets/png/sushi__item--image8.png" alt="image">
-                                </div>
-                                <div class="order__cart--item" data-id="">
-                                    <img src="/assets/png/category__filter--fish1.png" alt="image">
-                                </div>
-                                <div class="order__cart--item" data-id="">
-                                    <img src="/assets/png/category__filter--fish1.png" alt="image">
-                                </div>
+                            <div class="cart__mobile--list">
                             </div>
-                            <p class="order__cart--string">Гункан с тунцом и трюфелем, нигири лосось, гункан угорь,
-                                гункан тунец спайси</p>
+                            <p class="order__cart--string"></p>
                         </div>
                         <div class="order__recommend">
                             <h2 class="order__recommend--header">Рекомендуем добавить</h2>
@@ -816,7 +803,6 @@
                                 </div>
                             </div>
                             <span class="order__final--min">Минимальная сумма заказа 400 грн</span>
-
                         </div>
                     </div>
                 </div>
@@ -899,6 +885,12 @@
                 </div>
             </div>
         </template>
+        <template class="cart__mobile--template">
+            <div class="cart__mobile--item" data-id="">
+                <img class="cart__mobile--image" src="" alt="image">
+            </div>
+        </template>
+
     </main>
     <footer class="footer">
         <div class="footer__quicktip">

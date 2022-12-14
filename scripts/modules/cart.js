@@ -55,4 +55,21 @@ function calculateTotalPrice(items) {
     confirmBtn[0].disabled = +finalPrice.textContent < MIN_PRICE ? true : false;
 }
 
-export { configOrderBtns, calculateTotalPrice };
+function fillMobileCart() {
+    const items = localData();
+    const cartTemplate = document.querySelector('.cart__mobile--template');
+    const cartContainer = document.querySelector('.cart__mobile--list');
+
+    cartContainer.innerHTML = '';
+
+    items.forEach((item, index) => {
+        cartContainer.append(cartTemplate.content.cloneNode(true));
+
+        const card = document.querySelectorAll('.cart__mobile--item')[index];
+        const cardImage = card.querySelector('.cart__mobile--image');
+
+        cardImage.src = item.image;
+    });
+}
+
+export { configOrderBtns, calculateTotalPrice, fillMobileCart };

@@ -1,6 +1,6 @@
 import { showOverlay, backEvent, configBellBtn, configCartBtn, setCardData, checkCardClass } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
-import { configOrderBtns, calculateTotalPrice } from './modules/cart.js';
+import { configOrderBtns, calculateTotalPrice, fillMobileCart } from './modules/cart.js';
 import { configCardCounter, fetchProductsData } from './modules/cardData.js';
 
 let localData = () => {
@@ -19,6 +19,11 @@ configCartBtn();
 configOrderBtns(1, fillCardWithLocalData);
 addCardsEvent();
 addItemsEvent();
+
+if (window.screen.width < 500) {
+    fillMobileCart();
+    fillMobileStr();
+}
 
 if (window.screen.width > 940) {
     let url = 'https://ninja-tests.herokuapp.com/products?_limit=4&page=1&category=drinks';
@@ -52,4 +57,16 @@ function addItemsEvent() {
             checkCardClass();
         }
     });
+}
+
+function fillMobileStr() {
+    const str = document.querySelector('.order__cart--string');
+    const items = localData();
+    let strArr = [];
+
+    items.forEach(item => {
+        strArr.push(item?.name);
+    });
+
+    str.textContent = strArr.join(', ');
 }
