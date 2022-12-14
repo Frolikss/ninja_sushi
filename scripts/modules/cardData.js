@@ -1,7 +1,6 @@
 const addClass = 'cards__item--add--added';
-const MAX_ITEMS = 4;
 
-function fetchProductsData(url, cardContainer) {
+function fetchProductsData(url, cardContainer, maxItems = 4) {
     const cardsItemTemplate = document.querySelector('.card__template');
     const isPaginatable = cardContainer.classList.contains('cards__showmore');
 
@@ -14,7 +13,7 @@ function fetchProductsData(url, cardContainer) {
     let newIndex = 0;
 
     if (page > 1) {
-        newIndex = (page * MAX_ITEMS) - MAX_ITEMS;
+        newIndex = (page * maxItems) - maxItems;
     }
  
     axios.get(url).then(response => response.data).then(res => {
@@ -26,7 +25,6 @@ function fetchProductsData(url, cardContainer) {
         const cards = [...cardContainer.querySelectorAll('.cards__item')];
 
         checkEmptyContainer(cards);
-
         if (isPaginatable) {
             fillCardWithJSON(res, cards.slice(newIndex));
         } else {

@@ -1800,6 +1800,10 @@ input[type=radio] {
   margin: 20px 0 0 0;
   padding: 16px 60px;
   align-self: center;
+  transition: background 0.25s;
+}
+.category__showmore--button:hover {
+  background: #CCF5D5;
 }
 @media (max-width: 1350px) {
   .category__filter--flavor, .category__filter--fish, .category__filter--row {

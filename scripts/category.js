@@ -10,10 +10,11 @@ const category = urlParams.get('category');
 const counter = document.querySelector('.category__filter--counter');
 const mobileMediaQ = window.matchMedia('(max-width: 940px)');
 const cardContainer = document.querySelector('.cards');
+const maxItems = 8;
 
 let url = new URL(`https://ninja-tests.herokuapp.com/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`);
 
-fetchProductsData(url.toString(), cardContainer);
+fetchProductsData(url.toString(), cardContainer, maxItems);
 changeHeaderCategory();
 backEvent();
 configMenu();
@@ -27,6 +28,7 @@ orderFilter();
 footerQuicktipToggle();
 configCartBtn();
 configCardCounter([cardContainer]);
+showMore();
 
 function mutateURL(param, value) {
     const urlParams = url.searchParams;
@@ -43,7 +45,7 @@ function mutateURL(param, value) {
         urlParams.delete(param);
     }
 
-    fetchProductsData(url.toString(), cardContainer);
+    fetchProductsData(url.toString(), cardContainer, maxItems);
 }
 
 function filter(param, value) {
@@ -207,4 +209,18 @@ function configMenuBtns(subMenu, openBtn, closeBtn) {
         subMenu.classList.remove(mobileClass, activeClass);
         document.body.classList.toggle('lock');
     });
+}
+
+function showMore() {
+    const showMoreBrn = document.querySelector('.category__showmore');
+
+    showMoreBrn.addEventListener('click', event => {
+        changePage();
+        fetchProductsData(url.toString(), cardContainer, maxItems);
+    });
+}
+
+function changePage() {
+    let page =  +url.searchParams.get('_page');
+    url.searchParams.set('_page', ++page);
 }
