@@ -39,18 +39,11 @@ function setCard() {
         const card = document.querySelector('.products__item');
         const contains = data.contains[0].items;
 
-        const marks = {
-            isNew: card.querySelector('.new'),
-            isHit: card.querySelector('.hit'),
-            isEco: card.querySelector('.products__item--eco'),
-            isSpicy: card.querySelector('.products__item--spicy'),
-        }
-
         category.href = `/views/category.html?category=${data.category}`;
         category.textContent = categories[data.category];
         prod.textContent = data.header.slice(0, 5).concat('...');
 
-        setIconsClasses(data, marks);
+        setIconsClasses(data, card);
         setCardContent(data, card);
         setContainsSlider(contains, card);
         setSwitch(data, card);
@@ -63,19 +56,27 @@ async function fetchCard(id) {
     return response.data;
 }
 
-function setIconsClasses(data, marks) {
+function setIconsClasses(data, card) {
+    const cardIcons = {
+        isNew: '.new',
+        isHit: '.hit',
+        isEco: '.products__item--eco',
+        isSpicy: '.products__item--spicy'
+    }
+
     const classList = {
         isNew: 'new_show',
         isHit: 'hit_show',
         isEco: 'products__item--eco_show',
-        isSpicy: 'products__item--spicy_show',
+        isSpicy: 'products__item--spicy_show'
     }
 
     const keys = Object.keys(classList);
 
     keys.forEach(key => {
         if (data[key]) {
-            marks[key].classList.add(classList[key]);
+            const icon = card.querySelector(cardIcons[key]);
+            icon.classList.add(classList[key]);
         }
     });
 }
