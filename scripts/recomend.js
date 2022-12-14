@@ -11,9 +11,11 @@ const reg = new RegExp('_limit=[0-9]+');
 const max = document.querySelector('.recomend__max');
 max.textContent = MAX_PAGE;
 
-let baseUrl = `https://ninja-tests.herokuapp.com/products?_limit=4&_page=1&id_ne=${id}`;
-
+let limit = 4;
 setLimit();
+
+let baseUrl = `https://ninja-tests.herokuapp.com/products?_limit=${limit}&_page=1&id_ne=${id}`;
+
 fetchProductsData(baseUrl, cardContainer);
 configCardCounter([cardContainer]);
 configSliderBtns();
@@ -58,15 +60,15 @@ function showMore() {
 
 function setLimit() {
     if (window.screen.width < 1350) {
-        baseUrl = baseUrl.replace(reg, '_limit=3');
+        limit = 3;
     }
 
     if (window.screen.width < 940) {
-        baseUrl = baseUrl.replace(reg, '_limit=2');
+        limit = 2;
     }
-    
+
     if (window.screen.width < 830) {
-        baseUrl = baseUrl.replace(reg, '_limit=4');
-        cardContainer.classList.add('cards__showmore'); 
+        limit = MAX_PAGE;
+        cardContainer.classList.add('cards__showmore');
     }
 }

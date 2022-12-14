@@ -69,7 +69,7 @@ function configBellBtn() {
 
                 card.setAttribute('href', resItem.url);
                 text.textContent = resItem.header;
-                time.textContent = `${dateFormatted.day}.${dateFormatted.month} в ${dateFormatted.hours}:${dateFormatted.minutes}`;
+                time.textContent = `${dateFormatted[0]}.${dateFormatted[1]} в ${dateFormatted[2]}:${dateFormatted[3]}`;
 
                 addCardEvent(card);
             })
@@ -89,19 +89,17 @@ function configBellBtn() {
     }
 
     function getFormattedDate(date) {
-        const obj = {
+        const formattedDate = {
             day: date.getDate(),
             month: date.getMonth() + 1,
             hours: date.getHours(),
             minutes: date.getMinutes()
         };
 
-        for (let [key, item] of Object.entries(obj)) {
-            if (item < 10) {
-                obj[key] = '0' + item;
-            }
-        }
-        return obj;
+        return Object.values(formattedDate).map(item => {
+            if (item >= 10) return item;
+            return item = '0' + item;
+        });
     }
 }
 

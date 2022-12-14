@@ -521,7 +521,11 @@ input[type=radio] {
   justify-content: space-between;
 }
 .header__menu--notif--text {
+  color: #1D1D1F;
   flex-basis: 95%;
+}
+.header__menu--notif--text:visited {
+  color: #1D1D1F;
 }
 .header__menu--notif--time {
   color: #686870;

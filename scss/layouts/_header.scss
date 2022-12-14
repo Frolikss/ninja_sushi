@@ -479,7 +479,12 @@
 
       &--text {
         @extend %medium1624;
+        color: $black;
         flex-basis: 95%;
+
+        &:visited {
+          color: $black;
+        }
       }
 
       &--time {
