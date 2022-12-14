@@ -1370,6 +1370,9 @@ input[type=radio] {
   color: #86868B;
   flex-basis: 100%;
 }
+.category__submenu_mobile .category__submenu--items {
+  opacity: 1;
+}
 .category__submenu_mobile .category__submenu--buttons {
   display: flex;
   gap: 16px;

@@ -11,45 +11,47 @@ const counter = document.querySelector('.category__filter--counter');
 const mobileMediaQ = window.matchMedia('(max-width: 940px)');
 const cardContainer = document.querySelector('.cards');
 
-let url = `https://ninja-tests.herokuapp.com/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`;
+let url = new URL(`https://ninja-tests.herokuapp.com/products?_page=1&_sort=price&_order=desc&_limit=8&category=${category}`);
 
-fetchProductsData(url, cardContainer);
-filters();
-uiLogic();
+fetchProductsData(url.toString(), cardContainer);
+changeHeaderCategory();
+backEvent();
+configMenu();
+headersChange();
+showOverlay();
+configBellBtn();
+typeFilter();
+flavorFilter();
+fishFilter();
+orderFilter();
 footerQuicktipToggle();
 configCartBtn();
 configCardCounter([cardContainer]);
 
-function mutateURL({
-    type = '',
-    flavor = '',
-    fish = '',
-    reg = '',
-    replace = '' } = {}) {
+function mutateURL(param, value) {
+    const urlParams = url.searchParams;
 
-    if (type || flavor || fish) {
-        url += type + flavor + fish;
+    if (param && !urlParams.has(param)) {
+        urlParams.set(param, value);
     }
 
-    if (reg) {
-        url = url.replace(reg, replace);
+    if (value && urlParams.has(param)) {
+        urlParams.set(param, value);
     }
+
+    if (!value && urlParams.has(param)) {
+        urlParams.delete(param);
+    }
+
+    fetchProductsData(url.toString(), cardContainer);
 }
 
-function filters() {
-    typeFilter();
-    flavorFilter();
-    fishFilter();
-    orderFilter();
-}
-
-function uiLogic() {
-    changeHeaderCategory();
-    backEvent();
-    configMenu();
-    headersChange();
-    showOverlay();
-    configBellBtn();
+function filter(param, value) {
+    if (!url.searchParams.has(param)) {
+        mutateURL(param, value);
+    } else {
+        mutateURL(param, '');
+    }
 }
 
 function typeFilter() {
@@ -58,8 +60,8 @@ function typeFilter() {
     typeBtns.forEach(btn => {
         btn.addEventListener('click', event => {
             const typeBtn = btn.dataset.type;
-            const type = `&type=${typeBtn}`;
-            const reg = new RegExp('&type=[a-zA-Z]+');
+            const param = 'type';
+            const value = typeBtn;
             const activeClass = 'category__filter--item_active';
 
             typeBtns.forEach(btn => {
@@ -68,14 +70,11 @@ function typeFilter() {
 
             btn.classList.add(activeClass);
 
-            if (typeBtn === 'all') {
-                mutateURL({ reg });
-            } else if (!url.includes(`&type=`)) {
-                mutateURL({ type });
-            } else {
-                mutateURL({ type, reg });
+            if (typeBtn !== 'all') {
+                filter(param, value);
+                return;
             }
-            fetchProductsData();
+            mutateURL(param, '');
         });
     })
 }
@@ -86,15 +85,9 @@ function flavorFilter() {
     flavorBtns.forEach(btn => {
         btn.addEventListener('click', event => {
             btn.classList.toggle('active');
-
-            const flavor = `&${btn.dataset.flavor}`;
-
-            if (!url.includes(flavor)) {
-                mutateURL({ flavor });
-            } else {
-                mutateURL({ reg: flavor });
-            }
-            fetchProductsData();
+            const param = btn.dataset.flavor;
+            const value = true;
+            filter(param, value);
         });
     });
 }
@@ -104,21 +97,14 @@ function fishFilter() {
 
     fishsBtn.forEach(btn => {
         btn.addEventListener('click', event => {
+            fishsBtn.forEach(btn => btn.classList.remove('active'));
             btn.classList.toggle('active');
+            const param = 'ingridients_like';
+            const value = btn.dataset.fish;
+            url.searchParams.has(param) ? counter.textContent -= 1 : counter.textContent = +counter.textContent + 1;
 
-            const fish = `&ingridients_like=${btn.dataset.fish}`;
-
-            if (!url.includes(fish)) {
-                mutateURL({ fish });
-                counter.textContent = +counter.textContent + 1;
-            } else {
-                mutateURL({ reg: fish });
-                counter.textContent -= 1;
-            }
-
+           filter(param, value);
             counter.style.display = counter.textContent <= 0 ? 'none' : 'block';
-
-            fetchProductsData();
         });
     });
 }
@@ -138,12 +124,11 @@ function configMenu() {
 
 function orderFilter() {
     const orderSelect = document.querySelector('.category__filter--sort');
-    const reg = new RegExp('&_order=[a-zA-Z]+');
 
     orderSelect.addEventListener('change', event => {
-        const order = `&${orderSelect.value}`;
-        mutateURL({ reg, replace: order });
-        fetchProductsData();
+        const param = '_order';
+        const value = orderSelect.value;
+        filter(param, value);
     });
 }
 
@@ -181,9 +166,7 @@ function configMenuMobile() {
         resetEvent();
         flavorBtns.forEach(btn => {
             btn.classList.remove('active');
-            url = url.replace(`&${btn.dataset.flavor}`, '');
         })
-        fetchProductsData();
     });
 
     mobileApplyBtn.addEventListener('click', event => {
@@ -199,7 +182,7 @@ function configMenuDesktop() {
 
 function resetEvent() {
     const fishsBtn = document.querySelectorAll('.category__filter--fishitem');
-    const reg = new RegExp('&ingridients_like=[a-zA-Z]+', 'g');
+    const param = 'ingridients_like';
 
     counter.textContent = 0;
     counter.style.display = 'none';
@@ -208,10 +191,7 @@ function resetEvent() {
         btn.classList.remove('active');
     });
 
-    if (url.includes('&ingridients_like')) {
-        url = url.replace(reg, '');
-        fetchProductsData();
-    }
+    filter(param, '');
 }
 
 function configMenuBtns(subMenu, openBtn, closeBtn) {
