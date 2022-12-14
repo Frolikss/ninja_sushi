@@ -1,10 +1,8 @@
 import { configOrderBtns, calculateTotalPrice } from "./cart.js";
+import { localData  } from "./consts.js";
+
 configOrderBtns(0, fillCardWithLocalData);
 const popUp = document.querySelector('.header__cart--popup');
-
-let localData = () => {
-    return JSON.parse(localStorage.getItem('cards')) ?? [];
-}
 
 function showOverlay() {
     const headerBurgerBtn = document.querySelector('.header__menu--burger');

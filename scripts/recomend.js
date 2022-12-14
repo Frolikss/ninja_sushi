@@ -13,7 +13,6 @@ max.textContent = MAX_PAGE;
 
 let baseUrl = `https://ninja-tests.herokuapp.com/products?_limit=4&_page=1&id_ne=${id}`;
 
-// fillWithSkeleton();
 setLimit();
 fetchProductsData(baseUrl, cardContainer);
 configCardCounter([cardContainer]);
@@ -29,7 +28,6 @@ function changePage(isAdded) {
     isAdded ? counter++ : counter--;
 
     if (counter > 0 && counter <= MAX_PAGE) {
-        // fillWithSkeleton();
         current.textContent = counter;
         baseUrl = baseUrl.replace(reg, `_page=${counter}`);
         fetchProductsData(baseUrl, cardContainer);
@@ -72,11 +70,3 @@ function setLimit() {
         cardContainer.classList.add('cards__showmore'); 
     }
 }
-
-// function fillWithSkeleton() {
-//     cardContainer.innerHTML = '';
-//     const skeleton = document.querySelector('.card__skeleton');
-//     for (let i = 0; i < 4; i++) {
-//         cardContainer.append(skeleton.content.cloneNode(true));
-//     }
-// }

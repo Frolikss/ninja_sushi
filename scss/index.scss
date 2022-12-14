@@ -226,6 +226,7 @@
 
       &--buttons {
           display: flex;
+          align-items: center;
           justify-content: space-between;
           gap: 12px;
           position: relative;
@@ -431,8 +432,6 @@
           }
 
           &--favorite {
-              padding: 8px 12px;
-
               & svg {
                   width: 24px;
                   height: 24px;
@@ -457,8 +456,9 @@
   @media (max-width: 950px) {
       &__item {
           &--price {
-              font-size: 1.4rem;
+              font-size: 1.1rem;
               line-height: 1rem;
+              white-space: nowrap;
           }
       }
   }

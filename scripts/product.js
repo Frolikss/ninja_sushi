@@ -1,6 +1,6 @@
 import { showOverlay, backEvent, configBellBtn, configCartBtn } from './modules/header.js';
 import { footerQuicktipToggle } from './modules/footer.js';
-import { categories } from './modules/categoty_types.js';
+import { categories } from './modules/consts.js';
 
 const MAX_ITEMS = 32;
 

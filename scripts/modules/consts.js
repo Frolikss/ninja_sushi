@@ -5,5 +5,6 @@ const categories = {
     snacks: 'Снеки',
     drinks: 'Напитки',
 }
+const localData = () => JSON.parse(localStorage.getItem('cards')) ?? [];
 
-export { categories };
+export { categories, localData };

@@ -30,13 +30,15 @@
     gap: 16px;
 
     &--empty {
-      display: none;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       gap: 8px;
-      min-height: calc(30vh + 172px);
+      opacity: 0;
+      height: 0;
+      transition: all .25s;
 
       &--head,
       &--repeat,
@@ -97,7 +99,8 @@
           justify-content: flex-start;
 
           &--empty {
-            display: flex;
+            opacity: 1;
+            min-height: calc(30vh + 172px);
             justify-content: flex-start;
           }
   

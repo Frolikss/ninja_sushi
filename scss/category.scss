@@ -432,6 +432,7 @@
             &--price {
                 @extend %bold3840;
                 align-self: flex-end;
+                white-space: nowrap;
             }
 
             &--currency {
