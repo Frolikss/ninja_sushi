@@ -1310,6 +1310,7 @@ input[type=radio] {
   box-shadow: 0px 6px 20px rgba(29, 29, 31, 0.07);
   transition: all 0.5s;
   z-index: -1;
+  height: 40vh;
 }
 .category__submenu--buttons {
   display: none;
@@ -1320,6 +1321,9 @@ input[type=radio] {
 .category__submenu--flavor {
   display: none;
 }
+.category__submenu--items {
+  opacity: 0;
+}
 .category__submenu--items .category__submenu--header {
   display: none;
 }
@@ -1327,6 +1331,10 @@ input[type=radio] {
   z-index: 101;
   opacity: 1;
   width: 50%;
+  height: 40vh;
+}
+.category__submenu_active .category__submenu--items {
+  opacity: 1;
 }
 .category__submenu_mobile {
   position: fixed;
@@ -1406,6 +1414,8 @@ input[type=radio] {
   border-radius: 12px;
 }
 .category__submenu--items {
+  opacity: 0;
+  transition: all 0.25s 0.5s;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
