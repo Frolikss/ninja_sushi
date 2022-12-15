@@ -154,7 +154,6 @@ function setCardData(data, container, template) {
         const cards = document.querySelectorAll('.cart__item');
         const card = cards[index];
 
-        const info = card.querySelector('.cart__info');
         const img = card.querySelector('.cart__image');
 
         const name = card.querySelector('.cart__name');

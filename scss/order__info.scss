@@ -64,6 +64,7 @@
             &--text {
                 @extend %regular1624;
                 background: $white;
+                text-align: right;
             }
         }
     }
@@ -307,6 +308,10 @@
     }
 
     @media (max-width: 768px) {
+        &__header {
+            font-size: 1.75rem;
+        }
+
         &__details {
             background: none;
             flex-direction: column;
@@ -317,6 +322,10 @@
             background: $white;
             border-radius: 12px;
             padding: 16px;
+
+            &--header {
+                display: none;
+            }
         }
 
         &__order {
@@ -329,58 +338,62 @@
             }
         }
 
-        .cart {
-            &__image {
-                width: 20%;
-            }
+        .info__order_mobile {
+            .cart {
+                &__image {
+                    width: 20%;
+                }
 
-            &__item {
-                &_mobile {
+                &__item {
                     background: $white;
                     border-radius: 12px;
                     display: flex;
                     padding: 16px;
+
+                    &--txt {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    &--data {
+                        display: flex;
+                        flex-direction: column;
+                        flex: 1;
+                        justify-content: space-between;
+                    }
+
+                    &--info {
+                        display: flex;
+                        justify-content: space-between;
+                    }
                 }
 
-                &--txt {
-                    display: flex;
-                    flex-direction: column;
+                &__name {
+                    font-weight: 700;
+                    line-height: 150%;
                 }
 
-                &--data {
-                    display: flex;
-                    flex-direction: column;
-                    flex: 1;
-                    justify-content: space-between;
+                &__weight {
+                    color: $accent2;
+                    font-size: 0.75rem;
+                    font-weight: 500;
                 }
 
-                &--info {
-                    display: flex;
-                    justify-content: space-between;
+                &__price {
+                    color: $textgrey1;
+                    font-weight: 700;
+                    font-size: 1rem;
                 }
-            }
 
-            &__name {
-                font-weight: 700;
-                line-height: 150%;
-            }
+                &__counter {
+                    font-weight: 500;
+                    font-size: 0.875rem;
+                    color: $textgrey3;
 
-            &__weight {
-                color: $accent2;
-                font-size: 0.75rem;
-                font-weight: 500;
-            }
-
-            &__price {
-                color: $textgrey1;
-                font-weight: 700;
-                font-size: 1rem;
-            }
-
-            &__counter {
-                font-weight: 500;
-                font-size: 0.875rem;
-                color: $textgrey3;
+                    &--currency {
+                        color: $textgrey3;
+                    }
+                }
             }
         }
     }

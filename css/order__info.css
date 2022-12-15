@@ -1328,6 +1328,7 @@ input[type=radio] {
 }
 .info__delivery--data--text {
   background: #fff;
+  text-align: right;
 }
 .info__progress {
   align-items: flex-start;
@@ -1496,6 +1497,9 @@ input[type=radio] {
   padding: 16px 32px;
 }
 @media (max-width: 768px) {
+  .info__header {
+    font-size: 1.75rem;
+  }
   .info__details {
     background: none;
     flex-direction: column;
@@ -1506,6 +1510,9 @@ input[type=radio] {
     border-radius: 12px;
     padding: 16px;
   }
+  .info__delivery--header {
+    display: none;
+  }
   .info__order {
     display: none;
   }
@@ -1514,46 +1521,49 @@ input[type=radio] {
     flex-direction: column;
     gap: 16px;
   }
-  .info .cart__image {
+  .info .info__order_mobile .cart__image {
     width: 20%;
   }
-  .info .cart__item_mobile {
+  .info .info__order_mobile .cart__item {
     background: #fff;
     border-radius: 12px;
     display: flex;
     padding: 16px;
   }
-  .info .cart__item--txt {
+  .info .info__order_mobile .cart__item--txt {
     display: flex;
     flex-direction: column;
   }
-  .info .cart__item--data {
+  .info .info__order_mobile .cart__item--data {
     display: flex;
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
   }
-  .info .cart__item--info {
+  .info .info__order_mobile .cart__item--info {
     display: flex;
     justify-content: space-between;
   }
-  .info .cart__name {
+  .info .info__order_mobile .cart__name {
     font-weight: 700;
     line-height: 150%;
   }
-  .info .cart__weight {
+  .info .info__order_mobile .cart__weight {
     color: #FF6633;
     font-size: 0.75rem;
     font-weight: 500;
   }
-  .info .cart__price {
+  .info .info__order_mobile .cart__price {
     color: #686870;
     font-weight: 700;
     font-size: 1rem;
   }
-  .info .cart__counter {
+  .info .info__order_mobile .cart__counter {
     font-weight: 500;
     font-size: 0.875rem;
+    color: #9E9E9E;
+  }
+  .info .info__order_mobile .cart__counter--currency {
     color: #9E9E9E;
   }
 }

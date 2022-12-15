@@ -501,12 +501,12 @@
                         <div class="info__order--data">
                             <div class="info__order--total">
                                 <span class="info__order--total--text">Кол-во</span>
-                                <div class="cart__total--count">7</div>
+                                <div class="cart__total--count"></div>
                             </div>
                             <div class="info__order--total">
                                 <span class="info__order--total--text">Итого</span>
                                 <div class="info__order--price">
-                                    <span class="cart__sum">338</span>
+                                    <span class="cart__sum"></span>
                                     <span class="info__order--total--currency"> грн</span>
                                 </div>
                             </div>
@@ -553,32 +553,6 @@
                     </div>
                 </div>
                 <div class="info__order_mobile">
-                    <div class="cart__item_mobile">
-                        <img class="cart__image" src="/assets/png/sushi__item--image4.png" alt="item">
-                        <div class="cart__item--data">
-                            <div class="cart__item--txt">
-                                <p class="cart__name">Нигири угорь</p>
-                                <span class="cart__weight">Вес: 40 г</span>
-                            </div>
-                            <div class="cart__item--info">
-                                <span class="cart__price">90 грн</span>
-                                <span class="cart__counter">1 шт.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart__item_mobile">
-                        <img class="cart__image" src="/assets/png/sushi__item--image4.png" alt="item">
-                        <div class="cart__item--data">
-                            <div class="cart__item--txt">
-                                <p class="cart__name">Нигири угорь</p>
-                                <span class="cart__weight">Вес: 40 г</span>
-                            </div>
-                            <div class="cart__item--info">
-                                <span class="cart__price">90 грн</span>
-                                <span class="cart__counter">1 шт.</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <button class="info__gomain">
                     Вернутся на главную
@@ -742,6 +716,24 @@
     <template class="cart__mobile--template">
         <div class="cart__mobile--item" data-id="">
             <img class="cart__mobile--image" src="" alt="image">
+        </div>
+    </template>
+    <template class="cart__item--template">
+        <div class="cart__item">
+            <img class="cart__image" src="" alt="item">
+            <div class="cart__item--data">
+                <div class="cart__item--txt">
+                    <p class="cart__name"></p>
+                    <span class="cart__weight"></span>
+                </div>
+                <div class="cart__item--info">
+                    <span class="cart__price"></span>
+                    <div class="cart__currency">
+                        <span class="cart__counter"></span>
+                        <span class="cart__counter--currency">шт.</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </template>
 </body>
