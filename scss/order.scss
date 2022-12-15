@@ -789,6 +789,10 @@
     }
 
     @media (max-width: 500px) {
+        &__recommend {
+            display: none;
+        }
+        
         &__header {
             font-size: 1.75rem;
         }
@@ -874,10 +878,6 @@
                 flex-direction: column;
             }
         }
-    }
-
-    &__recommend {
-        display: none;
     }
     
     .cart__mobile--list {

@@ -1,0 +1,95 @@
+@use "abstracts" as *;
+@use "layouts" as *;
+
+.info {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__details {
+        background: $white;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        padding: 48px;
+    }
+
+    &__header {
+        flex-basis: 30%;
+        font-size: 2.125rem;
+        font-weight: 700;
+        line-height: 124%;
+
+        &--number {
+            color: $white;
+            background: $accent2;
+            border-radius: 12px;
+            padding: 4px 8px;
+        }
+    }
+
+    &__delivery {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 16px;
+
+        &--header {
+            @extend %bold2430;
+        }
+
+        &--data {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: space-between;
+
+            &--item {
+                display: flex;
+                justify-content: space-between;
+                background: url(/assets/svg/dash.svg) center;
+                background-repeat: space no-repeat; 
+            }
+
+            &--header {
+                @extend %regular1420;
+                background: $white;
+                color: $textgrey1;
+            }
+
+            &--text {
+                @extend %regular1624;
+                background: $white;
+            }
+        }
+    }
+
+    &__order {
+        background: $white;
+        border-radius: 12px;
+        padding: 48px;
+
+        &--row {
+            display: flex;
+            gap: 24px;
+        }
+
+        &--menu {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &--data {
+            display: flex;
+        }
+
+        .cart__mobile {
+            &--list {
+                display: flex;
+                gap: 16px;
+            }
+        }
+    }
+}
