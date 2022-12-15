@@ -72,4 +72,11 @@ function fillMobileCart() {
     });
 }
 
-export { configOrderBtns, calculateTotalPrice, fillMobileCart };
+function calculateTotalItems() {
+    const items = localData();
+    const counter = document.querySelector('.cart__total--count');
+
+    counter.textContent = items.reduce((sum, item) => sum += +item?.amount, 0)
+}
+
+export { configOrderBtns, calculateTotalPrice, fillMobileCart, calculateTotalItems };
