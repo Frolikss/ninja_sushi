@@ -624,12 +624,12 @@
                                     <div class="order__personal--row">
                                         <label class="order__form--subtext" for="name">Имя</label>
                                         <input class="order__form--input order__form--input--name" type="text"
-                                            name="name" id="name" required />
+                                            name="Имя" id="name" required />
                                     </div>
                                     <div class="order__personal--row">
                                         <label class="order__form--subtext" for="telephone">Телефон</label>
                                         <input class="order__form--input order__form--input--telephone" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
-                                            name="telephone" id="telephone" required />
+                                            name="Телефон" id="telephone" required />
                                     </div>
                                 </div>
                             </div>
@@ -646,35 +646,35 @@
                                 </p>
                                 <div class="order__delivery--data">
                                     <div class="order__delivery--row">
-                                        <input class="order__delivery--radio" type="radio" name="delivery"
-                                            value="delivery" id="delivery" />
+                                        <input class="order__delivery--radio" type="radio" name="Доставка"
+                                            value="Доставка" id="delivery" />
                                         <label class="order__delivery--info" for="delivery">
                                             Доставка
                                         </label>
-                                        <input class="order__delivery--radio" type="radio" name="delivery" value="self"
+                                        <input class="order__delivery--radio" type="radio" name="Доставка" value="Самовывоз"
                                             id="self" checked />
                                         <label class="order__delivery--info" for="self">
                                             Самовывоз
                                         </label>
                                     </div>
                                     <div class="order__delivery--city">
-                                        <input class="order__delivery--radio" type="radio" name="city" value="kyiv"
+                                        <input class="order__delivery--radio" type="radio" name="Город" value="Киев"
                                             id="kyiv" checked />
                                         <label for="kyiv">
                                             Киев
                                         </label>
-                                        <input class="order__delivery--radio" type="radio" name="city" id="dnepr"
-                                            value="dnepr" />
+                                        <input class="order__delivery--radio" type="radio" name="Город" id="dnepr"
+                                            value="Днепр" />
                                         <label for="dnepr">
                                             Днепр
                                         </label>
-                                        <input class="order__delivery--radio" type="radio" name="city" id="kharkiv"
-                                            value="kharkiv" />
+                                        <input class="order__delivery--radio" type="radio" name="Город" id="kharkiv"
+                                            value="Харьков" />
                                         <label for="kharkiv">
                                             Харьков
                                         </label>
-                                        <input class="order__delivery--radio" type="radio" name="city" id="odessa"
-                                            value="odessa" />
+                                        <input class="order__delivery--radio" type="radio" name="Одесса" id="odessa"
+                                            value="Одесса" />
                                         <label for="odessa">
                                             Одесса
                                         </label>
@@ -683,7 +683,7 @@
                                         <label class="order__form--subtext" for="address">Ресторан с которого будете
                                             забирать
                                         </label>
-                                        <input class="order__form--input" type="text" required />
+                                        <input class="order__form--input" type="text" name="Адрес" required />
                                     </div>
                                 </div>
                             </div>
@@ -696,16 +696,16 @@
                                 <div class="order__time--data">
                                     <div class="order__time--day">
                                         <label class="order__form--subtext" for="day">День</label>
-                                        <select class="order__form--input" name="day" id="day">
-                                            <option value="today">Сегодня</option>
-                                            <option value="tomorrow">Завтра</option>
+                                        <select class="order__form--input" name="День" id="day">
+                                            <option value="Сегодня">Сегодня</option>
+                                            <option value="Завтра">Завтра</option>
                                         </select>
                                     </div>
                                     <div class="order__time--day">
                                         <label class="order__form--subtext" for="time">Время</label>
-                                        <select class="order__form--input" name="time" id="time">
-                                            <option value="soon">Ближайшее</option>
-                                            <option value="hour">Через час</option>
+                                        <select class="order__form--input" name="Время" id="time">
+                                            <option value="Ближайшее">Ближайшее</option>
+                                            <option value="Через час">Через час</option>
                                         </select>
                                     </div>
                                 </div>
@@ -718,24 +718,24 @@
                                 </div>
                                 <div class="order__payment--type">
                                     <label for="cash">
-                                        <input class="order__payment--radio" type="radio" name="type" value="cash"
+                                        <input class="order__payment--radio" type="radio" name="Способ оплаты" value="Наличными в точке выдачи"
                                             id="cash" checked />
                                         Наличными в точке выдачи
                                     </label>
                                     <label for="online">
-                                        <input class="order__payment--radio" type="radio" name="type" value="online"
+                                        <input class="order__payment--radio" type="radio" name="Способ оплаты" value="Оплата картой online"
                                             id="online" />
                                         Оплата картой online
                                     </label>
                                     <label for="bitpay">
-                                        <input class="order__payment--radio" type="radio" name="type" value="bitpay"
+                                        <input class="order__payment--radio" type="radio" name="Способ оплаты" value="Оплата через BitPay"
                                             id="bitpay" />
                                         Оплата через BitPay
                                     </label>
                                 </div>
                                 <div class="order__payment--change">
                                     <label class="order__form--subtext" for="change">Подготовить сдачу с</label>
-                                    <input class="order__form--input" type="number" name="change" value="change"
+                                    <input class="order__form--input" type="number" name="Сдача с" value="change"
                                         id="change" />
                                 </div>
                             </div>
@@ -744,27 +744,27 @@
                                 <div class="order__comment--row">
                                     <div class="order__comment--sticks">
                                         <label class="order__form--subtext" for="regular">Обычные палочки</label>
-                                        <input class="order__form--input" type="text" name="regular" id="regular" />
+                                        <input class="order__form--input" type="number" name="Обычные палочки" id="regular" />
                                     </div>
                                     <div class="order__comment--sticks">
                                         <label class="order__form--subtext" for="train">Учебные палочки</label>
-                                        <input class="order__form--input" type="text" name="train" id="train" />
+                                        <input class="order__form--input" type="number" name="Учебные палочки" id="train" />
                                     </div>
                                 </div>
                                 <div class="order__comment--txt">
                                     <label class="order__form--subtext" for="txt">Примечание к заказу</label>
-                                    <textarea class="order__form--input" name="txt" id="txt" cols="1"
+                                    <textarea class="order__form--input" name="Комментарий" id="txt" cols="1"
                                         rows="3"></textarea>
                                 </div>
                                 <div class="order__comment--pets">
                                     <div class="order__comment--pets--animal">
-                                        <input class="order__comment--checkbox" type="checkbox" name="cat" id="cat"
-                                            value="cat" />
+                                        <input class="order__comment--checkbox" type="checkbox" name="У меня есть кошка" id="cat"
+                                            value="Да" />
                                         <label for="cat">У меня есть кошка</label>
                                     </div>
                                     <div class="order__comment--pets--animal">
-                                        <input class="order__comment--checkbox" type="checkbox" name="dog" id="dog"
-                                            value="dog" />
+                                        <input class="order__comment--checkbox" type="checkbox" name="У меня есть собака" id="dog"
+                                            value="Да" />
                                         <label for="dog">У меня есть собака</label>
                                     </div>
                                 </div>
