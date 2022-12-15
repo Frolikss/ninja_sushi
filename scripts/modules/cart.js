@@ -46,7 +46,7 @@ function calculateTotalPrice(items) {
     const finalPrice = document.querySelectorAll('.cart__sum');
     const confirmBtn = document.querySelectorAll('.cart__confirm');
 
-    finalPrice.forEach((price, index) => {
+    finalPrice.forEach(price => {
         price.textContent = items.reduce((sum, current) => {
             sum += (current.price * +current.amount);
             return sum;

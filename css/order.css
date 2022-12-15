@@ -1895,6 +1895,7 @@ input[type=radio] {
   border-radius: 12px;
   color: #fff;
   padding: 16px 24px;
+  cursor: pointer;
 }
 .order__final--min {
   color: #FF6633;
